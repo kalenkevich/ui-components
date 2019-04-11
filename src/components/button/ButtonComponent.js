@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import withStyle from 'react-jss';
-import MobileContext from '../../../context/MobileContext';
+import MobileContext from '../../context/MobileContext';
 
 export const style = theme => ({
   root: {

@@ -12,7 +12,7 @@ const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
     <Authorization>
       <MobileApp>
-        <Header/>
+        <Header appName={settings.AppName}/>
         <div className={classes.applicationWrapper}>
           <div className={classes.application}>
             Here should be components
