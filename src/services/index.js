@@ -1,11 +1,12 @@
-import AuthorizationService from './AuthorizationService';
-import BackendGraphQLConnector from './BackendGraphQLConnector';
-import Logger from './Logger';
-import NotificationService from './NotificationService';
+import makeAuthorizationService from './AuthorizationService';
+import makeBackendGraphQLConnector from './BackendGraphQLConnector';
+import makeLogger from './Logger';
+import NotificationService, { NOTIFICATION_TYPES } from './NotificationService';
 
 export {
-  AuthorizationService,
-  BackendGraphQLConnector,
-  Logger,
+  makeAuthorizationService,
+  makeBackendGraphQLConnector,
+  makeLogger,
   NotificationService,
+  NOTIFICATION_TYPES,
 };

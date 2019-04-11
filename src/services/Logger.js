@@ -1,26 +1,29 @@
-import { Environment } from '../../config/settings';
+class Logger {
+  constructor(env, settings) {
+    this.settings = settings;
+    this.isProduction = env === 'production';
+  }
 
-const isProduction = Environment === 'production';
-
-export default class Logger {
-  static info(message) {
-    if (!isProduction) {
+  info(message) {
+    if (!this.isProduction) {
       // eslint-disable-next-line no-console
       console.log(message);
     }
   }
 
-  static warn(message) {
-    if (!isProduction) {
+  warn(message) {
+    if (!this.isProduction) {
       // eslint-disable-next-line no-console
       console.warn(message);
     }
   }
 
-  static error(message) {
-    if (!isProduction) {
+  error(message) {
+    if (!this.isProduction) {
       // eslint-disable-next-line no-console
       console.error(message);
     }
   }
 }
+
+export default (env, settings) => new Logger(env, settings);

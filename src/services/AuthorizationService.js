@@ -1,10 +1,14 @@
 import gql from 'graphql-tag';
 import UserFragment from '../fragments/userFragment';
-import BackendGraphQLConnector from './BackendGraphQLConnector';
+import makeBackendGraphQLConnector from './BackendGraphQLConnector';
 
-export default class AuthorizationService {
-  static async authorize() {
-    const { authorize: user } = await BackendGraphQLConnector.query({
+class AuthorizationService {
+  constructor(authUrl) {
+    this.backendGraphQLConnector = makeBackendGraphQLConnector(authUrl);
+  }
+
+  async authorize() {
+    const { authorize: user } = await this.backendGraphQLConnector.query({
       query: gql`
         query Authorize {
           authorize {
@@ -18,8 +22,8 @@ export default class AuthorizationService {
     return user;
   }
 
-  static async signUp(name, email, password) {
-    const { signUp: user } = await BackendGraphQLConnector.mutate({
+  async signUp(name, email, password) {
+    const { signUp: user } = await this.backendGraphQLConnector.mutate({
       variables: {
         signUpData: {
           name,
@@ -40,8 +44,8 @@ export default class AuthorizationService {
     return user;
   }
 
-  static async signIn(email, password) {
-    const { signIn: user } = await BackendGraphQLConnector.mutate({
+  async signIn(email, password) {
+    const { signIn: user } = await this.backendGraphQLConnector.mutate({
       variables: {
         signInData: {
           email,
@@ -61,15 +65,17 @@ export default class AuthorizationService {
     return user;
   }
 
-  static async signOut() {
-    const { signOut: result } = await BackendGraphQLConnector.query({
+  async signOut() {
+    const { signOut: result } = await this.backendGraphQLConnector.query({
       query: gql`
-          query SignOut {
-            signOut
-        }
+        query SignOut {
+        signOut
+      }
       `,
     });
 
     return result;
   }
 }
+
+export default authUrl => new AuthorizationService(authUrl);

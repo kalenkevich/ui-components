@@ -5,6 +5,7 @@ import Icon from './icon';
 import Input from './input';
 import Label from './label';
 import TextArea from './text-area';
+import FormStyles from './form/FormStyles';
 
 export {
   AutocompleteComponent,
@@ -14,4 +15,5 @@ export {
   Input,
   Label,
   TextArea,
+  FormStyles,
 };

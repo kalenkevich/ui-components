@@ -1,11 +1,9 @@
 import fetch from 'unfetch';
 import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import settings from '../../config/settings';
 import NotificationService from './NotificationService';
 
 const defaultClientConfig = {
-  uri: `${settings.BackendUrl}/graphql`,
   cache: new InMemoryCache({
     addTypename: true,
   }),
@@ -14,8 +12,11 @@ const defaultClientConfig = {
 };
 
 class ApolloClientWrapper {
-  constructor() {
-    this.setupNewClient(defaultClientConfig);
+  constructor(uri) {
+    this.setupNewClient({
+      uri,
+      ...defaultClientConfig,
+    });
   }
 
   setupNewClient(clientConfig) {
@@ -84,6 +85,4 @@ class ApolloClientWrapper {
   }
 }
 
-const apolloClientWrapper = new ApolloClientWrapper();
-
-export default apolloClientWrapper;
+export default uri => new ApolloClientWrapper(uri);
