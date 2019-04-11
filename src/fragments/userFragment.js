@@ -6,7 +6,8 @@ export default gql`
     name
     email
     phone
-    role
+    roles
+    applications
     avatarUrl
   }
 `;

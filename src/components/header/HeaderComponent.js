@@ -8,14 +8,12 @@ import SettingsContext from '../../context/SettingsContext';
 const HeaderComponent = (props) => {
   const {
     classes,
-    children,
   } = props;
   const { appName } = useContext(SettingsContext);
 
   return (
     <div className={classes.headerContainer}>
       <Link className={classes.brandTitle} to='/'>{appName}</Link>
-      {children}
     </div>
   );
 };
