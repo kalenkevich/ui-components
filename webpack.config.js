@@ -27,6 +27,7 @@ module.exports = {
     contentBase: './src',
     hot: true,
     historyApiFallback: true,
+    port: 8083,
     stats: {
       version: true,
       timings: true,
