@@ -6,12 +6,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeEnv = process.env.NODE_ENV;
 const isProductionMode = nodeEnv === 'production';
 const globals = {
-    ENVIRONMENT: JSON.stringify(nodeEnv || 'local'),
+  ENVIRONMENT: JSON.stringify(nodeEnv || 'local'),
 };
 
 module.exports = {
   entry: {
-    application: './src/index.js',
+    application: './src/app.js',
   },
   target: 'web',
   context: path.resolve(__dirname, ''),

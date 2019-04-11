@@ -1,0 +1,1 @@
+export UserFragment from './userFragment';
