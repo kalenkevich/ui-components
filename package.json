@@ -1,5 +1,5 @@
 {
-  "name": "ui-components",
+  "name": "@zenvo/core-ui",
   "version": "1.0.0",
   "description": "React ui components for frontend part of zenvo apps ",
   "main": "src/index.js",
