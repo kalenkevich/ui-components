@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { USER_ICON } from './IconType';
-import userPlaceholder from '../../assets/images/user-placeholder.jpg';
 
 export const getIconByType = (type, className, classes, width, height) => {
   switch (type) {
@@ -10,7 +9,7 @@ export const getIconByType = (type, className, classes, width, height) => {
       return <img
         style={{ width, height }}
         className={`${className} ${classes.root}`}
-        src={userPlaceholder}
+        src={`https://via.placeholder.com/${width}/FFFF00/000000?Text=Avatar`}
       />;
     default:
       return null;
