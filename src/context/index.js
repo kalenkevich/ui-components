@@ -4,7 +4,6 @@ import AuthorizationContext, {
   AuthorizationProvider,
 } from './AuthorizationContext';
 import MobileContext, { MobileApp, MobileConsumer, MobileProvider } from './MobileContext';
-import SettingsContext, { SettingsProvider, SettingsConsumer } from './SettingsContext';
 
 export {
   AuthorizationContext,
@@ -15,7 +14,4 @@ export {
   MobileConsumer,
   MobileProvider,
   MobileApp,
-  SettingsContext,
-  SettingsProvider,
-  SettingsConsumer,
 };
