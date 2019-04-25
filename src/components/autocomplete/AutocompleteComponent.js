@@ -1,45 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Input from '../input';
-
-export const AutocompleteStyles = theme => ({
-  root: {
-    display: 'flex',
-    position: 'relative',
-  },
-  input: {
-  },
-  options: {
-    position: 'absolute',
-    top: '32px',
-    left: '0',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    maxHeight: '240px',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
-    backgroundColor: '#FFFFFF',
-    overflow: 'scroll',
-  },
-  option: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: '10px',
-    cursor: 'pointer',
-    borderTop: theme.border,
-    '': {
-      '&:first-of-type': {
-        borderTop: 'none',
-      },
-    },
-    '&:hover': {
-      backgroundColor: theme.brandPrimaryColor,
-    },
-  },
-});
+import SelectStyles from '../select/SelectComponentStyle';
 
 const Autocomplete = (props) => {
   const {
@@ -50,27 +13,43 @@ const Autocomplete = (props) => {
     onChange,
     onEnter,
     onSelect,
+    label = '',
+    error = false,
+    success = false,
   } = props;
+  const [isOpen, setOpenState] = useState(false);
 
   return (
     <div className={`${classes.root} ${className}`}>
       <Input
         className={classes.input}
+        label={label}
+        error={error}
+        success={success}
         value={value}
+        onBlur={() => setOpenState(true)}
         onChange={e => onChange(e.target.value)}
         onEnter={() => onEnter(value)}
       />
-      { options.length ? <div className={classes.options}>
-        {(options || []).map(option => (
-          <div
-            onClick={() => onSelect(option)}
-            className={classes.option}
-            key={option.value}
-          >
-            {option.label}
+      { isOpen && options.length
+        ? <>
+          <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
+          <div className={classes.options}>
+            {(options || []).map(option => (
+              <div
+                onClick={() => {
+                  onSelect(option);
+                  setOpenState(false);
+                }}
+                className={classes.option}
+                key={option.value}
+              >
+                {option.label}
+              </div>
+            ))}
           </div>
-        ))}
-      </div> : null }
+        </>
+        : null }
     </div>
   );
 };
@@ -83,6 +62,9 @@ Autocomplete.propTypes = {
   onEnter: PropTypes.func,
   onSelect: PropTypes.func,
   onChange: PropTypes.func,
+  label: PropTypes.string,
+  error: PropTypes.bool,
+  success: PropTypes.bool,
 };
 
-export default withStyles(AutocompleteStyles)(Autocomplete);
+export default withStyles(SelectStyles)(Autocomplete);

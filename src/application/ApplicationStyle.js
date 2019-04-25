@@ -8,6 +8,8 @@ import {
   faCommentAlt,
   faTimes,
   faPencilAlt,
+  faChevronUp,
+  faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 
@@ -21,6 +23,8 @@ library.add(faCommentAlt);
 library.add(faSignOutAlt);
 library.add(faThumbsUp);
 library.add(faThumbsDown);
+library.add(faChevronUp);
+library.add(faChevronDown);
 
 export default {
   applicationWrapper: {

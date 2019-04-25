@@ -6,16 +6,13 @@ export default theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '10px',
-    border: `1px solid ${theme.brandPrimaryColor}`,
+    border: theme.border,
     borderRadius: theme.borderRadius,
   },
   brandTitle: {
     fontSize: '24px',
     textDecoration: 'none',
-    color: theme.titleColor,
-    '&:hover': {
-      color: theme.titleHoverColor,
-    },
+    color: theme.brandDarkGrayColor,
   },
   actionPanel: {
     display: 'flex',

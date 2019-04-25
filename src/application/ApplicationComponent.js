@@ -7,6 +7,9 @@ import { Authorization } from '../context/AuthorizationContext';
 import { MobileApp } from '../context/MobileContext';
 import settings from '../../config/settings';
 import ApplicationStyles from './ApplicationStyle';
+import ButtonSection from '../preview-sections/ButtonSection';
+import InputSection from '../preview-sections/InputSection';
+import SelectSection from '../preview-sections/SelectSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
@@ -15,7 +18,9 @@ const ApplicationComponent = ({ classes }) => (
         <Header appName={settings.AppName}/>
         <div className={classes.applicationWrapper}>
           <div className={classes.application}>
-            Here should be components
+            <ButtonSection/>
+            <InputSection/>
+            <SelectSection/>
           </div>
         </div>
       </MobileApp>
