@@ -6,7 +6,7 @@ export default theme => ({
     flexDirection: 'column',
     padding: '10px',
     boxSizing: 'border-box',
-    border: `1px solid ${theme.brandPrimaryColor}`,
+    border: theme.border,
     borderRadius: theme.borderRadius,
   },
   formLabel: {
