@@ -8,15 +8,15 @@ export const cell = (theme, width = 55, height = 55) => ({
   flexShrink: '0',
   borderRadius: theme.borderRadius,
   boxSizing: 'border-box',
-  margin: '3px',
-  '&.selected, &:hover': {
-    border: theme.border,
-    backgroundColor: theme.brandPrimaryColor,
-  },
   '&.current': {
     border: theme.border,
     borderStyle: 'dashed',
     borderColor: theme.brandPrimaryColor,
+  },
+  margin: '3px',
+  '&.selected, &:hover': {
+    border: theme.border,
+    backgroundColor: theme.brandPrimaryColor,
   },
 });
 
@@ -66,6 +66,7 @@ export default theme => ({
     ...row(theme),
     borderTop: theme.border,
     borderBottom: theme.border,
+    color: theme.brandDarkGrayColor,
   },
   weekDay: {
     ...cell(theme),
@@ -76,7 +77,7 @@ export default theme => ({
     },
     '&.selected': {
       border: theme.border,
-      borderColor: theme.brandPrimaryColor,
+      backgroundColor: theme.brandPrimaryColor,
     },
   },
   week: row(theme),
