@@ -1,4 +1,4 @@
-export const cell = (theme, width = 50, height = 50) => ({
+export const cell = (theme, width = 55, height = 55) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -6,7 +6,6 @@ export const cell = (theme, width = 50, height = 50) => ({
   height: `${height}px`,
   cursor: 'pointer',
   flexShrink: '0',
-  flexGrow: '0',
   borderRadius: theme.borderRadius,
   boxSizing: 'border-box',
   margin: '3px',
@@ -18,10 +17,8 @@ export const cell = (theme, width = 50, height = 50) => ({
 
 export const row = theme => ({
   display: 'flex',
-  flexWrap: 'wrap',
   width: '100%',
   flexShrink: '0',
-  flexGrow: '0',
   '&:first-of-type': {
     borderTop: 'none',
   },
@@ -41,7 +38,6 @@ export default theme => ({
     left: '0',
     display: 'flex',
     flexDirection: 'column',
-    minWidth: '750px',
     border: theme.border,
     borderRadius: theme.borderRadius,
     backgroundColor: 'white',
@@ -62,7 +58,7 @@ export default theme => ({
   month: cell(theme),
   weeks: row(theme),
   weekDay: {
-    ...cell(theme, 100),
+    ...cell(theme),
     cursor: 'default',
     '&:hover': {
       border: 'none',
@@ -73,7 +69,7 @@ export default theme => ({
     },
   },
   week: row(theme),
-  day: cell(theme, 100),
+  day: cell(theme),
   actionPanel: {
     ...row(theme),
     borderTop: theme.border,

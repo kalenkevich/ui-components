@@ -36,18 +36,18 @@ export const MONTH_DAYS_MAP = {
 };
 
 export const WEEK_DAY_MAP = {
-  0: 'SUNDAY',
-  1: 'MONDAY',
-  2: 'TUESDAY',
-  3: 'WEDNESDAY',
-  4: 'THURSDAY',
-  5: 'FRIDAY',
-  6: 'SATURDAY',
+  0: 'SUN',
+  1: 'MON',
+  2: 'TUE',
+  3: 'WEN',
+  4: 'THU',
+  5: 'FRI',
+  6: 'SAT',
 };
 
-export const YEAR_STEP = 1;
+export const YEAR_STEP = 2;
 
-export const MONTH_STEP = 3;
+export const MONTH_STEP = 2;
 
 export const getSafeDate = (date) => {
   if (date) {
