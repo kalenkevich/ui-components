@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyle from 'react-jss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../input';
 import Button from '../button';
 import DatePickerStyles from './DatePickerComponentStyle';
+import { getClassName } from '../../services/Utils';
 
 export const YEARS_MONTH_MAP = {
   0: 'JAN',
@@ -208,6 +210,11 @@ const DateSelectPopup = (props) => {
     options,
   } = props;
   const safeDate = getSafeDate(date);
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const currentWeekDay = currentDate.getDay();
   const [selectedYear, selectYear] = useState(safeDate.getFullYear());
   const [selectedMonth, selectMonth] = useState(safeDate.getMonth());
   const [selectedDay, selectDay] = useState(safeDate.getDate());
@@ -217,10 +224,18 @@ const DateSelectPopup = (props) => {
   const months = getMonths(selectedMonth, MONTH_STEP);
   const weekLegend = getWeekLegend();
   const weeks = getWeeks(selectedMonth);
-  const onPrevYearsClick = () => {};
-  const onNextYearsClick = () => {};
-  const onPrevMonthsClick = () => {};
-  const onNextMonthsClick = () => {};
+  const onPrevYearsClick = () => {
+    selectYear(selectedYear - 1);
+  };
+  const onNextYearsClick = () => {
+    selectYear(selectedYear + 1);
+  };
+  const onPrevMonthsClick = () => {
+    selectMonth(selectedMonth - 1);
+  };
+  const onNextMonthsClick = () => {
+    selectMonth(selectedMonth + 1);
+  };
   const onYearClick = (year) => {
     selectYear(year.value);
   };
@@ -234,67 +249,107 @@ const DateSelectPopup = (props) => {
   return (
     <div className={classes.popup}>
       <div className={classes.years}>
-        <div className={classes.year} onClick={onPrevYearsClick}>{'<'}</div>
-        {(years || []).map(year => (
-          <div
-            key={year.value}
-            className={`${classes.year} ${year.value === selectedYear ? 'selected' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
+        <div className={classes.year} onClick={onPrevYearsClick}>
+          <FontAwesomeIcon icon='chevron-left'/>
+        </div>
+        {(years || []).map((year) => {
+          const yearClass = getClassName([
+            classes.year,
+            year.value === selectedYear ? 'selected' : '',
+            year.value === currentYear ? 'current' : '',
+          ]);
 
-              onYearClick(year);
-            }}
-          >
-            {year.label}
-          </div>
-        ))}
-        <div className={classes.year} onClick={onNextYearsClick}>{'>'}</div>
+          return (
+            <div
+              key={year.value}
+              className={yearClass}
+              onClick={(e) => {
+                e.stopPropagation();
+
+                onYearClick(year);
+              }}
+            >
+              {year.label}
+            </div>
+          );
+        })}
+        <div className={classes.year} onClick={onNextYearsClick}>
+          <FontAwesomeIcon icon='chevron-right'/>
+        </div>
       </div>
       <div className={classes.months}>
-        <div className={classes.month} onClick={onPrevMonthsClick}>{'<'}</div>
-        {(months || []).map(month => (
-          <div
-            key={month.label}
-            className={`${classes.month} ${month.value === selectedMonth ? 'selected' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
+        <div className={classes.month} onClick={onPrevMonthsClick}>
+          <FontAwesomeIcon icon='chevron-left'/>
+        </div>
+        {(months || []).map((month) => {
+          const monthClass = getClassName([
+            classes.month,
+            month.value === selectedMonth ? 'selected' : '',
+            month.value === currentMonth ? 'current' : '',
+          ]);
 
-              onMonthClick(month);
-            }}
-          >
-            {month.label}
-          </div>
-        ))}
-        <div className={classes.month} onClick={onNextMonthsClick}>{'>'}</div>
+          return (
+            <div
+              key={month.label}
+              className={monthClass}
+              onClick={(e) => {
+                e.stopPropagation();
+
+                onMonthClick(month);
+              }}
+            >
+              {month.label}
+            </div>
+          );
+        })}
+        <div className={classes.month} onClick={onNextMonthsClick}>
+          <FontAwesomeIcon icon='chevron-right'/>
+        </div>
       </div>
       <div className={classes.weeks}>
-        {(weekLegend || []).map(weekDay => (
-          <div
-            key={weekDay.label}
-            className={`${classes.weekDay} ${weekDay.value === selectedWeekDay ? 'selected' : ''}`}
-          >
-            {weekDay.label}
-          </div>
-        ))}
+        {(weekLegend || []).map((weekDay) => {
+          const weekDayClass = getClassName([
+            classes.weekDay,
+            weekDay.value === selectedWeekDay ? 'selected' : '',
+            weekDay.value === currentWeekDay ? 'current' : '',
+          ]);
+
+          return (
+            <div
+              key={weekDay.label}
+              className={weekDayClass}
+            >
+              {weekDay.label}
+            </div>
+          );
+        })}
       </div>
       {(weeks || []).map(week => (
         <div
           key={week.value}
           className={classes.week}
         >
-          {(week.days || []).map(day => (
-            <div
-              key={day.label}
-              className={`${classes.day} ${day.value === selectedDay ? 'selected' : ''}`}
-              onClick={(e) => {
-                e.stopPropagation();
+          {(week.days || []).map((day) => {
+            const dayClass = getClassName([
+              classes.day,
+              day.value === selectedDay ? 'selected' : '',
+              day.value === currentDay ? 'current' : '',
+            ]);
 
-                onDayClick(day);
-              }}
-            >
-              {getFormattedDay(selectedYear, selectedMonth, day.value)}
-            </div>
-          ))}
+            return (
+              <div
+                key={day.label}
+                className={dayClass}
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  onDayClick(day);
+                }}
+              >
+                {getFormattedDay(selectedYear, selectedMonth, day.value)}
+              </div>
+            );
+          })}
         </div>
       ))}
       <div className={classes.actionPanel}>

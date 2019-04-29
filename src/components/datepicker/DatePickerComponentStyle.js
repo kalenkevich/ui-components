@@ -11,6 +11,11 @@ export const cell = (theme, width = 55, height = 55) => ({
   margin: '3px',
   '&.selected, &:hover': {
     border: theme.border,
+    backgroundColor: theme.brandPrimaryColor,
+  },
+  '&.current': {
+    border: theme.border,
+    borderStyle: 'dashed',
     borderColor: theme.brandPrimaryColor,
   },
 });
@@ -48,6 +53,7 @@ export default theme => ({
     ...row(theme),
     justifyContent: 'center',
     alignItems: 'center',
+    borderBottom: theme.border,
   },
   year: cell(theme),
   months: {
@@ -56,12 +62,17 @@ export default theme => ({
     alignItems: 'center',
   },
   month: cell(theme),
-  weeks: row(theme),
+  weeks: {
+    ...row(theme),
+    borderTop: theme.border,
+    borderBottom: theme.border,
+  },
   weekDay: {
     ...cell(theme),
     cursor: 'default',
     '&:hover': {
       border: 'none',
+      backgroundColor: 'transparent',
     },
     '&.selected': {
       border: theme.border,
