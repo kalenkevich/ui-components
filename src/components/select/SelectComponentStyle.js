@@ -21,8 +21,8 @@ export default theme => ({
     width: '300px',
     cursor: 'pointer',
     '&.disabled': {
-      color: 'initial',
       cursor: 'default',
+      color: theme.brandDarkGrayColor,
       backgroundColor: theme.brandLightGrayColor,
     },
     '&.success': {

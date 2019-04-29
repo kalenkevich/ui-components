@@ -14,8 +14,8 @@ const InputSection = () => {
     <Section title={'Inputs'}>
       <SectionRow>
         <Input label='Simple input' {...forInput1}/>
-        <Input label='Placeholder' {...forInput2} placeholder={'Type here'}/>
         <Input label='Password' {...forInput3} placeholder='Password' type='password' />
+        <Input label='With placeholder' {...forInput2} placeholder={'With Placeholder'}/>
         <Input label='Success' {...forInput4} success/>
         <Input label='Error' {...forInput5} error/>
         <Input label='Disabled' {...forInput6} placeholder='Disabled' disabled/>

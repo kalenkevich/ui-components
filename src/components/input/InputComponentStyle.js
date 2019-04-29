@@ -18,12 +18,11 @@ export default theme => ({
     backgroundColor: 'transparent',
     outline: 'none',
     width: '300px',
-    padding: '8px',
+    padding: '6px 8px',
     paddingTop: '4px',
     fontSize: theme.controlFontColor,
     boxSizing: 'border-box',
     '&:disabled': {
-      color: 'initial',
       backgroundColor: theme.brandLightGrayColor,
     },
     '&.success': {

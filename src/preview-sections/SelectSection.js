@@ -53,12 +53,12 @@ const InputSection = () => {
   return (
     <Section title={'Selects'}>
       <SectionRow>
-        <Select label='Select with a bit of options' {...forSelect2}/>
-        <Select label='Select with a lot of options' {...forSelect1}/>
-        <Select label='Select with placeholder' {...forSelect6} placeholder='With placeholder'/>
-        <Select label='Error select' {...forSelect3} error/>
-        <Select label='Success select' {...forSelect4} success/>
-        <Select label='Disabled select' {...forSelect5} disabled/>
+        <Select label='With a bit of options' {...forSelect2}/>
+        <Select label='With a lot of options' {...forSelect1}/>
+        <Select label='With placeholder' {...forSelect6} placeholder='With placeholder'/>
+        <Select label='Success' {...forSelect4} success/>
+        <Select label='Error' {...forSelect3} error/>
+        <Select label='Disabled' {...forSelect5} disabled/>
       </SectionRow>
     </Section>
   );
