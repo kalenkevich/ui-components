@@ -40,6 +40,8 @@ export const SectionItemStyle = theme => ({
     width: '100%',
     height: '100%',
     padding: '5px 0',
+    backgroundColor: 'white',
+    position: 'relative',
     fontWeight: theme.controlFontWeight,
     borderBottom: theme.border,
     '&:last-of-type': {
