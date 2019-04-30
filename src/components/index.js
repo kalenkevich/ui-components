@@ -8,6 +8,8 @@ import TextArea from './text-area';
 import FormStyles from './form/FormStyles';
 import Select from './select';
 import Datepicker from './datepicker';
+import Checkbox from './checkbox';
+import Radio from './radio';
 
 export {
   AutocompleteComponent,
@@ -20,4 +22,6 @@ export {
   FormStyles,
   Select,
   Datepicker,
+  Checkbox,
+  Radio,
 };

@@ -37,16 +37,24 @@ export const Section = withStyles(SectionStyles)(SectionComponent);
 
 export const SectionItemStyle = theme => ({
   root: {
-    borderBottom: theme.border,
-    display: 'flex',
-    flexWrap: 'wrap',
     width: '100%',
     height: '100%',
     padding: '5px 0',
     fontWeight: theme.controlFontWeight,
+    borderBottom: theme.border,
     '&:last-of-type': {
       borderBottom: 'none',
     },
+  },
+  title: {
+    marginTop: '5px',
+    fontSize: '18px',
+  },
+  children: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '100%',
+    height: '100%',
     '& > *': {
       margin: '10px 10px 0 0',
       '&:first-of-type': {
@@ -56,14 +64,16 @@ export const SectionItemStyle = theme => ({
   },
 });
 
-const SectionRowComponent = ({ classes, children }) => (
+const SectionRowComponent = ({ classes, children, title }) => (
   <div className={classes.root}>
-    {children}
+    <div className={classes.title}>{title}</div>
+    <div className={classes.children}>{children}</div>
   </div>
 );
 
 SectionRowComponent.propTypes = {
   classes: PropTypes.object,
+  title: PropTypes.string,
   children: PropTypes.node,
 };
 

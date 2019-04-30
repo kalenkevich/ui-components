@@ -10,7 +10,7 @@ export default theme => ({
     },
     '&.disabled': {
       cursor: 'default',
-      color: theme.brandGrayColor,
+      color: theme.brandDarkGrayColor,
     },
   },
 });

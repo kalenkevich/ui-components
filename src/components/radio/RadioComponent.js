@@ -2,20 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Label from '../label';
+import RadioStyles from './RadioStyle';
 import { getClassName } from '../../services/Utils';
-import CheckboxStyles from './CheckboxStyle';
 
-const Checkbox = (props) => {
+const Radio = (props) => {
   const {
     classes,
     label,
-    checked,
+    group,
+    value,
+    selectedValue,
     onChange,
     disabled,
   } = props;
 
+  const checked = value === selectedValue;
   const classNames = getClassName([
-    classes.checkbox,
+    classes.radio,
     checked ? 'checked' : '',
   ]);
 
@@ -24,11 +27,12 @@ const Checkbox = (props) => {
       <input
         disabled={disabled}
         className={classNames}
-        type='checkbox'
-        value={checked}
+        type='radio'
+        value={value}
+        name={group}
         onChange={() => {
           if (!disabled) {
-            onChange(!checked);
+            onChange(value);
           }
         }}
       />
@@ -38,7 +42,7 @@ const Checkbox = (props) => {
         value={label}
         onClick={() => {
           if (!disabled) {
-            onChange(!checked);
+            onChange(value);
           }
         }}
       />
@@ -46,12 +50,14 @@ const Checkbox = (props) => {
   );
 };
 
-Checkbox.propTypes = {
+Radio.propTypes = {
   classes: PropTypes.object,
   label: PropTypes.string,
-  checked: PropTypes.bool,
+  group: PropTypes.string,
+  value: PropTypes.any,
+  selectedValue: PropTypes.any,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
-export default withStyles(CheckboxStyles)(Checkbox);
+export default withStyles(RadioStyles)(Radio);

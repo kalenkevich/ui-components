@@ -12,6 +12,7 @@ import InputSection from '../preview-sections/InputSection';
 import SelectSection from '../preview-sections/SelectSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 import CheckboxSection from '../preview-sections/CheckboxSection';
+import RadioSection from '../preview-sections/RadioSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
@@ -22,6 +23,7 @@ const ApplicationComponent = ({ classes }) => (
           <div className={classes.application}>
             <ButtonSection/>
             <CheckboxSection/>
+            <RadioSection/>
             <InputSection/>
             <SelectSection/>
             <DatePickerSection/>
