@@ -13,6 +13,7 @@ import SelectSection from '../preview-sections/SelectSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 import CheckboxSection from '../preview-sections/CheckboxSection';
 import RadioSection from '../preview-sections/RadioSection';
+import AvatarSection from '../preview-sections/AvatarSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
@@ -27,6 +28,7 @@ const ApplicationComponent = ({ classes }) => (
             <InputSection/>
             <SelectSection/>
             <DatePickerSection/>
+            <AvatarSection/>
           </div>
         </div>
       </MobileApp>

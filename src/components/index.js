@@ -10,6 +10,7 @@ import Select from './select';
 import Datepicker from './datepicker';
 import Checkbox from './checkbox';
 import Radio from './radio';
+import Avatar from './avatar';
 
 export {
   AutocompleteComponent,
@@ -24,4 +25,5 @@ export {
   Datepicker,
   Checkbox,
   Radio,
+  Avatar,
 };

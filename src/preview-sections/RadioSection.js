@@ -38,7 +38,7 @@ export const optionGroup2 = [{
   value: 'value5',
 }];
 
-const CheckboxSection = () => {
+const RadioSection = () => {
   const [selectedValue1, setValue1] = useState(optionGroup1[0].value);
   const [selectedValue2, setValue2] = useState(optionGroup2[0].value);
 
@@ -77,4 +77,4 @@ const CheckboxSection = () => {
   );
 };
 
-export default CheckboxSection;
+export default RadioSection;
