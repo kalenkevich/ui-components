@@ -10,16 +10,12 @@ const CheckboxSection = () => {
   return (
     <Section title={'Checkboxes'}>
       <SectionRow>
-        <Checkbox checked={checked1} onChange={setCheckedState1} label='Checked'/>
-      </SectionRow>
-      <SectionRow>
-        <Checkbox checked={checked2} onChange={setCheckedState2} label='Unchecked'/>
-      </SectionRow>
-      <SectionRow>
-        <Checkbox checked={checked3} onChange={setCheckedState3} label='Disabled' disabled/>
-      </SectionRow>
-      <SectionRow>
-        <Checkbox checked={true} onChange={setCheckedState3} label='Checked and disabled' disabled/>
+        <div>
+          <Checkbox checked={checked1} onChange={setCheckedState1} label='Checked'/>
+          <Checkbox checked={checked2} onChange={setCheckedState2} label='Unchecked'/>
+          <Checkbox checked={checked3} onChange={setCheckedState3} label='Disabled' disabled/>
+          <Checkbox checked={true} onChange={setCheckedState3} label='Checked and disabled' disabled/>
+        </div>
       </SectionRow>
     </Section>
   );

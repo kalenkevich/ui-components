@@ -11,7 +11,13 @@ import Datepicker from './datepicker';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import Avatar from './avatar';
-import { Tab, TabsHeader, TabsBody, TabsContainer } from './tabs';
+import {
+  Tab,
+  TabsHeader,
+  TabsBody,
+  TabsContainer,
+} from './tabs';
+import LabeledText from './labled-text';
 
 export {
   AutocompleteComponent,
@@ -31,4 +37,5 @@ export {
   TabsHeader,
   TabsBody,
   TabsContainer,
+  LabeledText,
 };

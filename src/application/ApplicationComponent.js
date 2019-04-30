@@ -14,6 +14,7 @@ import CheckboxSection from '../preview-sections/CheckboxSection';
 import RadioSection from '../preview-sections/RadioSection';
 import AvatarSection from '../preview-sections/AvatarSection';
 import TabsSection from '../preview-sections/TabsSection';
+import LabeledTextSection from '../preview-sections/LabeledTextSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 
 const ApplicationComponent = ({ classes }) => (
@@ -26,6 +27,7 @@ const ApplicationComponent = ({ classes }) => (
             <ButtonSection/>
             <CheckboxSection/>
             <RadioSection/>
+            <LabeledTextSection/>
             <InputSection/>
             <SelectSection/>
             <AvatarSection/>
