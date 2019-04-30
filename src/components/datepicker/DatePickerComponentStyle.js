@@ -8,13 +8,19 @@ export const cell = (theme, width = 55, height = 55) => ({
   flexShrink: '0',
   borderRadius: theme.borderRadius,
   boxSizing: 'border-box',
+  border: `1px solid ${theme.brandLightGrayColor}`,
+  margin: '3px',
+  transition: theme.backgroundColorTransition,
   '&.current': {
     border: theme.border,
     borderStyle: 'dashed',
     borderColor: theme.brandPrimaryColor,
   },
-  margin: '3px',
-  '&.selected, &:hover': {
+  '&.selected': {
+    border: theme.border,
+    backgroundColor: theme.brandPrimaryDarkColor,
+  },
+  '&:hover': {
     border: theme.border,
     backgroundColor: theme.brandPrimaryColor,
   },
@@ -33,6 +39,7 @@ export default theme => ({
   root: {
     position: 'relative',
     cursor: 'pointer',
+    fontWeight: theme.controlFontWeight,
     '& > input': {
       cursor: 'pointer',
     },
@@ -48,6 +55,7 @@ export default theme => ({
     backgroundColor: 'white',
     zIndex: '1',
     marginBottom: '100px',
+    boxShadow: theme.boxShadow,
   },
   years: {
     ...row(theme),

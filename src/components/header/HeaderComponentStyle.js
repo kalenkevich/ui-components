@@ -1,5 +1,6 @@
 export default theme => ({
   headerContainer: {
+    fontWeight: theme.controlFontWeight,
     height: '40px',
     padding: '10px',
     display: 'flex',

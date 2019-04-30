@@ -9,10 +9,11 @@ export const style = theme => ({
     border: theme.border,
     borderRadius: theme.borderRadius,
     cursor: 'pointer',
-    transition: 'background-color linear 100ms',
+    transition: theme.backgroundColorTransition,
     outline: 'none',
     minWidth: '80px',
-    fontSize: theme.controlFontColor,
+    fontSize: theme.controlFontSize,
+    fontWeight: theme.controlFontWeight,
     '&.mobile': {
       minWidth: 'initial',
     },

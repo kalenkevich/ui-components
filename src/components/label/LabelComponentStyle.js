@@ -1,8 +1,9 @@
 export default theme => ({
   root: {
-    fontSize: '14px',
+    fontSize: theme.controlFontSize,
+    fontWeight: theme.controlFontWeight,
     '&.error': {
-      color: theme.brandErrorColor,
+      color: theme.brandErrorDarkColor,
     },
   },
 });

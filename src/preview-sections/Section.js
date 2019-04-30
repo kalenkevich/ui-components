@@ -43,6 +43,7 @@ export const SectionItemStyle = theme => ({
     width: '100%',
     height: '100%',
     padding: '5px 0',
+    fontWeight: theme.controlFontWeight,
     '&:last-of-type': {
       borderBottom: 'none',
     },

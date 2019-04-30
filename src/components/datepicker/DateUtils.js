@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
 import {
-  MONTH_DAYS_MAP,
   WEEK_DAY_MAP,
   YEARS_MONTH_MAP,
 } from './DateConstants';
@@ -47,12 +46,14 @@ export const getYears = (selectedYear, step) => {
     years.push({
       label: value,
       value,
+      date: new Date(selectedYear, 0, 0),
     });
   }
 
   years.push({
     label: selectedYear,
     value: selectedYear,
+    date: new Date(selectedYear, 0, 0),
   });
 
   for (let i = 1; i <= step; i++) {
@@ -61,45 +62,56 @@ export const getYears = (selectedYear, step) => {
     years.push({
       label: value,
       value,
+      date: new Date(selectedYear, 0, 0),
     });
   }
 
   return years;
 };
 
-export const getMonths = (selectedMonth, step) => {
+export const getMonthIndex = (index) => {
+  if (index < 0 || index > 11) {
+    return 12 - Math.abs(Math.floor(index % 11));
+  }
+
+  return index;
+};
+
+export const getMonths = (selectedYear, selectedMonth, step) => {
   const months = [];
 
   for (let i = 1; i <= step; i++) {
-    if (selectedMonth - i < 0) {
-      break;
-    }
-
     const monthIndex = selectedMonth - step + i - 1;
-    const label = YEARS_MONTH_MAP[monthIndex];
+    const safeMonthIndex = getMonthIndex(monthIndex);
+    const label = YEARS_MONTH_MAP[safeMonthIndex];
 
     months.push({
-      value: monthIndex,
+      value: safeMonthIndex,
+      index: monthIndex,
       label,
+      date: new Date(selectedYear, monthIndex, 0),
     });
   }
 
+  const safeMonthIndex = getMonthIndex(selectedMonth);
+
   months.push({
-    value: selectedMonth,
-    label: YEARS_MONTH_MAP[selectedMonth],
+    value: safeMonthIndex,
+    index: selectedMonth,
+    label: YEARS_MONTH_MAP[safeMonthIndex],
+    date: new Date(selectedYear, selectedMonth, 0),
   });
 
   for (let i = 1; i <= step; i++) {
-    if (selectedMonth + i < 0) {
-      break;
-    }
-
     const monthIndex = selectedMonth + i;
-    const label = YEARS_MONTH_MAP[selectedMonth + i];
+    const safeMonthIndex = getMonthIndex(monthIndex);
+    const label = YEARS_MONTH_MAP[safeMonthIndex];
 
     months.push({
-      value: monthIndex,
+      value: safeMonthIndex,
+      index: monthIndex,
       label,
+      date: new Date(selectedYear, monthIndex, 0),
     });
   }
 
@@ -119,9 +131,9 @@ export const getWeekLegend = () => {
   return weeks;
 };
 
-export const getWeeks = (selectedMonth) => {
+export const getWeeks = (selectedYear, selectedMonth) => {
   const weeks = [];
-  let days = getDays(selectedMonth);
+  let days = getDays(selectedYear, selectedMonth);
   let currentWeek = 0;
 
   while (days.length > 0) {
@@ -139,16 +151,16 @@ export const getWeeks = (selectedMonth) => {
   return weeks;
 };
 
-export const getDays = (selectedMonth) => {
+export const getDays = (selectedYear, selectedMonth) => {
   const days = [];
-  const daysCount = MONTH_DAYS_MAP[selectedMonth];
 
-  for (let i = 0; i < daysCount; i++) {
+  for (let i = 0; i < 35; i++) {
     const label = WEEK_DAY_MAP[i % 7];
 
     days.push({
       value: i,
       label,
+      date: new Date(selectedYear, selectedMonth, i),
     });
   }
 

@@ -48,7 +48,15 @@ const Select = (props) => {
         >
           {valueOption ? valueOption.label : placeholder}
         </div>
-        <FontAwesomeIcon className={classes.icon} icon={isOpen ? 'chevron-up' : 'chevron-down'}/>
+        <FontAwesomeIcon
+          className={classes.icon}
+          icon={isOpen ? 'chevron-up' : 'chevron-down'}
+          onClick={() => {
+            if (!disabled) {
+              setOpenState(true);
+            }
+          }}
+        />
         { !disabled && isOpen && options.length
           ? <>
             <div className={classes.backdrop} onClick={() => setOpenState(false)}/>

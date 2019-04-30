@@ -1,6 +1,7 @@
 export const controlLabel = theme => ({
   color: theme.brandDarkGrayColor,
-  fontSize: theme.controlFontColor,
+  fontSize: theme.controlFontSize,
+  fontWeight: theme.controlFontWeight,
   marginBottom: '5px',
   '&.success': {
     color: theme.brandSuccessDarkColor,
@@ -20,7 +21,8 @@ export default theme => ({
     width: '300px',
     padding: '6px 8px',
     paddingTop: '4px',
-    fontSize: theme.controlFontColor,
+    fontSize: theme.controlFontSize,
+    fontWeight: theme.controlFontWeight,
     boxSizing: 'border-box',
     '&:disabled': {
       backgroundColor: theme.brandLightGrayColor,

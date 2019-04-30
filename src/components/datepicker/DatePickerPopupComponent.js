@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../button';
 import { getClassName } from '../../services/Utils';
-import { YEAR_STEP, MONTH_STEP } from './DateConstants';
+import { MONTH_STEP, YEAR_STEP } from './DateConstants';
 import {
-  getSafeDate,
-  getYears,
+  getFormattedDay,
+  getMonthIndex,
   getMonths,
+  getSafeDate,
   getWeekLegend,
   getWeeks,
-  getFormattedDay,
+  getYears,
 } from './DateUtils';
 
 const DateSelectPopup = (props) => {
@@ -33,17 +34,38 @@ const DateSelectPopup = (props) => {
   const [selectedDay, selectDay] = useState(safeDate.getDate());
   const selectedDate = new Date(selectedYear, selectedMonth, selectedDay);
   const selectedWeekDay = selectedDate.getDay();
-  const years = getYears(selectedYear, YEAR_STEP);
-  const months = getMonths(selectedMonth, MONTH_STEP);
   const weekLegend = getWeekLegend();
-  const weeks = getWeeks(selectedMonth);
-  const onPrevYearsClick = () => selectYear(selectedYear - 1);
-  const onNextYearsClick = () => selectYear(selectedYear + 1);
-  const onPrevMonthsClick = () => selectMonth(selectedMonth - 1);
-  const onNextMonthsClick = () => selectMonth(selectedMonth + 1);
-  const onYearClick = year => selectYear(year.value);
-  const onMonthClick = month => selectMonth(month.value);
-  const onDayClick = day => selectDay(day.value);
+  const years = getYears(selectedYear, YEAR_STEP);
+  const months = getMonths(selectedYear, selectedMonth, MONTH_STEP);
+  const weeks = getWeeks(selectedYear, selectedMonth);
+  const onPrevYearsClick = () => {
+    selectYear(selectedYear - 1);
+  };
+  const onNextYearsClick = () => {
+    selectYear(selectedYear + 1);
+  };
+  const onPrevMonthsClick = () => {
+    const safeIndex = getMonthIndex(selectedMonth - 1);
+
+    selectMonth(safeIndex);
+  };
+  const onNextMonthsClick = () => {
+    const safeIndex = getMonthIndex(selectedMonth + 1);
+
+    selectMonth(safeIndex);
+  };
+  const onYearClick = (year) => {
+    selectYear(year.date.getFullYear());
+  };
+  const onMonthClick = (month) => {
+    selectMonth(month.date.getMonth());
+    selectYear(month.date.getFullYear());
+  };
+  const onDayClick = (day) => {
+    selectDay(day.date.getDate());
+    selectMonth(day.date.getMonth());
+    selectYear(day.date.getFullYear());
+  };
 
   return (
     <div className={classes.popup}>
@@ -89,7 +111,7 @@ const DateSelectPopup = (props) => {
 
           return (
             <div
-              key={month.label}
+              key={month.index}
               className={monthClass}
               onClick={(e) => {
                 e.stopPropagation();
