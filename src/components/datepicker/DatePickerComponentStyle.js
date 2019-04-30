@@ -18,7 +18,7 @@ export const cell = (theme, width = 55, height = 55) => ({
   },
   '&.selected': {
     border: theme.border,
-    backgroundColor: theme.brandPrimaryDarkColor,
+    backgroundColor: theme.brandPrimaryColor,
   },
   '&:hover': {
     border: theme.border,
@@ -63,13 +63,13 @@ export default theme => ({
     alignItems: 'center',
     borderBottom: theme.border,
   },
-  year: cell(theme),
+  year: cell(theme, 55, 35),
   months: {
     ...row(theme),
     justifyContent: 'center',
     alignItems: 'center',
   },
-  month: cell(theme),
+  month: cell(theme, 55, 35),
   weeks: {
     ...row(theme),
     borderTop: theme.border,
@@ -77,14 +77,13 @@ export default theme => ({
     color: theme.brandDarkGrayColor,
   },
   weekDay: {
-    ...cell(theme),
+    ...cell(theme, 55, 35),
     cursor: 'default',
+    border: 'none',
     '&:hover': {
-      border: 'none',
       backgroundColor: 'transparent',
     },
     '&.selected': {
-      border: theme.border,
       backgroundColor: theme.brandPrimaryColor,
     },
   },

@@ -7,6 +7,7 @@ import Label from './label';
 import TextArea from './text-area';
 import FormStyles from './form/FormStyles';
 import Select from './select';
+import Datepicker from './datepicker';
 
 export {
   AutocompleteComponent,
@@ -18,4 +19,5 @@ export {
   TextArea,
   FormStyles,
   Select,
+  Datepicker,
 };

@@ -3,12 +3,6 @@ export const controlLabel = theme => ({
   fontSize: theme.controlFontSize,
   fontWeight: theme.controlFontWeight,
   marginBottom: '5px',
-  '&.success': {
-    color: theme.brandSuccessDarkColor,
-  },
-  '&.error': {
-    color: theme.brandErrorDarkColor,
-  },
 });
 
 export default theme => ({

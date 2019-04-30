@@ -49,8 +49,8 @@ const Select = (props) => {
           {valueOption ? valueOption.label : placeholder}
         </div>
         <FontAwesomeIcon
-          className={classes.icon}
-          icon={isOpen ? 'chevron-up' : 'chevron-down'}
+          className={`${classes.icon} ${isOpen ? 'down' : 'up'}`}
+          icon={'chevron-up'}
           onClick={() => {
             if (!disabled) {
               setOpenState(true);

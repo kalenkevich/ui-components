@@ -45,7 +45,7 @@ export const style = theme => ({
     '&:disabled, &:disabled:hover': {
       cursor: 'default',
       color: 'initial',
-      borderColor: theme.brandLightGrayColor,
+      borderColor: theme.brandGrayColor,
       backgroundColor: theme.brandLightGrayColor,
     },
   },

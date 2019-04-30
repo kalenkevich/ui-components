@@ -11,6 +11,7 @@ import ButtonSection from '../preview-sections/ButtonSection';
 import InputSection from '../preview-sections/InputSection';
 import SelectSection from '../preview-sections/SelectSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
+import CheckboxSection from '../preview-sections/CheckboxSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
@@ -20,6 +21,7 @@ const ApplicationComponent = ({ classes }) => (
         <div className={classes.applicationWrapper}>
           <div className={classes.application}>
             <ButtonSection/>
+            <CheckboxSection/>
             <InputSection/>
             <SelectSection/>
             <DatePickerSection/>

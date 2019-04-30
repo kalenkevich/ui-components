@@ -73,6 +73,10 @@ export default theme => ({
     right: '10px',
     top: '8px',
     cursor: 'pointer',
+    transition: 'transform linear 100ms',
+    '&.up': {
+      transform: 'rotateX(180deg)',
+    },
   },
   backdrop: {
     position: 'fixed',

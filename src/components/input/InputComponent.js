@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyle from 'react-jss';
 import Label from '../label';
 import InputComponentStyle from './InputComponentStyle';
+import { getClassName } from '../../services/Utils';
 
 const InputComponent = (props) => {
   const {
@@ -21,19 +22,28 @@ const InputComponent = (props) => {
     success = false,
   } = props;
 
+  const classNames = getClassName([
+    classes.root,
+    error ? 'error' : '',
+    success ? 'success' : '',
+    className,
+  ]);
+
   return (
     <div className={classes.rootWrapper}>
       {label
         ? <Label
-          className={`${classes.label}${error ? ' error' : ''}${success ? ' success' : ''}`}
+          className={classes.label}
           value={label}
+          error={error}
+          success={success}
         />
         : null}
       <input
         disabled={disabled}
         type={type}
         placeholder={placeholder}
-        className={`${classes.root} ${className}${error ? ' error' : ''}${success ? ' success' : ''}`}
+        className={classNames}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
