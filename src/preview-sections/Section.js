@@ -38,7 +38,6 @@ export const Section = withStyles(SectionStyles)(SectionComponent);
 export const SectionItemStyle = theme => ({
   root: {
     width: '100%',
-    height: '100%',
     padding: '5px 0',
     backgroundColor: 'white',
     position: 'relative',
@@ -56,7 +55,6 @@ export const SectionItemStyle = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
-    height: '100%',
     '& > *': {
       margin: '10px 10px 0 0',
       '&:first-of-type': {
