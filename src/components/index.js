@@ -11,6 +11,7 @@ import Datepicker from './datepicker';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import Avatar from './avatar';
+import { Tab, TabsHeader, TabsBody, TabsContainer } from './tabs';
 
 export {
   AutocompleteComponent,
@@ -26,4 +27,8 @@ export {
   Checkbox,
   Radio,
   Avatar,
+  Tab,
+  TabsHeader,
+  TabsBody,
+  TabsContainer,
 };

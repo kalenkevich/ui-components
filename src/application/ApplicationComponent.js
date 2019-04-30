@@ -10,10 +10,11 @@ import ApplicationStyles from './ApplicationStyle';
 import ButtonSection from '../preview-sections/ButtonSection';
 import InputSection from '../preview-sections/InputSection';
 import SelectSection from '../preview-sections/SelectSection';
-import DatePickerSection from '../preview-sections/DatePickerSection';
 import CheckboxSection from '../preview-sections/CheckboxSection';
 import RadioSection from '../preview-sections/RadioSection';
 import AvatarSection from '../preview-sections/AvatarSection';
+import TabsSection from '../preview-sections/TabsSection';
+import DatePickerSection from '../preview-sections/DatePickerSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
@@ -27,8 +28,9 @@ const ApplicationComponent = ({ classes }) => (
             <RadioSection/>
             <InputSection/>
             <SelectSection/>
-            <DatePickerSection/>
             <AvatarSection/>
+            <TabsSection/>
+            <DatePickerSection/>
           </div>
         </div>
       </MobileApp>

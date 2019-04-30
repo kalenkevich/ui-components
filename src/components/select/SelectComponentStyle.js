@@ -1,4 +1,5 @@
 import { controlLabel } from '../input/InputComponentStyle';
+import { brandPrimaryColor } from '../../theme';
 
 export default theme => ({
   root: {
@@ -52,6 +53,12 @@ export default theme => ({
     overflow: 'auto',
     zIndex: '1',
     boxShadow: theme.boxShadow,
+    '&::-webkit-scrollbar ': {
+      width: '6px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: brandPrimaryColor,
+    },
   },
   option: {
     display: 'flex',
@@ -59,11 +66,7 @@ export default theme => ({
     alignItems: 'center',
     padding: '8px 10px',
     cursor: 'pointer',
-    borderTop: theme.border,
     transition: theme.backgroundColorTransition,
-    '&:first-of-type': {
-      borderTop: 'none',
-    },
     '&:hover': {
       backgroundColor: theme.brandPrimaryColor,
     },

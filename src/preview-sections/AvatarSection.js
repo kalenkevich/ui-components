@@ -11,12 +11,15 @@ const user = {
 const AvatarSection = () => (
   <Section title={'Avatars'}>
     <SectionRow title='Small'>
+      <Avatar url={user.avatarUrl} size='sm'/>
       <Avatar url={user.avatarUrl} rate={user.rate} size='sm'/>
     </SectionRow>
     <SectionRow title='Middle'>
+      <Avatar url={user.avatarUrl} size='md'/>
       <Avatar url={user.avatarUrl} rate={user.rate} size='md'/>
     </SectionRow>
     <SectionRow title='Large'>
+      <Avatar url={user.avatarUrl} size='lg'/>
       <Avatar url={user.avatarUrl} rate={user.rate} size='lg'/>
     </SectionRow>
   </Section>
