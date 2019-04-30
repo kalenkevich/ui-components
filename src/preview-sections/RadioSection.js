@@ -39,8 +39,8 @@ export const optionGroup2 = [{
 }];
 
 const CheckboxSection = () => {
-  const [selectedValue1, setValue1] = useState();
-  const [selectedValue2, setValue2] = useState();
+  const [selectedValue1, setValue1] = useState(optionGroup1[0].value);
+  const [selectedValue2, setValue2] = useState(optionGroup2[0].value);
 
   return (
     <Section title={'Radio'}>

@@ -74,6 +74,7 @@ export default theme => ({
     top: '8px',
     cursor: 'pointer',
     transition: 'transform linear 100ms',
+    color: theme.brandDarkGrayColor,
     '&.up': {
       transform: 'rotateX(180deg)',
     },

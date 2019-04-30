@@ -43,5 +43,14 @@ export default theme => ({
       cursor: 'default',
       backgroundColor: theme.brandLightGrayColor,
     },
+    '&:disabled.checked:before': {
+      cursor: 'default',
+      border: theme.border,
+      backgroundColor: 'white',
+    },
+    '&:disabled.checked:after': {
+      cursor: 'default',
+      backgroundColor: theme.brandLightGrayColor,
+    },
   },
 });
