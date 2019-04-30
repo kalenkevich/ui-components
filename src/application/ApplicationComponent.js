@@ -9,6 +9,7 @@ import settings from '../../config/settings';
 import ApplicationStyles from './ApplicationStyle';
 import ButtonSection from '../preview-sections/ButtonSection';
 import InputSection from '../preview-sections/InputSection';
+import TextAreaSection from '../preview-sections/TextAreaSection';
 import SelectSection from '../preview-sections/SelectSection';
 import CheckboxSection from '../preview-sections/CheckboxSection';
 import RadioSection from '../preview-sections/RadioSection';
@@ -29,6 +30,7 @@ const ApplicationComponent = ({ classes }) => (
             <RadioSection/>
             <LabeledTextSection/>
             <InputSection/>
+            <TextAreaSection/>
             <SelectSection/>
             <AvatarSection/>
             <TabsSection/>
