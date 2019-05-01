@@ -4,7 +4,7 @@ import Header from './header';
 import Icon from './icon';
 import Input from './input';
 import Label from './label';
-import TextArea from './text-area';
+import TextArea from './textarea';
 import FormStyles from './form/FormStyles';
 import Select from './select';
 import Datepicker from './datepicker';
@@ -18,6 +18,10 @@ import {
   TabsContainer,
 } from './tabs';
 import LabeledText from './labled-text';
+import {
+  Notification,
+  NotificationBell,
+} from './notification';
 
 export {
   AutocompleteComponent,
@@ -38,4 +42,6 @@ export {
   TabsBody,
   TabsContainer,
   LabeledText,
+  Notification,
+  NotificationBell,
 };

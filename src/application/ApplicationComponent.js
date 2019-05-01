@@ -5,6 +5,7 @@ import Header from '../components/header';
 import { SettingsProvider } from '../context/SettingsContext';
 import { Authorization } from '../context/AuthorizationContext';
 import { MobileApp } from '../context/MobileContext';
+import { NotificationApp } from '../context/NotificationContext';
 import settings from '../../config/settings';
 import ApplicationStyles from './ApplicationStyle';
 import ButtonSection from '../preview-sections/ButtonSection';
@@ -16,27 +17,31 @@ import RadioSection from '../preview-sections/RadioSection';
 import AvatarSection from '../preview-sections/AvatarSection';
 import TabsSection from '../preview-sections/TabsSection';
 import LabeledTextSection from '../preview-sections/LabeledTextSection';
+import NotificationSection from '../preview-sections/NotificationSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 
 const ApplicationComponent = ({ classes }) => (
   <SettingsProvider value={settings}>
     <Authorization>
       <MobileApp>
-        <Header appName={settings.AppName}/>
-        <div className={classes.applicationWrapper}>
-          <div className={classes.application}>
-            <ButtonSection/>
-            <CheckboxSection/>
-            <RadioSection/>
-            <LabeledTextSection/>
-            <InputSection/>
-            <TextAreaSection/>
-            <SelectSection/>
-            <AvatarSection/>
-            <TabsSection/>
-            <DatePickerSection/>
+        <NotificationApp>
+          <Header appName={settings.AppName}/>
+          <div className={classes.applicationWrapper}>
+            <div className={classes.application}>
+              <ButtonSection/>
+              <CheckboxSection/>
+              <RadioSection/>
+              <LabeledTextSection/>
+              <InputSection/>
+              <TextAreaSection/>
+              <SelectSection/>
+              <AvatarSection/>
+              <TabsSection/>
+              <NotificationSection/>
+              <DatePickerSection/>
+            </div>
           </div>
-        </div>
+        </NotificationApp>
       </MobileApp>
     </Authorization>
   </SettingsProvider>
