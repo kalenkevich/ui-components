@@ -92,10 +92,12 @@ const Select = (props) => {
               {(options || []).map(option => (
                 <div
                   onClick={() => {
-                    onSelect(option);
-                    setOpenState(false);
+                    if (!option.disabled) {
+                      onSelect(option);
+                      setOpenState(false);
+                    }
                   }}
-                  className={classes.option}
+                  className={`${classes.option} ${option.disabled ? 'disabled' : ''}`}
                   key={option.value}
                 >
                   {option.label}

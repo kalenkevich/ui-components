@@ -78,6 +78,13 @@ export default theme => ({
     '&:hover': {
       backgroundColor: theme.brandPrimaryColor,
     },
+    '&.disabled': {
+      cursor: 'initial',
+      backgroundColor: theme.brandLightGrayColor,
+      '&:hover': {
+        backgroundColor: theme.brandLightGrayColor,
+      },
+    },
   },
   iconWrapper: {
     width: '30px',

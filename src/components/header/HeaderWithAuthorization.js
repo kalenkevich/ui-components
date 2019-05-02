@@ -23,6 +23,9 @@ const HeaderComponent = (props) => {
 
     window.location.href = `${settings.AuthFrontendUrl}/sign-up?returnUrl=${safeUrl}`;
   };
+  const goToProfilePage = () => {
+    window.location.href = `${settings.AuthFrontendUrl}/user/me`;
+  };
   const goToSignIn = () => {
     const safeUrl = encodeURIComponent(window.location.href);
 
@@ -42,10 +45,17 @@ const HeaderComponent = (props) => {
           value={''}
           onSelect={({ value }) => {
             if (value === 'signOut') {
-              goToSignOut();
+              return goToSignOut();
+            }
+
+            if (value === 'profile') {
+              return goToProfilePage();
             }
           }}
           options={[{
+            label: 'My Profile',
+            value: 'profile',
+          }, {
             label: 'Sign Out',
             value: 'signOut',
           }]}

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import AvatarStyles from './AvatarStyle';
+import Icon from '../icon';
 import { getClassName } from '../../services/Utils';
 
 const Avatar = (props) => {
@@ -32,7 +33,7 @@ const Avatar = (props) => {
 
   return (
     <div className={rootClasses}>
-      <img className={imgClassNames} src={url}/>
+      <Icon className={imgClassNames} src={url}/>
       { rate ? (
         <>
           <div className={rateBackgroundClassNames}/>

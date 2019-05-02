@@ -4,13 +4,12 @@ import withStyles from 'react-jss';
 import { USER_ICON } from './IconType';
 import { getClassName } from '../../services/Utils';
 
-export const getIconByType = (type, className, classes, width, height) => {
+export const getIconByType = (type, className, classes) => {
   switch (type) {
     case USER_ICON:
       return <img
-        style={{ width, height }}
         className={`${className} ${classes.root}`}
-        src={`https://via.placeholder.com/${width}/FFFF00/000000?Text=Avatar`}
+        src='https://via.placeholder.com/50/BEBEBE/000000?Text=No'
       />;
     default:
       return null;
@@ -28,8 +27,6 @@ const Icon = ({
   type,
   className = '',
   classes,
-  width = 50,
-  height = 50,
 }) => {
   const [imageLoadFail, setImageLoadFail] = useState(false);
   const rootClasses = getClassName([
@@ -38,12 +35,11 @@ const Icon = ({
   ]);
 
   if (!src || imageLoadFail) {
-    return getIconByType(type, className, classes, width, height);
+    return getIconByType(type, className, classes);
   }
 
   return <img
     src={src}
-    style={{ width, height }}
     className={rootClasses}
     onError={() => setImageLoadFail(true)}
   />;

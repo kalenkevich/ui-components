@@ -31,12 +31,14 @@ export const options1 = [{
 export const options2 = [{
   label: 'Option 1',
   value: 'option1',
+  disabled: 'true',
 }, {
   label: 'Option 2',
   value: 'option2',
 }, {
   label: 'Option 3',
   value: 'option3',
+  disabled: 'true',
 }, {
   label: 'Option 4',
   value: 'option4',
@@ -53,8 +55,8 @@ const InputSection = () => {
   return (
     <Section title={'Selects'}>
       <SectionRow>
-        <Select label='With a bit of options' {...forSelect2}/>
-        <Select label='With a lot of options' {...forSelect1}/>
+        <Select label='With options' {...forSelect1}/>
+        <Select label='With disabled options' {...forSelect2}/>
         <Select label='With placeholder' {...forSelect6} placeholder='With placeholder'/>
         <Select label='Success' {...forSelect4} success/>
         <Select label='Error' {...forSelect3} error/>
