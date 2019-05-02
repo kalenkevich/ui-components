@@ -3,7 +3,16 @@ import AuthorizationContext, {
   AuthorizationConsumer,
   AuthorizationProvider,
 } from './AuthorizationContext';
-import MobileContext, { MobileApp, MobileConsumer, MobileProvider } from './MobileContext';
+import MobileContext, {
+  MobileApp,
+  MobileConsumer,
+  MobileProvider,
+} from './MobileContext';
+import NotificationContext, {
+  NotificationApp,
+  NotificationConsumer,
+  NotificationProvider,
+} from './NotificationContext';
 
 export {
   AuthorizationContext,
@@ -14,4 +23,8 @@ export {
   MobileConsumer,
   MobileProvider,
   MobileApp,
+  NotificationContext,
+  NotificationApp,
+  NotificationConsumer,
+  NotificationProvider,
 };
