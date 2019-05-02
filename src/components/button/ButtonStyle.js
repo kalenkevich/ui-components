@@ -5,7 +5,7 @@ export default theme => ({
     borderRadius: theme.borderRadius,
     cursor: 'pointer',
     transition: theme.backgroundColorTransition,
-    outline: 'none',
+    //outline: 'none',
     minWidth: '80px',
     fontSize: theme.controlFontSize,
     fontWeight: theme.controlFontWeight,

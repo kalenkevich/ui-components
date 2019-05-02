@@ -8,6 +8,7 @@ import MobileContext from '../../context/MobileContext';
 
 const Notification = (props) => {
   const {
+    className,
     classes = {},
     type = 'info',
     message = '',
@@ -16,13 +17,13 @@ const Notification = (props) => {
     onClose = () => {},
   } = props;
   const { isMobile } = useContext(MobileContext);
-
   const classNames = getClassName([
     classes.root,
     type,
     position,
     isMobile ? 'mobile' : '',
     hide ? 'hide' : '',
+    className,
   ]);
 
   return (
@@ -38,6 +39,7 @@ const Notification = (props) => {
 };
 
 Notification.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   type: PropTypes.oneOf([
     'success',

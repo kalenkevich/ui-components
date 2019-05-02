@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { USER_ICON } from './IconType';
+import { getClassName } from '../../services/Utils';
 
 export const getIconByType = (type, className, classes, width, height) => {
   switch (type) {
@@ -31,6 +32,10 @@ const Icon = ({
   height = 50,
 }) => {
   const [imageLoadFail, setImageLoadFail] = useState(false);
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
 
   if (!src || imageLoadFail) {
     return getIconByType(type, className, classes, width, height);
@@ -39,7 +44,7 @@ const Icon = ({
   return <img
     src={src}
     style={{ width, height }}
-    className={`${className} ${classes.root}`}
+    className={rootClasses}
     onError={() => setImageLoadFail(true)}
   />;
 };

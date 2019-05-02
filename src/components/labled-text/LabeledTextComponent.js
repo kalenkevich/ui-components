@@ -3,16 +3,23 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Label from '../label';
 import LabeledTextStyle from './LabeledTextStyle';
+import { getClassName } from '../../services/Utils';
 
 const LabeledText = (props) => {
   const {
     classes,
     label,
     content,
+    className,
   } = props;
 
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
+
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <Label value={label} className={classes.label}/>
       <div className={classes.content}>
         {content}
@@ -22,6 +29,7 @@ const LabeledText = (props) => {
 };
 
 LabeledText.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   label: PropTypes.string,
   content: PropTypes.string,

@@ -15,8 +15,20 @@ export default theme => ({
     textDecoration: 'none',
     color: theme.brandDarkGrayColor,
   },
+  userPanel: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    cursor: 'pointer',
+  },
+  userAvatar: {},
+  userName: {
+    width: '100px',
+    marginLeft: '10px',
+  },
   actionPanel: {
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
   actionPanelButton: {

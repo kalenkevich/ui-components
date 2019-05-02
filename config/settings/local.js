@@ -1,3 +1,4 @@
 export default {
-  AuthUrl: 'http://localhost:9002',
+  AuthBackendUrl: 'http://localhost:9002',
+  AuthFrontendUrl: 'http://localhost:8082',
 };

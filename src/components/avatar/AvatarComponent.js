@@ -6,12 +6,17 @@ import { getClassName } from '../../services/Utils';
 
 const Avatar = (props) => {
   const {
+    className,
     classes,
     url,
     rate,
     size = 'md',
   } = props;
 
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
   const imgClassNames = getClassName([
     classes.image,
     size,
@@ -26,7 +31,7 @@ const Avatar = (props) => {
   ]);
 
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <img className={imgClassNames} src={url}/>
       { rate ? (
         <>
@@ -39,6 +44,7 @@ const Avatar = (props) => {
 };
 
 Avatar.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   url: PropTypes.string,
   rate: PropTypes.number,

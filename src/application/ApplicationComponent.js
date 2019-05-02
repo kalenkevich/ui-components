@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles, { ThemeProvider } from 'react-jss';
-import Header from '../components/header';
+import { HeaderWithAuthorization } from '../components/header';
 import { SettingsProvider } from '../context/SettingsContext';
 import { Authorization } from '../context/AuthorizationContext';
 import { MobileApp } from '../context/MobileContext';
@@ -37,7 +37,7 @@ const ApplicationComponent = ({ classes }) => {
         <Authorization>
           <MobileApp>
             <NotificationApp>
-              <Header appName={settings.AppName}/>
+              <HeaderWithAuthorization/>
               <div className={classes.applicationWrapper}>
                 <div className={classes.application}>
                   <ThemeSection theme={theme} onChange={changeTheme}/>
@@ -60,7 +60,7 @@ const ApplicationComponent = ({ classes }) => {
       </ThemeProvider>
     </SettingsProvider>
   );
-}
+};
 
 ApplicationComponent.propTypes = {
   classes: PropTypes.object.isRequired,

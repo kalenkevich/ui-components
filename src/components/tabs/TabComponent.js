@@ -15,12 +15,14 @@ const TabComponent = (props) => {
     marked = false,
     onSelect,
     children,
+    className,
   } = props;
 
   const classNames = getClassName([
     classes.root,
     disabled ? 'disabled' : '',
     selected ? 'selected' : '',
+    className,
   ]);
 
   return (
@@ -37,6 +39,7 @@ const TabComponent = (props) => {
 };
 
 TabComponent.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   disabled: PropTypes.bool,
   selected: PropTypes.bool,

@@ -7,6 +7,7 @@ import CheckboxStyles from './CheckboxStyle';
 
 const Checkbox = (props) => {
   const {
+    className,
     classes,
     label,
     checked,
@@ -14,13 +15,18 @@ const Checkbox = (props) => {
     disabled,
   } = props;
 
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
+
   const classNames = getClassName([
     classes.checkbox,
     checked ? 'checked' : '',
   ]);
 
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <input
         disabled={disabled}
         className={classNames}
@@ -47,6 +53,7 @@ const Checkbox = (props) => {
 };
 
 Checkbox.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   label: PropTypes.string,
   checked: PropTypes.bool,

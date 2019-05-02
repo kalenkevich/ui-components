@@ -14,8 +14,13 @@ const Radio = (props) => {
     selectedValue,
     onChange,
     disabled,
+    className,
   } = props;
 
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
   const checked = value === selectedValue;
   const classNames = getClassName([
     classes.radio,
@@ -23,7 +28,7 @@ const Radio = (props) => {
   ]);
 
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <input
         disabled={disabled}
         className={classNames}
@@ -51,6 +56,7 @@ const Radio = (props) => {
 };
 
 Radio.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   label: PropTypes.string,
   group: PropTypes.string,

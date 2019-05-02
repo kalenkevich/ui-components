@@ -8,10 +8,12 @@ const TabsHeaderComponent = (props) => {
   const {
     classes,
     children,
+    className,
   } = props;
 
   const classNames = getClassName([
     classes.root,
+    className,
   ]);
 
   return (
@@ -22,6 +24,7 @@ const TabsHeaderComponent = (props) => {
 };
 
 TabsHeaderComponent.propTypes = {
+  className: PropTypes.string,
   classes: PropTypes.object,
   children: PropTypes.node,
 };

@@ -4,46 +4,54 @@ import { brandPrimaryColor } from '../../theme';
 export default theme => ({
   root: {
     display: 'flex',
-    position: 'relative',
   },
   rootWrapper: {
     display: 'flex',
     flexDirection: 'column',
   },
   valueOption: {
-    display: 'flex',
-    alignItems: 'center',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
-    fontSize: theme.controlFontSize,
-    fontWeight: theme.controlFontWeight,
-    height: theme.controlHeight,
-    boxSizing: 'border-box',
-    paddingLeft: '8px',
-    width: '300px',
-    cursor: 'pointer',
-    '&.disabled': {
-      cursor: 'default',
-      color: theme.brandDarkGrayColor,
-      backgroundColor: theme.brandLightGrayColor,
+    '&.defaultPreview': {
+      display: 'flex',
+      alignItems: 'center',
+      border: theme.border,
+      borderRadius: theme.borderRadius,
+      borderRight: 'none',
+      borderBottomRightRadius: '0',
+      borderTopRightRadius: '0',
+      fontSize: theme.controlFontSize,
+      fontWeight: theme.controlFontWeight,
+      height: theme.controlHeight,
+      boxSizing: 'border-box',
+      paddingLeft: '8px',
+      width: '270px',
+      cursor: 'pointer',
+      '&.disabled': {
+        cursor: 'default',
+        color: theme.brandDarkGrayColor,
+        backgroundColor: theme.brandLightGrayColor,
+      },
+      '&.success': {
+        color: theme.brandSuccessLightColor,
+        borderColor: theme.brandSuccessLightColor,
+      },
+      '&.error': {
+        color: theme.brandErrorLightColor,
+        borderColor: theme.brandErrorLightColor,
+      },
+      '&.placeholder': {
+        color: theme.brandDarkGrayColor,
+      },
     },
-    '&.success': {
-      color: theme.brandSuccessLightColor,
-      borderColor: theme.brandSuccessLightColor,
-    },
-    '&.error': {
-      color: theme.brandErrorLightColor,
-      borderColor: theme.brandErrorLightColor,
-    },
-    '&.placeholder': {
-      color: theme.brandDarkGrayColor,
-    },
+  },
+  optionsWrapper: {
+    position: 'relative',
   },
   options: {
     position: 'absolute',
-    top: `calc(${theme.controlHeight} + 3px)`,
+    top: '3px',
     left: '0',
     width: 'calc(100% - 2px)',
+    minWidth: '90px',
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '240px',
@@ -71,10 +79,31 @@ export default theme => ({
       backgroundColor: theme.brandPrimaryColor,
     },
   },
+  iconWrapper: {
+    width: '30px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderLeft: 'none',
+    border: theme.border,
+    borderRadius: theme.borderRadius,
+    borderBottomLeftRadius: '0',
+    borderTopLeftRadius: '0',
+    '&.disabled': {
+      cursor: 'default',
+      backgroundColor: theme.brandLightGrayColor,
+    },
+    '&.success': {
+      borderColor: theme.brandSuccessLightColor,
+    },
+    '&.error': {
+      borderColor: theme.brandErrorLightColor,
+    },
+    '&.customPreview': {
+      border: 'none',
+    },
+  },
   icon: {
-    position: 'absolute',
-    right: '10px',
-    top: '8px',
     cursor: 'pointer',
     transition: 'transform linear 100ms',
     color: theme.brandDarkGrayColor,

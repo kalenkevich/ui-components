@@ -5,9 +5,11 @@ import Input from '../input';
 import { getFormattedDate } from './DateUtils';
 import DatePickerPopup from './DatePickerPopupComponent';
 import DatePickerStyles from './DatePickerComponentStyle';
+import { getClassName } from '../../services/Utils';
 
 const DatePicker = (props) => {
   const {
+    className,
     date,
     onChange,
     classes,
@@ -18,6 +20,10 @@ const DatePicker = (props) => {
     placeholder,
     options,
   } = props;
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
   const [isOpened, setOpenState] = useState(false);
   const formattedDate = getFormattedDate(date);
   const onApplyClick = (newDate) => {
@@ -34,7 +40,7 @@ const DatePicker = (props) => {
   };
 
   return (
-    <div className={classes.root} onClick={() => setOpenState(true)}>
+    <div className={rootClasses} onClick={() => setOpenState(true)}>
       <Input
         label={label}
         success={success}
@@ -64,6 +70,7 @@ const DatePicker = (props) => {
 };
 
 DatePicker.propTypes = {
+  className: PropTypes.string,
   date: PropTypes.object,
   classes: PropTypes.object,
   onChange: PropTypes.func,

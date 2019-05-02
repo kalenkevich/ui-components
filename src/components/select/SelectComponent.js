@@ -18,17 +18,41 @@ const Select = (props) => {
     success = false,
     label = '',
     placeholder = '',
+    preview,
   } = props;
 
   const [isOpen, setOpenState] = useState(false);
   const valueOption = (options || []).find(option => option.value === value);
+  const rootClasses = getClassName([
+    classes.root,
+    className,
+  ]);
   const classNames = getClassName([
     classes.valueOption,
+    preview ? 'customPreview' : 'defaultPreview',
     error ? ' error' : '',
     success ? 'success' : '',
     disabled ? 'disabled' : '',
     !valueOption && placeholder ? 'placeholder' : '',
   ]);
+  const iconWrapperClasses = getClassName([
+    classes.iconWrapper,
+    preview ? 'customPreview' : 'defaultPreview',
+    error ? ' error' : '',
+    success ? 'success' : '',
+    disabled ? 'disabled' : '',
+  ]);
+  const getPreview = () => {
+    if (preview) {
+      if (typeof preview === 'function') {
+        return preview({ isOpen, setOpenState });
+      }
+
+      return <preview/>;
+    }
+
+    return valueOption ? valueOption.label : placeholder;
+  };
 
   return (
     <div className={classes.rootWrapper}>
@@ -38,7 +62,7 @@ const Select = (props) => {
           value={label}
         />
         : null}
-      <div className={`${classes.root} ${className}`}>
+      <div className={rootClasses}>
         <div className={classNames}
           onClick={() => {
             if (!disabled) {
@@ -46,17 +70,21 @@ const Select = (props) => {
             }
           }}
         >
-          {valueOption ? valueOption.label : placeholder}
+          {getPreview()}
         </div>
-        <FontAwesomeIcon
-          className={`${classes.icon} ${isOpen ? 'down' : 'up'}`}
-          icon={'chevron-up'}
-          onClick={() => {
-            if (!disabled) {
-              setOpenState(true);
-            }
-          }}
-        />
+        <div className={iconWrapperClasses}>
+          <FontAwesomeIcon
+            className={`${classes.icon} ${isOpen ? 'down' : 'up'}`}
+            icon={'chevron-up'}
+            onClick={() => {
+              if (!disabled) {
+                setOpenState(true);
+              }
+            }}
+          />
+        </div>
+      </div>
+      <div className={classes.optionsWrapper}>
         { !disabled && isOpen && options.length
           ? <>
             <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
@@ -85,6 +113,10 @@ Select.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   options: PropTypes.array,
+  preview: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   value: PropTypes.string,
   onSelect: PropTypes.func,
   label: PropTypes.string,

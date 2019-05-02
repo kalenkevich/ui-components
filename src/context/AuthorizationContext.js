@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import AuthorizationService from '../services/AuthorizationService';
+import { AuthorizationService } from '../services/AuthorizationService';
 import ApplicationLoading from '../application/ApplicationLoadingComponent';
 
 const AuthorizationContext = React.createContext({

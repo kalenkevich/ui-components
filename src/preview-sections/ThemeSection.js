@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Section, SectionRow } from './Section';
 import Input from '../components/input';
-import {
-  backgroundColorTransition,
-  borderRadius, boxShadow,
-  controlFontSize,
-  controlFontWeight,
-  controlHeight,
-} from '../theme';
 
 const ThemeSection = ({ theme, onChange }) => {
   const onInputChange = (value, themeKey) => {

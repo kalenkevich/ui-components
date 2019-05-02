@@ -8,10 +8,12 @@ const TabsBodyComponent = (props) => {
   const {
     classes,
     children,
+    className,
   } = props;
 
   const classNames = getClassName([
     classes.root,
+    className,
   ]);
 
   return (
@@ -23,6 +25,7 @@ const TabsBodyComponent = (props) => {
 
 TabsBodyComponent.propTypes = {
   classes: PropTypes.object,
+  className: PropTypes.string,
   children: PropTypes.node,
 };
 

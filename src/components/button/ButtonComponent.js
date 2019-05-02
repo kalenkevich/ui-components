@@ -7,7 +7,7 @@ import ButtonStyle from './ButtonStyle';
 const ButtonComponent = (props) => {
   const {
     classes,
-    type = 'primary',
+    type = 'secondary',
     children,
     onClick,
     className = '',

@@ -11,7 +11,7 @@ export default theme => ({
     border: theme.border,
     borderRadius: theme.borderRadius,
     backgroundColor: 'transparent',
-    outline: 'none',
+    //outline: 'none',
     width: '300px',
     padding: '6px 8px',
     paddingTop: '4px',

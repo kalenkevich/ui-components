@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import settings from '../../config/settings';
 import UserFragment from '../fragments/userFragment';
 import makeBackendGraphQLConnector from './BackendGraphQLConnector';
 
@@ -78,4 +79,11 @@ class AuthorizationService {
   }
 }
 
-export default authUrl => new AuthorizationService(authUrl);
+const makeAuthorizationService = authUrl => new AuthorizationService(authUrl);
+const Service = makeAuthorizationService(`${settings.AuthBackendUrl}/graphql`);
+
+export {
+  Service as AuthorizationService,
+};
+
+export default makeAuthorizationService;
