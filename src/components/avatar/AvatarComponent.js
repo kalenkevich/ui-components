@@ -33,7 +33,7 @@ const Avatar = (props) => {
 
   return (
     <div className={rootClasses}>
-      <Icon className={imgClassNames} src={url}/>
+      <Icon className={imgClassNames} src={url} type={'USER_ICON'}/>
       { rate ? (
         <>
           <div className={rateBackgroundClassNames}/>
