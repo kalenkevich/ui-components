@@ -40,7 +40,7 @@ const HeaderComponent = (props) => {
       <div className={classes.actionPanel}>
         <Select
           value={''}
-          onSelect={(value) => {
+          onSelect={({ value }) => {
             if (value === 'signOut') {
               goToSignOut();
             }
