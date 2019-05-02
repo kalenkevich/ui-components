@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'react-jss';
+import withStyles, { ThemeProvider } from 'react-jss';
 import Header from '../components/header';
 import { SettingsProvider } from '../context/SettingsContext';
 import { Authorization } from '../context/AuthorizationContext';
@@ -19,33 +19,48 @@ import TabsSection from '../preview-sections/TabsSection';
 import LabeledTextSection from '../preview-sections/LabeledTextSection';
 import NotificationSection from '../preview-sections/NotificationSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
+import ThemeSection from '../preview-sections/ThemeSection';
+import defaultTheme from '../theme';
 
-const ApplicationComponent = ({ classes }) => (
-  <SettingsProvider value={settings}>
-    <Authorization>
-      <MobileApp>
-        <NotificationApp>
-          <Header appName={settings.AppName}/>
-          <div className={classes.applicationWrapper}>
-            <div className={classes.application}>
-              <ButtonSection/>
-              <CheckboxSection/>
-              <RadioSection/>
-              <LabeledTextSection/>
-              <InputSection/>
-              <TextAreaSection/>
-              <SelectSection/>
-              <AvatarSection/>
-              <TabsSection/>
-              <NotificationSection/>
-              <DatePickerSection/>
-            </div>
-          </div>
-        </NotificationApp>
-      </MobileApp>
-    </Authorization>
-  </SettingsProvider>
-);
+const ApplicationComponent = ({ classes }) => {
+  const [theme, setTheme] = useState(defaultTheme);
+  const changeTheme = (newTheme) => {
+    setTheme({
+      ...theme,
+      ...newTheme,
+    });
+  };
+
+  return (
+    <SettingsProvider value={settings}>
+      <ThemeProvider theme={theme}>
+        <Authorization>
+          <MobileApp>
+            <NotificationApp>
+              <Header appName={settings.AppName}/>
+              <div className={classes.applicationWrapper}>
+                <div className={classes.application}>
+                  <ThemeSection theme={theme} onChange={changeTheme}/>
+                  <ButtonSection/>
+                  <CheckboxSection/>
+                  <RadioSection/>
+                  <LabeledTextSection/>
+                  <InputSection/>
+                  <TextAreaSection/>
+                  <SelectSection/>
+                  <AvatarSection/>
+                  <TabsSection/>
+                  <NotificationSection/>
+                  <DatePickerSection/>
+                </div>
+              </div>
+            </NotificationApp>
+          </MobileApp>
+        </Authorization>
+      </ThemeProvider>
+    </SettingsProvider>
+  );
+}
 
 ApplicationComponent.propTypes = {
   classes: PropTypes.object.isRequired,
