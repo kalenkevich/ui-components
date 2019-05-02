@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Notification } from '../components/notification';
 
@@ -9,9 +9,18 @@ const NotificationContext = React.createContext(null);
 
 export const NotificationProvider = NotificationContext.Provider;
 export const NotificationConsumer = NotificationContext.Consumer;
-export const NotificationApp = ({ children }) => {
-  const [notifications, setNotifications] = useState([]);
-  const showNotification = (notificationArgs) => {
+export class NotificationApp extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      notifications: [],
+    };
+
+    this.showNotification = this.showNotification.bind(this);
+  }
+
+  showNotification(notificationArgs) {
     const {
       type = 'info',
       message,
@@ -27,16 +36,16 @@ export const NotificationApp = ({ children }) => {
       hide: false,
     };
 
-    setNotifications([
-      ...notifications,
+    this.setNotifications([
+      ...this.state.notifications,
       newNotification,
     ]);
 
-    setTimeout(() => hideNotification(newNotification), show);
-  };
+    setTimeout(() => this.hideNotification(newNotification), show);
+  }
 
-  const hideNotification = (notification) => {
-    setNotifications((notifications || []).map((n) => {
+  hideNotification(notification) {
+    this.setNotifications((this.state.notifications || []).map((n) => {
       if (n.id !== notification.id) {
         return n;
       }
@@ -48,28 +57,36 @@ export const NotificationApp = ({ children }) => {
     }));
 
     setTimeout(() => {
-      setNotifications((notifications || []).filter(({ id }) => (id !== notification.id)));
+      this.setNotifications((this.state.notifications || []).filter(({ id }) => (id !== notification.id)));
     }, HIDE_ANIMATION_TIME);
-  };
+  }
 
-  return (
-    <NotificationProvider value={{ showNotification }}>
-      <div>
-        {(notifications || []).map(notification => (
-          <Notification
-            key={notification.id}
-            type={notification.type}
-            position={notification.position}
-            message={notification.message}
-            hide={notification.hide}
-            onClose={() => hideNotification(notification)}
-          />
-        ))}
-      </div>
-      {children}
-    </NotificationProvider>
-  );
-};
+  setNotifications(notifications) {
+    this.setState({
+      notifications,
+    });
+  }
+
+  render() {
+    return (
+      <NotificationProvider value={{ showNotification: this.showNotification }}>
+        <div>
+          {(this.state.notifications || []).map(notification => (
+            <Notification
+              key={notification.id}
+              type={notification.type}
+              position={notification.position}
+              message={notification.message}
+              hide={notification.hide}
+              onClose={() => this.hideNotification(notification)}
+            />
+          ))}
+        </div>
+        {this.props.children}
+      </NotificationProvider>
+    );
+  }
+}
 
 NotificationApp.propTypes = {
   children: PropTypes.node,
