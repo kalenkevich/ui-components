@@ -24,6 +24,7 @@ import {
   Notification,
   NotificationBell,
 } from './notification';
+import Dropdown, { DropdownItem } from './dropdown';
 
 export {
   AutocompleteComponent,
@@ -47,4 +48,6 @@ export {
   LabeledText,
   Notification,
   NotificationBell,
+  Dropdown,
+  DropdownItem,
 };

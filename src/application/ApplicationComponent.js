@@ -20,6 +20,7 @@ import LabeledTextSection from '../preview-sections/LabeledTextSection';
 import NotificationSection from '../preview-sections/NotificationSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 import ThemeSection from '../preview-sections/ThemeSection';
+import DropdownSection from '../preview-sections/DropdownSection';
 import defaultTheme from '../theme';
 
 const ApplicationComponent = ({ classes }) => {
@@ -42,12 +43,13 @@ const ApplicationComponent = ({ classes }) => {
                 <div className={classes.application}>
                   <ThemeSection theme={theme} onChange={changeTheme}/>
                   <ButtonSection/>
+                  <DropdownSection/>
+                  <InputSection/>
+                  <SelectSection/>
                   <CheckboxSection/>
                   <RadioSection/>
-                  <LabeledTextSection/>
-                  <InputSection/>
                   <TextAreaSection/>
-                  <SelectSection/>
+                  <LabeledTextSection/>
                   <AvatarSection/>
                   <TabsSection/>
                   <NotificationSection/>

@@ -60,6 +60,7 @@ export default theme => ({
     backgroundColor: '#FFFFFF',
     overflow: 'auto',
     zIndex: '1',
+    padding: '10px 0',
     boxShadow: theme.boxShadow,
     '&::-webkit-scrollbar ': {
       width: '6px',
@@ -92,6 +93,7 @@ export default theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderLeft: 'none',
+    cursor: 'pointer',
     border: theme.border,
     borderRadius: theme.borderRadius,
     borderBottomLeftRadius: '0',
@@ -116,6 +118,9 @@ export default theme => ({
     color: theme.brandDarkGrayColor,
     '&.up': {
       transform: 'rotateX(180deg)',
+    },
+    '&.disabled': {
+      cursor: 'default',
     },
   },
   backdrop: {

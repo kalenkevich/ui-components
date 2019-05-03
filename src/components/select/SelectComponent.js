@@ -42,6 +42,11 @@ const Select = (props) => {
     success ? 'success' : '',
     disabled ? 'disabled' : '',
   ]);
+  const iconClasses = getClassName([
+    classes.icon,
+    disabled ? 'disabled' : '',
+    isOpen ? 'down' : 'up',
+  ]);
   const getPreview = () => {
     if (preview) {
       if (typeof preview === 'function') {
@@ -72,15 +77,14 @@ const Select = (props) => {
         >
           {getPreview()}
         </div>
-        <div className={iconWrapperClasses}>
+        <div className={iconWrapperClasses} onClick={() => {
+          if (!disabled) {
+            setOpenState(true);
+          }
+        }}>
           <FontAwesomeIcon
-            className={`${classes.icon} ${isOpen ? 'down' : 'up'}`}
+            className={iconClasses}
             icon={'chevron-up'}
-            onClick={() => {
-              if (!disabled) {
-                setOpenState(true);
-              }
-            }}
           />
         </div>
       </div>

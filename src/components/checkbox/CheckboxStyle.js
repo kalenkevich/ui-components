@@ -11,6 +11,7 @@ export default theme => ({
     position: 'relative',
     width: '20px',
     height: '20px',
+    outline: 'none',
     '&:before': {
       content: '""',
       position: 'absolute',

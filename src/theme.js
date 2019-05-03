@@ -40,6 +40,7 @@ export default {
   boxShadow,
   backgroundColorTransition,
   border: `1px solid ${brandGrayColor}`,
+  focusBorder: `1px solid ${brandPrimaryColor}`,
   borderBottom: `1px solid ${brandGrayColor}`,
   loading: {
     borderRadius,

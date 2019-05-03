@@ -6,7 +6,7 @@ import Button from '../components/button';
 const ButtonSection = () => (
   <Section title={'Buttons'}>
     <SectionRow>
-      <Button>
+      <Button type={'primary'}>
         Primary button
       </Button>
       <Button type={'secondary'}>
