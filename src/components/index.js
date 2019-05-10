@@ -27,6 +27,7 @@ import {
 import Dropdown, { DropdownItem, DropdownItemSeparator } from './dropdown';
 import Menu, { MenuItem, MenuSeparator } from './menu';
 import Backdrop from './Backdrop';
+import Tooltip from './tooltip';
 
 export {
   AutocompleteComponent,
@@ -57,4 +58,5 @@ export {
   MenuItem,
   MenuSeparator,
   Backdrop,
+  Tooltip,
 };

@@ -31,6 +31,9 @@ const ButtonSection = () => (
       <Button disabled>
         Disabled button
       </Button>
+      <Button tooltip='Tooltip text here'>
+        With tooltip
+      </Button>
     </SectionRow>
   </Section>
 );
