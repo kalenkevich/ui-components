@@ -34,7 +34,7 @@ const Dropdown = (props) => {
 
   return (
     <div className={classes.rootWrapper}>
-      <div className={rootClasses} tabIndex='1'>
+      <div className={rootClasses}>
         <button
           type={type}
           disabled={disabled}
@@ -53,22 +53,18 @@ const Dropdown = (props) => {
 
             setFocusState(false);
           }}
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
+
             if (disabled) {
               return;
             }
 
             if (!separate) {
-              setOpenState(true);
+              setOpenState(!isOpen);
             }
 
             onClick();
-          }}
-          onKeyPress={(e) => {
-            if (e.code === '13') {
-              setOpenState(true);
-              onClick();
-            }
           }}
         >
           {label}

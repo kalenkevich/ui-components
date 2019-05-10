@@ -78,6 +78,10 @@ const Select = (props) => {
           onKeyPress={(e) => {
             e.preventDefault();
 
+            if (disabled) {
+              return;
+            }
+
             if (e.key === 'Enter') {
               setOpenState(!isOpen);
             }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section, SectionRow } from './Section';
-import LabeledText from '../components/labled-text';
+import LabeledText from '../components/labeled-text';
 
 export const shortText = {
   label: 'Short text',

@@ -19,7 +19,7 @@ const LabeledText = (props) => {
   ]);
 
   return (
-    <div className={rootClasses}>
+    <div className={rootClasses} tabIndex='0'>
       <Label value={label} className={classes.label}/>
       <div className={classes.content}>
         {content}

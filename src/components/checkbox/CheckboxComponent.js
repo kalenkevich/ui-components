@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Label from '../label';
@@ -15,14 +15,15 @@ const Checkbox = (props) => {
     disabled,
   } = props;
 
+  const [isFocus, setFocusState] = useState(false);
   const rootClasses = getClassName([
     classes.root,
     className,
   ]);
-
   const classNames = getClassName([
     classes.checkbox,
     checked ? 'checked' : '',
+    isFocus ? 'focus' : '',
   ]);
 
   return (
@@ -34,6 +35,31 @@ const Checkbox = (props) => {
         value={checked}
         onChange={() => {
           if (!disabled) {
+            onChange(!checked);
+          }
+        }}
+        onFocus={() => {
+          if (disabled) {
+            return;
+          }
+
+          setFocusState(true);
+        }}
+        onBlur={() => {
+          if (disabled) {
+            return;
+          }
+
+          setFocusState(false);
+        }}
+        onKeyPress={(e) => {
+          e.preventDefault();
+
+          if (disabled) {
+            return;
+          }
+
+          if (e.key === 'Enter') {
             onChange(!checked);
           }
         }}

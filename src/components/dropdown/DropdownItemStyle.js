@@ -5,7 +5,8 @@ export default theme => ({
   label: {
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'baseline',
     padding: '8px 10px',
     cursor: 'pointer',
     transition: theme.backgroundColorTransition,
@@ -27,5 +28,8 @@ export default theme => ({
         backgroundColor: theme.brandLightGrayColor,
       },
     },
+  },
+  description: {
+    fontSize: '14px',
   },
 });

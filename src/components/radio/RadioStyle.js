@@ -1,3 +1,5 @@
+import { getBehaviourClasses } from '../checkbox/CheckboxStyle';
+
 export default theme => ({
   root: {
     display: 'flex',
@@ -15,6 +17,8 @@ export default theme => ({
     '&:before': {
       content: '""',
       position: 'absolute',
+      top: '0',
+      left: '0',
       cursor: 'pointer',
       width: '20px',
       height: '20px',
@@ -34,16 +38,10 @@ export default theme => ({
       backgroundColor: 'white',
       borderRadius: '50%',
     },
-    '&.checked:before': {
-      borderColor: theme.brandPrimaryDarkColor,
-    },
-    '&.checked:after': {
-      borderColor: theme.brandPrimaryDarkColor,
-      backgroundColor: theme.brandPrimaryColor,
-    },
-    '&:disabled:before, &:disabled:after': {
-      cursor: 'default',
-      backgroundColor: theme.brandLightGrayColor,
+    ...getBehaviourClasses(theme),
+    '&.focus': {
+      ...getBehaviourClasses(theme)['&.focus'],
+      borderRadius: '50%',
     },
   },
 });

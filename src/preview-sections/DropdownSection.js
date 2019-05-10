@@ -50,6 +50,11 @@ const DropdownSection = () => (
         <DropdownItem label='Second action'/>
         <DropdownItem label='Third action'/>
       </Dropdown>
+      <Dropdown type={'secondary'} label={'Dropdown with option description'} >
+        <DropdownItem label='First action' description='First action description'/>
+        <DropdownItem label='Second action' description='Second action description'/>
+        <DropdownItem label='Third action' description='Third action description'/>
+      </Dropdown>
     </SectionRow>
   </Section>
 );

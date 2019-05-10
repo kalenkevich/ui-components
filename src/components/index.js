@@ -19,7 +19,7 @@ import {
   TabsBody,
   TabsContainer,
 } from './tabs';
-import LabeledText from './labled-text';
+import LabeledText from './labeled-text';
 import {
   Notification,
   NotificationBell,

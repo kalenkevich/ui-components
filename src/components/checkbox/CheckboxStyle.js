@@ -1,3 +1,30 @@
+export const getBehaviourClasses = theme => ({
+  '&.checked:before': {
+    borderColor: theme.brandPrimaryDarkColor,
+  },
+  '&.checked:after': {
+    borderColor: theme.brandPrimaryDarkColor,
+    backgroundColor: theme.brandPrimaryColor,
+  },
+  '&:disabled:before, &:disabled:after': {
+    cursor: 'default',
+    backgroundColor: theme.brandLightGrayColor,
+  },
+  '&:disabled.checked:before': {
+    cursor: 'default',
+    border: theme.border,
+    backgroundColor: 'white',
+  },
+  '&:disabled.checked:after': {
+    cursor: 'default',
+    backgroundColor: theme.brandLightGrayColor,
+  },
+  '&.focus': {
+    border: theme.focusBorder,
+    boxShadow: theme.focusBoxShadow,
+  },
+});
+
 export default theme => ({
   root: {
     display: 'flex',
@@ -33,25 +60,6 @@ export default theme => ({
       transition: theme.backgroundColorTransition,
       backgroundColor: 'white',
     },
-    '&.checked:before': {
-      borderColor: theme.brandPrimaryDarkColor,
-    },
-    '&.checked:after': {
-      borderColor: theme.brandPrimaryDarkColor,
-      backgroundColor: theme.brandPrimaryColor,
-    },
-    '&:disabled:before, &:disabled:after': {
-      cursor: 'default',
-      backgroundColor: theme.brandLightGrayColor,
-    },
-    '&:disabled.checked:before': {
-      cursor: 'default',
-      border: theme.border,
-      backgroundColor: 'white',
-    },
-    '&:disabled.checked:after': {
-      cursor: 'default',
-      backgroundColor: theme.brandLightGrayColor,
-    },
+    ...getBehaviourClasses(theme),
   },
 });

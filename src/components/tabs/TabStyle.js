@@ -7,16 +7,15 @@ export default theme => ({
     alignItems: 'center',
     position: 'relative',
     height: theme.controlHeight,
-    paddingBottom: '10px',
     transition: 'border linear 100ms',
     borderColor: 'white',
-    '&.selected, &:hover': {
+    outline: 'none',
+    '&.selected, &:hover, &:focus': {
       borderBottom: `2px solid ${theme.brandPrimaryColor}`,
     },
     '&.disabled': {
       cursor: 'default',
       color: theme.brandDarkGrayColor,
-      borderColor: theme.brandDarkGrayColor,
       '&:hover': {
         borderBottom: 'none',
       },

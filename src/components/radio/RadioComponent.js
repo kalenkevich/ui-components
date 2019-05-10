@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Label from '../label';
@@ -17,6 +17,7 @@ const Radio = (props) => {
     className,
   } = props;
 
+  const [isFocus, setFocusState] = useState(false);
   const rootClasses = getClassName([
     classes.root,
     className,
@@ -25,6 +26,7 @@ const Radio = (props) => {
   const classNames = getClassName([
     classes.radio,
     checked ? 'checked' : '',
+    isFocus ? 'focus' : '',
   ]);
 
   return (
@@ -38,6 +40,31 @@ const Radio = (props) => {
         onChange={() => {
           if (!disabled) {
             onChange(value);
+          }
+        }}
+        onFocus={() => {
+          if (disabled) {
+            return;
+          }
+
+          setFocusState(true);
+        }}
+        onBlur={() => {
+          if (disabled) {
+            return;
+          }
+
+          setFocusState(false);
+        }}
+        onKeyPress={(e) => {
+          e.preventDefault();
+
+          if (disabled) {
+            return;
+          }
+
+          if (e.key === 'Enter') {
+            onChange(!checked);
           }
         }}
       />

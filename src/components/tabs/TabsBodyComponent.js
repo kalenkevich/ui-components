@@ -17,9 +17,9 @@ const TabsBodyComponent = (props) => {
   ]);
 
   return (
-    <div className={classNames}>
+    <ul className={classNames}>
       {children}
-    </div>
+    </ul>
   );
 };
 

@@ -26,15 +26,25 @@ const TabComponent = (props) => {
   ]);
 
   return (
-    <div className={classNames} onClick={() => {
-      if (!disabled) {
-        onSelect(value);
-      }
-    }}>
+    <li className={classNames}
+      tabIndex={disabled ? '-1' : '0'}
+      onClick={() => {
+        if (!disabled) {
+          onSelect(value);
+        }
+      }}
+      onKeyPress={(e) => {
+        e.preventDefault();
+
+        if (!disabled) {
+          onSelect(value);
+        }
+      }}
+    >
       {marked ? <div className={classes.mark}/> : null}
       <Label value={label}/>
       {selected ? <div className={classes.children}>{children}</div> : null}
-    </div>
+    </li>
   );
 };
 
