@@ -14,6 +14,7 @@ export default theme => ({
     outline: 'none',
     '&:focus': {
       border: theme.focusBorder,
+      boxShadow: theme.focusBoxShadow,
     },
     width: '300px',
     padding: '6px 8px',

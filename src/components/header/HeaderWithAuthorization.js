@@ -66,7 +66,7 @@ const HeaderComponent = (props) => {
                 url={authorizedUser.avatarUrl}
                 size='sm'
               />
-              { !isMobile ? <div className={classes.userName}>{authorizedUser.name}</div>: null }
+              { !isMobile ? <div className={classes.userName}>{authorizedUser.name}</div> : null }
             </div>
           )}
         />

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropdownStyles from './DropdownComponentStyle';
-import Button from '../button';
 import { getClassName } from '../../services/Utils';
 
 const Dropdown = (props) => {
@@ -21,48 +20,59 @@ const Dropdown = (props) => {
   } = props;
 
   const [isOpen, setOpenState] = useState(false);
-  const rootClasses = getClassName([
-    classes.root,
-    className,
-  ]);
-  const buttonClassNames = getClassName([
-    classes.button,
+  const [isFocus, setFocusState] = useState(false);
+  const behaviourClasses = [
     error ? ' error' : '',
     success ? 'success' : '',
     disabled ? 'disabled' : '',
     separate ? 'separate' : 'non-separate',
-  ]);
-  const iconWrapperClasses = getClassName([
-    classes.iconWrapper,
-    type,
-    error ? ' error' : '',
-    success ? 'success' : '',
-    disabled ? 'disabled' : '',
-    separate ? 'separate' : 'non-separate',
-  ]);
-  const iconClasses = getClassName([
-    classes.icon,
-    disabled ? 'disabled' : '',
-    isOpen ? 'down' : 'up',
-  ]);
+    isFocus ? 'focus' : '',
+  ];
+  const rootClasses = getClassName([classes.root, className, type, ...behaviourClasses]);
+  const iconWrapperClasses = getClassName([classes.iconWrapper, separate ? 'separate' : 'non-separate']);
+  const iconClasses = getClassName([classes.icon, disabled ? 'disabled' : '', isOpen ? 'down' : 'up']);
 
   return (
     <div className={classes.rootWrapper}>
-      <div className={rootClasses}>
-        <Button
-          className={buttonClassNames}
+      <div className={rootClasses} tabIndex='1'>
+        <button
           type={type}
           disabled={disabled}
+          className={classes.button}
+          onFocus={() => {
+            if (disabled) {
+              return;
+            }
+
+            setFocusState(true);
+          }}
+          onBlur={() => {
+            if (disabled) {
+              return;
+            }
+
+            setFocusState(false);
+          }}
           onClick={() => {
-            if (!disabled && !separate) {
+            if (disabled) {
+              return;
+            }
+
+            if (!separate) {
               setOpenState(true);
             }
 
             onClick();
           }}
+          onKeyPress={(e) => {
+            if (e.code === '13') {
+              setOpenState(true);
+              onClick();
+            }
+          }}
         >
           {label}
-        </Button>
+        </button>
         <div className={iconWrapperClasses} onClick={() => {
           if (!disabled) {
             setOpenState(true);
@@ -78,7 +88,11 @@ const Dropdown = (props) => {
         { !disabled && isOpen
           ? <>
             <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
-            <div className={classes.options} onClick={() => setOpenState(false)}>{children}</div>
+            <ul className={classes.options}
+              onClick={() => setOpenState(false)}
+            >
+              {children}
+            </ul>
           </>
           : null }
       </div>

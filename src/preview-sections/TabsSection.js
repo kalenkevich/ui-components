@@ -70,11 +70,14 @@ const TabsSection = () => {
   const [selectedValue2, selectTab2] = useState(tabs2[3].value);
   const [selectedValue3, selectTab3] = useState(tabs3[3].value);
   const selectedTab1 = (tabs1 || []).find(
-    ({value}) => selectedValue1 === value);
+    ({ value }) => selectedValue1 === value,
+  );
   const selectedTab2 = (tabs2 || []).find(
-    ({value}) => selectedValue2 === value);
+    ({ value }) => selectedValue2 === value,
+  );
   const selectedTab3 = (tabs3 || []).find(
-    ({value}) => selectedValue3 === value);
+    ({ value }) => selectedValue3 === value,
+  );
 
   return (
     <Section title={'Tabs'}>

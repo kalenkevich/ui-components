@@ -1,4 +1,5 @@
 export const borderRadius = '3px';
+export const fontColor = '#000000';
 export const controlHeight = '32px';
 export const controlFontSize = '15px';
 export const controlFontWeight = '300';
@@ -16,10 +17,10 @@ export const brandWarningDarkColor = '#F57C00';
 export const brandErrorLightColor = '#EF5350';
 export const brandErrorDarkColor = '#D32F2F';
 export const boxShadow = '1px 1px 10px 2px rgba(0, 0, 0, 0.4)';
+export const focusBoxShadow = '0px 0px 10px 0px rgba(0, 0, 0, 0.4)';
 export const backgroundColorTransition = 'background-color linear 100ms';
 
 export default {
-  titleColor: '#757575',
   borderRadius,
   brandGrayColor,
   brandDarkGrayColor,
@@ -34,10 +35,12 @@ export default {
   brandWarningDarkColor,
   brandErrorLightColor,
   brandErrorDarkColor,
+  fontColor,
   controlFontSize,
   controlFontWeight,
   controlHeight,
   boxShadow,
+  focusBoxShadow,
   backgroundColorTransition,
   border: `1px solid ${brandGrayColor}`,
   focusBorder: `1px solid ${brandPrimaryColor}`,

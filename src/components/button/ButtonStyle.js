@@ -1,4 +1,7 @@
+import { focusBoxShadow } from '../../theme';
+
 export const getBehaviourClasses = theme => ({
+  outline: 'none',
   '&.mobile': {
     minWidth: 'initial',
   },
@@ -44,28 +47,35 @@ export const getBehaviourClasses = theme => ({
   '&.danger:hover': {
     backgroundColor: theme.brandErrorDarkColor,
   },
-  '&:disabled, &:disabled:hover': {
+  '&:disabled, &:disabled:hover, &.disabled, &.disabled:hover': {
     cursor: 'default',
     color: 'initial',
     borderColor: theme.brandGrayColor,
     backgroundColor: theme.brandLightGrayColor,
   },
-  '&:focus': {
+  '&:focus, &.focus': {
     border: theme.focusBorder,
+    boxShadow: theme.focusBoxShadow,
   },
+});
+
+export const getButtonStyles = theme => ({
+  minHeight: theme.controlHeight,
+  border: theme.border,
+  borderRadius: theme.borderRadius,
+  cursor: 'pointer',
+  transition: theme.backgroundColorTransition,
+  minWidth: '80px',
+  fontSize: theme.controlFontSize,
+  fontWeight: theme.controlFontWeight,
+  padding: '5px 7px',
+  boxSizing: 'border-box',
+  textAlign: 'center',
 });
 
 export default theme => ({
   root: {
-    minHeight: theme.controlHeight,
-    border: theme.border,
-    borderRadius: theme.borderRadius,
-    cursor: 'pointer',
-    transition: theme.backgroundColorTransition,
-    outline: 'none',
-    minWidth: '80px',
-    fontSize: theme.controlFontSize,
-    fontWeight: theme.controlFontWeight,
+    ...getButtonStyles(theme),
     ...getBehaviourClasses(theme),
   },
 });

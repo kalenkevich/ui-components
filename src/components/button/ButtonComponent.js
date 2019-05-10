@@ -9,7 +9,7 @@ const ButtonComponent = (props) => {
     classes,
     type = 'secondary',
     children,
-    onClick,
+    onClick = () => {},
     className = '',
     disabled = false,
   } = props;
@@ -19,7 +19,22 @@ const ButtonComponent = (props) => {
     <button
       className={`${classes.root} ${className} ${type} ${isMobile ? 'mobile' : ''}`}
       disabled={disabled}
-      onClick={onClick}
+      onClick={(e) => {
+        e.stopPropagation();
+
+        if (disabled) {
+          return;
+        }
+
+        onClick();
+      }}
+      onKeyPress={(e) => {
+        e.stopPropagation();
+
+        if (e.key === 'Enter') {
+          onClick();
+        }
+      }}
     >
       {children}
     </button>

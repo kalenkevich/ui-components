@@ -1,11 +1,22 @@
 export default theme => ({
   root: {
+    listStyle: 'none',
+  },
+  label: {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: '8px 10px',
     cursor: 'pointer',
     transition: theme.backgroundColorTransition,
+    outline: 'none',
+    color: theme.fontColor,
+    textDecoration: 'none',
+    '&:focus': {
+      border: `1px solid ${theme.brandPrimaryColor}`,
+      borderRadius: theme.borderRadius,
+      padding: '7px 9px',
+    },
     '&:hover': {
       backgroundColor: theme.brandPrimaryColor,
     },

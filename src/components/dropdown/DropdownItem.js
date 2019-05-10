@@ -8,28 +8,42 @@ const DropdownItem = (props) => {
   const {
     classes,
     className,
-    children,
     disabled,
-    onClick,
+    onClick = () => {},
+    label,
+    description,
   } = props;
 
   const rootClasses = getClassName([
     classes.root,
-    disabled ? 'disabled' : '',
     className,
+  ]);
+  const labelClasses = getClassName([
+    classes.label,
+    disabled ? 'disabled' : '',
   ]);
 
   return (
-    <div className={rootClasses} onClick={onClick}>
-      {children}
-    </div>
+    <li className={rootClasses}>
+      <a href='#' className={labelClasses}
+        onClick={(e) => {
+          e.preventDefault();
+
+          onClick();
+        }}
+      >
+        {label}
+        { description ? <div className={classes.description}>{description}</div> : null }
+      </a>
+    </li>
   );
 };
 
 DropdownItem.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node,
+  label: PropTypes.string,
+  description: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
 };

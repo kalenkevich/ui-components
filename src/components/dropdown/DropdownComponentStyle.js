@@ -1,18 +1,23 @@
 import { brandPrimaryColor } from '../../theme';
-import { getBehaviourClasses } from '../button/ButtonStyle';
+import { getButtonStyles, getBehaviourClasses } from '../button/ButtonStyle';
 
 export default theme => ({
-  root: {
-    display: 'flex',
-  },
   rootWrapper: {
     display: 'flex',
     flexDirection: 'column',
   },
+  root: {
+    display: 'flex',
+    border: theme.border,
+    borderRadius: theme.borderRadius,
+    ...getBehaviourClasses(theme),
+  },
   button: {
-    borderRight: 'none',
-    borderBottomRightRadius: '0',
-    borderTopRightRadius: '0',
+    ...getButtonStyles(theme),
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+    borderRadius: '0',
   },
   optionsWrapper: {
     position: 'relative',
@@ -39,6 +44,7 @@ export default theme => ({
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: brandPrimaryColor,
     },
+    margin: 0,
   },
   iconWrapper: {
     width: '30px',
@@ -46,17 +52,12 @@ export default theme => ({
     cursor: 'pointer',
     alignItems: 'center',
     justifyContent: 'center',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
-    borderBottomLeftRadius: '0',
-    borderTopLeftRadius: '0',
-    '&.non-separate': {
-      borderLeft: 'none',
+    '&.separate': {
+      borderLeft: theme.border,
     },
     '&.disabled': {
       cursor: 'default',
     },
-    ...getBehaviourClasses(theme),
   },
   icon: {
     cursor: 'pointer',
