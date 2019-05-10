@@ -18,46 +18,27 @@ const Select = (props) => {
     success = false,
     label = '',
     placeholder = '',
-    preview,
   } = props;
 
+  const [isFocus, setFocusState] = useState(false);
   const [isOpen, setOpenState] = useState(false);
   const valueOption = (options || []).find(option => option.value === value);
+  const behaviourClasses = [
+    error ? ' error' : '',
+    success ? 'success' : '',
+    disabled ? 'disabled' : '',
+    isFocus ? 'focus' : '',
+  ];
   const rootClasses = getClassName([
     classes.root,
     className,
-  ]);
-  const classNames = getClassName([
-    classes.valueOption,
-    preview ? 'customPreview' : 'defaultPreview',
-    error ? ' error' : '',
-    success ? 'success' : '',
-    disabled ? 'disabled' : '',
-    !valueOption && placeholder ? 'placeholder' : '',
-  ]);
-  const iconWrapperClasses = getClassName([
-    classes.iconWrapper,
-    preview ? 'customPreview' : 'defaultPreview',
-    error ? ' error' : '',
-    success ? 'success' : '',
-    disabled ? 'disabled' : '',
+    ...behaviourClasses,
   ]);
   const iconClasses = getClassName([
     classes.icon,
     disabled ? 'disabled' : '',
     isOpen ? 'down' : 'up',
   ]);
-  const getPreview = () => {
-    if (preview) {
-      if (typeof preview === 'function') {
-        return preview({ isOpen, setOpenState });
-      }
-
-      return <preview/>;
-    }
-
-    return valueOption ? valueOption.label : placeholder;
-  };
 
   return (
     <div className={classes.rootWrapper}>
@@ -68,16 +49,41 @@ const Select = (props) => {
         />
         : null}
       <div className={rootClasses}>
-        <div className={classNames}
+        <input
+          className={classes.input}
+          onChange={() => {}}
+          value={valueOption ? valueOption.label : ''}
+          placeholder={placeholder}
           onClick={() => {
-            if (!disabled) {
-              setOpenState(true);
+            if (disabled) {
+              return;
+            }
+
+            setOpenState(!isOpen);
+          }}
+          onFocus={() => {
+            if (disabled) {
+              return;
+            }
+
+            setFocusState(true);
+          }}
+          onBlur={() => {
+            if (disabled) {
+              return;
+            }
+
+            setFocusState(false);
+          }}
+          onKeyPress={(e) => {
+            e.preventDefault();
+
+            if (e.key === 'Enter') {
+              setOpenState(!isOpen);
             }
           }}
-        >
-          {getPreview()}
-        </div>
-        <div className={iconWrapperClasses} onClick={() => {
+        />
+        <div className={classes.iconWrapper} onClick={() => {
           if (!disabled) {
             setOpenState(true);
           }
@@ -92,22 +98,27 @@ const Select = (props) => {
         { !disabled && isOpen && options.length
           ? <>
             <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
-            <div className={classes.options}>
+            <ul className={classes.options}>
               {(options || []).map(option => (
-                <div
-                  onClick={() => {
-                    if (!option.disabled) {
+                <li key={option.value}>
+                  <a href='#' tabIndex={option.disabled ? '-1' : '0'}
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      if (option.disabled) {
+                        return;
+                      }
+
                       onSelect(option);
                       setOpenState(false);
-                    }
-                  }}
-                  className={`${classes.option} ${option.disabled ? 'disabled' : ''}`}
-                  key={option.value}
-                >
-                  {option.label}
-                </div>
+                    }}
+                    className={`${classes.option} ${option.disabled ? 'disabled' : ''}`}
+                  >
+                    {option.label}
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </>
           : null }
       </div>
@@ -119,10 +130,6 @@ Select.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   options: PropTypes.array,
-  preview: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.func,
-  ]),
   value: PropTypes.string,
   onSelect: PropTypes.func,
   label: PropTypes.string,

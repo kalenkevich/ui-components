@@ -1,46 +1,34 @@
-import { controlLabel } from '../input/InputComponentStyle';
-import { brandPrimaryColor } from '../../theme';
+import {
+  controlLabel,
+  getBehaviourClasses,
+} from '../input/InputComponentStyle';
 
 export default theme => ({
-  root: {
-    display: 'flex',
-  },
   rootWrapper: {
     display: 'flex',
     flexDirection: 'column',
   },
-  valueOption: {
-    '&.defaultPreview': {
-      display: 'flex',
-      alignItems: 'center',
-      border: theme.border,
-      borderRadius: theme.borderRadius,
-      borderRight: 'none',
-      borderBottomRightRadius: '0',
-      borderTopRightRadius: '0',
-      fontSize: theme.controlFontSize,
-      fontWeight: theme.controlFontWeight,
-      height: theme.controlHeight,
-      boxSizing: 'border-box',
-      paddingLeft: '8px',
-      width: '270px',
-      cursor: 'pointer',
-      '&.disabled': {
-        cursor: 'default',
-        color: theme.brandDarkGrayColor,
-        backgroundColor: theme.brandLightGrayColor,
-      },
-      '&.success': {
-        color: theme.brandSuccessLightColor,
-        borderColor: theme.brandSuccessLightColor,
-      },
-      '&.error': {
-        color: theme.brandErrorLightColor,
-        borderColor: theme.brandErrorLightColor,
-      },
-      '&.placeholder': {
-        color: theme.brandDarkGrayColor,
-      },
+  root: {
+    display: 'flex',
+    border: theme.border,
+    borderRadius: theme.borderRadius,
+    ...getBehaviourClasses(theme),
+  },
+  input: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    fontSize: theme.controlFontSize,
+    fontWeight: theme.controlFontWeight,
+    height: theme.controlHeight,
+    boxSizing: 'border-box',
+    paddingLeft: '8px',
+    width: '270px',
+    cursor: 'pointer',
+    outline: 'none',
+    border: 'none',
+    '&:placeholder': {
+      color: theme.brandDarkGrayColor,
     },
   },
   optionsWrapper: {
@@ -66,8 +54,9 @@ export default theme => ({
       width: '6px',
     },
     '&::-webkit-scrollbar-thumb': {
-      backgroundColor: brandPrimaryColor,
+      backgroundColor: theme.brandPrimaryColor,
     },
+    margin: '0',
   },
   option: {
     display: 'flex',
@@ -76,6 +65,9 @@ export default theme => ({
     padding: '8px 10px',
     cursor: 'pointer',
     transition: theme.backgroundColorTransition,
+    outline: 'none',
+    color: theme.fontColor,
+    textDecoration: 'none',
     '&:hover': {
       backgroundColor: theme.brandPrimaryColor,
     },
@@ -86,30 +78,21 @@ export default theme => ({
         backgroundColor: theme.brandLightGrayColor,
       },
     },
+    '&:focus': {
+      border: `1px solid ${theme.brandPrimaryColor}`,
+      borderRadius: theme.borderRadius,
+      padding: '7px 9px',
+    },
   },
   iconWrapper: {
     width: '30px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderLeft: 'none',
     cursor: 'pointer',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
-    borderBottomLeftRadius: '0',
-    borderTopLeftRadius: '0',
     '&.disabled': {
       cursor: 'default',
       backgroundColor: theme.brandLightGrayColor,
-    },
-    '&.success': {
-      borderColor: theme.brandSuccessLightColor,
-    },
-    '&.error': {
-      borderColor: theme.brandErrorLightColor,
-    },
-    '&.customPreview': {
-      border: 'none',
     },
   },
   icon: {

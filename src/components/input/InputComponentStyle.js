@@ -5,6 +5,31 @@ export const controlLabel = theme => ({
   marginBottom: '5px',
 });
 
+export const getBehaviourClasses = theme => ({
+  outline: 'none',
+  '&:disabled, &.disabled': {
+    backgroundColor: theme.brandLightGrayColor,
+  },
+  '&.success': {
+    color: theme.brandSuccessLightColor,
+    borderColor: theme.brandSuccessLightColor,
+    '&:placeholder': {
+      color: theme.brandSuccessLightColor,
+    },
+  },
+  '&.error': {
+    color: theme.brandErrorLightColor,
+    borderColor: theme.brandErrorLightColor,
+    '&:placeholder': {
+      color: theme.brandErrorLightColor,
+    },
+  },
+  '&:focus, &.focus': {
+    border: theme.focusBorder,
+    boxShadow: theme.focusBoxShadow,
+  },
+});
+
 export default theme => ({
   root: {
     height: theme.controlHeight,
@@ -12,33 +37,13 @@ export default theme => ({
     borderRadius: theme.borderRadius,
     backgroundColor: 'transparent',
     outline: 'none',
-    '&:focus': {
-      border: theme.focusBorder,
-      boxShadow: theme.focusBoxShadow,
-    },
     width: '300px',
     padding: '6px 8px',
     paddingTop: '4px',
     fontSize: theme.controlFontSize,
     fontWeight: theme.controlFontWeight,
     boxSizing: 'border-box',
-    '&:disabled': {
-      backgroundColor: theme.brandLightGrayColor,
-    },
-    '&.success': {
-      color: theme.brandSuccessLightColor,
-      borderColor: theme.brandSuccessLightColor,
-      '&:placeholder': {
-        color: theme.brandSuccessLightColor,
-      },
-    },
-    '&.error': {
-      color: theme.brandErrorLightColor,
-      borderColor: theme.brandErrorLightColor,
-      '&:placeholder': {
-        color: theme.brandErrorLightColor,
-      },
-    },
+    ...getBehaviourClasses(theme),
   },
   rootWrapper: {
     display: 'flex',

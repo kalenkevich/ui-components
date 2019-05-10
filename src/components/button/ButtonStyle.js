@@ -1,5 +1,3 @@
-import { focusBoxShadow } from '../../theme';
-
 export const getBehaviourClasses = theme => ({
   outline: 'none',
   '&.mobile': {

@@ -88,9 +88,7 @@ const Dropdown = (props) => {
         { !disabled && isOpen
           ? <>
             <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
-            <ul className={classes.options}
-              onClick={() => setOpenState(false)}
-            >
+            <ul className={classes.options} onClick={() => setOpenState(false)}>
               {children}
             </ul>
           </>

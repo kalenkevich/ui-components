@@ -24,8 +24,9 @@ const DropdownItem = (props) => {
   ]);
 
   return (
-    <li className={rootClasses}>
+    <li className={rootClasses} tabIndex="-1">
       <a href='#' className={labelClasses}
+        tabIndex={disabled ? '-1' : '0'}
         onClick={(e) => {
           e.preventDefault();
 
