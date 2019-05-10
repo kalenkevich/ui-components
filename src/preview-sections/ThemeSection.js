@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { Section, SectionRow } from './Section';
 import Input from '../components/input';
+import ThemeContext from '../context/ThemeContext';
 
-const ThemeSection = ({ theme, onChange }) => {
-  const onInputChange = (value, themeKey) => {
-    onChange({
-      [themeKey]: value,
-    });
-  };
+const ThemeSection = () => {
+  const { theme, changeTheme } = useContext(ThemeContext);
+  const onInputChange = (value, themeKey) => changeTheme({ [themeKey]: value });
 
   return (
     <Section title={'Theme'}>
@@ -113,11 +110,6 @@ const ThemeSection = ({ theme, onChange }) => {
       </SectionRow>
     </Section>
   );
-};
-
-ThemeSection.propTypes = {
-  theme: PropTypes.object,
-  onChange: PropTypes.func,
 };
 
 export default ThemeSection;

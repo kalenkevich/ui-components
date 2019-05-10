@@ -10,10 +10,12 @@ import HeaderComponentStyle from './HeaderComponentStyle';
 import AuthorizationContext from '../../context/AuthorizationContext';
 import MobileContext from '../../context/MobileContext';
 import SettingsContext from '../../context/SettingsContext';
+import { MenuItem } from '../menu';
 
 const HeaderComponent = (props) => {
   const {
     classes,
+    history,
   } = props;
   const settings = useContext(SettingsContext);
   const { isMobile } = useContext(MobileContext);
@@ -51,6 +53,8 @@ const HeaderComponent = (props) => {
             if (value === 'profile') {
               return goToProfilePage();
             }
+
+            return null;
           }}
           options={[{
             label: 'My Profile',
@@ -90,7 +94,14 @@ const HeaderComponent = (props) => {
   }
 
   return (
-    <Header appName={settings.AppName}>
+    <Header appName={settings.AppName}
+      menu={(
+        <>
+          <MenuItem label='Basic components' onClick={() => history.push('/basic')}/>
+          <MenuItem label='Forms' onClick={() => history.push('/forms')}/>
+        </>
+      )}
+    >
       {ResultPanel}
     </Header>
   );

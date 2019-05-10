@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section, SectionRow } from './Section';
-import Dropdown, { DropdownItem } from '../components/dropdown';
+import Dropdown, { DropdownItem, DropdownItemSeparator } from '../components/dropdown';
 
 const DropdownSection = () => (
   <Section title={'Dropdowns'}>
@@ -53,6 +53,12 @@ const DropdownSection = () => (
       <Dropdown type={'secondary'} label={'Dropdown with option description'} >
         <DropdownItem label='First action' description='First action description'/>
         <DropdownItem label='Second action' description='Second action description'/>
+        <DropdownItem label='Third action' description='Third action description'/>
+      </Dropdown>
+      <Dropdown type={'secondary'} label={'Dropdown with separator'} >
+        <DropdownItem label='First action' description='First action description'/>
+        <DropdownItem label='Second action' description='Second action description'/>
+        <DropdownItemSeparator/>
         <DropdownItem label='Third action' description='Third action description'/>
       </Dropdown>
     </SectionRow>

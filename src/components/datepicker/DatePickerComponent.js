@@ -6,6 +6,7 @@ import { getFormattedDate } from './DateUtils';
 import DatePickerPopup from './DatePickerPopupComponent';
 import DatePickerStyles from './DatePickerComponentStyle';
 import { getClassName } from '../../services/Utils';
+import Backrdop from '../Backdrop';
 
 const DatePicker = (props) => {
   const {
@@ -52,10 +53,7 @@ const DatePicker = (props) => {
       />
       {isOpened ? (
         <>
-          <div
-            className={classes.backdrop}
-            onClick={onBackdropClick}
-          />
+          <Backrdop onClick={onBackdropClick}/>
           <DatePickerPopup
             date={date}
             classes={classes}

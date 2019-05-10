@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Label from '../label';
 import SelectStyles from './SelectComponentStyle';
 import { getClassName } from '../../services/Utils';
+import Backdrop from '../Backdrop';
 
 const Select = (props) => {
   const {
@@ -101,7 +102,7 @@ const Select = (props) => {
       <div className={classes.optionsWrapper}>
         { !disabled && isOpen && options.length
           ? <>
-            <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
+            <Backdrop onClick={() => setOpenState(false)}/>
             <ul className={classes.options}>
               {(options || []).map(option => (
                 <li key={option.value}>

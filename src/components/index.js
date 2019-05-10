@@ -24,7 +24,9 @@ import {
   Notification,
   NotificationBell,
 } from './notification';
-import Dropdown, { DropdownItem } from './dropdown';
+import Dropdown, { DropdownItem, DropdownItemSeparator } from './dropdown';
+import Menu, { MenuItem, MenuSeparator } from './menu';
+import Backdrop from './Backdrop';
 
 export {
   AutocompleteComponent,
@@ -50,4 +52,9 @@ export {
   NotificationBell,
   Dropdown,
   DropdownItem,
+  DropdownItemSeparator,
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  Backdrop,
 };

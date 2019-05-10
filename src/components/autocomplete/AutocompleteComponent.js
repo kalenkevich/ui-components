@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Input from '../input';
 import SelectStyles from '../select/SelectComponentStyle';
+import Backrdop from '../Backdrop';
 
 const Autocomplete = (props) => {
   const {
@@ -33,7 +34,7 @@ const Autocomplete = (props) => {
       />
       { isOpen && options.length
         ? <>
-          <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
+          <Backrdop onClick={() => setOpenState(false)}/>
           <div className={classes.options}>
             {(options || []).map(option => (
               <div

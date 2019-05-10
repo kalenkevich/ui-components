@@ -26,7 +26,7 @@ export const cell = (theme, width = 55, height = 55) => ({
   },
 });
 
-export const row = theme => ({
+export const row = () => ({
   display: 'flex',
   width: '100%',
   flexShrink: '0',
@@ -101,13 +101,5 @@ export default theme => ({
     '&:first-of-type': {
       marginLeft: '0',
     },
-  },
-  backdrop: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: '1',
   },
 });

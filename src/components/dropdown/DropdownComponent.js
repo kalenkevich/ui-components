@@ -4,6 +4,7 @@ import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropdownStyles from './DropdownComponentStyle';
 import { getClassName } from '../../services/Utils';
+import Backrdop from '../Backdrop';
 
 const Dropdown = (props) => {
   const {
@@ -83,7 +84,7 @@ const Dropdown = (props) => {
       <div className={classes.optionsWrapper}>
         { !disabled && isOpen
           ? <>
-            <div className={classes.backdrop} onClick={() => setOpenState(false)}/>
+            <Backrdop onClick={() => setOpenState(false)}/>
             <ul className={classes.options} onClick={() => setOpenState(false)}>
               {children}
             </ul>
