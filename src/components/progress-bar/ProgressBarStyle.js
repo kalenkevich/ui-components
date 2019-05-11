@@ -14,6 +14,9 @@ export default theme => ({
     '&.primary': {
       backgroundColor: theme.brandPrimaryColor,
     },
+    '&.secondary': {
+      backgroundColor: theme.brandLightGrayColor,
+    },
     '&.success': {
       backgroundColor: theme.brandSuccessLightColor,
     },

@@ -78,7 +78,12 @@ class MenuComponent extends Component {
     return (
       <>
         {MenuButton}
-        <Backdrop className={classes.backdrop} onClick={() => this.setOpenState(false)}/>
+        <Backdrop
+          className={classes.backdrop}
+          isOpening={isOpening}
+          isClosing={isClosing}
+          onClick={() => this.setOpenState(false)}
+        />
         <ul className={rootClasses} onClick={(e) => {
           e.stopPropagation();
 

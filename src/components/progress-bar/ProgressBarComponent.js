@@ -36,7 +36,7 @@ ProgressBar.propTypes = {
   classes: PropTypes.object,
   progress: PropTypes.number,
   infinity: PropTypes.bool,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['primary', 'secondary', 'success', 'info', 'warning', 'danger']),
 };
 
 export default withStyles(ProgressBarStyle)(ProgressBar);

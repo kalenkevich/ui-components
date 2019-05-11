@@ -28,7 +28,8 @@ const ButtonSection = () => {
         <ProgressBar progress={progress} type='danger'/>
       </SectionRow>
       <SectionRow title='Infinity progress bar'>
-        <ProgressBar infinity/>
+        <ProgressBar infinity type='primary'/>
+        <ProgressBar infinity type='secondary'/>
         <ProgressBar infinity type='success'/>
         <ProgressBar infinity type='info'/>
         <ProgressBar infinity type='warning'/>

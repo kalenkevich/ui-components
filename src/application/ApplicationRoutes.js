@@ -14,6 +14,7 @@ import DatePickerSection from '../preview-sections/DatePickerSection';
 import ThemeSection from '../preview-sections/ThemeSection';
 import DropdownSection from '../preview-sections/DropdownSection';
 import LoadingSection from '../preview-sections/LoadingSection';
+import CarouselSection from '../preview-sections/CarouselSection';
 
 const BasicComponents = () => (
   <>
@@ -36,6 +37,7 @@ const BasicComponents = () => (
 const Widgets = () => (
   <>
     <DatePickerSection/>
+    <CarouselSection/>
   </>
 );
 

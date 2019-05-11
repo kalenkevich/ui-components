@@ -11,13 +11,29 @@ export const BackdropStyle = () => ({
     width: '100%',
     height: '100%',
     zIndex: '1',
+    transition: 'opacity 100ms linear',
+    '&.opening': {
+      opacity: '1',
+    },
+    '&.closing': {
+      opacity: '0',
+    },
   },
 });
 
-const Backdrop = ({ classes, className, onClick }) => {
+const Backdrop = (props) => {
+  const {
+    classes,
+    className,
+    isOpening,
+    isClosing,
+    onClick,
+  } = props;
   const rootClasses = getClassName([
     classes.root,
     className,
+    isOpening ? 'opening' : '',
+    isClosing ? 'closing' : '',
   ]);
 
   return <div onClick={onClick} className={rootClasses}/>;
@@ -27,6 +43,8 @@ Backdrop.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  isOpening: PropTypes.bool,
+  isClosing: PropTypes.bool,
 };
 
 export default withStyles(BackdropStyle)(Backdrop);

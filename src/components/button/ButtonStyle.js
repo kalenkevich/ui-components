@@ -70,6 +70,7 @@ export const getButtonStyles = theme => ({
   textAlign: 'center',
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
 });
 
 export default theme => ({

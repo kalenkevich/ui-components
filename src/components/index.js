@@ -28,6 +28,7 @@ import Backdrop from './Backdrop';
 import Tooltip from './tooltip';
 import ProgressBar from './progress-bar';
 import Spinner from './spinner';
+import Carousel, { Legend, Slide } from './carousel';
 
 export {
   AutocompleteComponent,
@@ -60,4 +61,7 @@ export {
   Tooltip,
   ProgressBar,
   Spinner,
+  Carousel,
+  Legend,
+  Slide,
 };
