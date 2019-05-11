@@ -14,9 +14,9 @@ const Spinner = (props) => {
 
   const rootClasses = getClassName([
     classes.root,
-    className,
     size,
     type,
+    className,
   ]);
 
   return <div className={rootClasses}/>;
@@ -26,7 +26,7 @@ Spinner.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  type: PropTypes.oneOf(['primary', 'success', 'info', 'warning', 'danger']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'success', 'info', 'warning', 'danger']),
 };
 
 export default withStyles(SpinnerStyle)(Spinner);

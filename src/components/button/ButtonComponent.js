@@ -4,6 +4,7 @@ import withStyle from 'react-jss';
 import MobileContext from '../../context/MobileContext';
 import ButtonStyle from './ButtonStyle';
 import Tooltip from '../tooltip';
+import Spinner from '../spinner';
 
 const ButtonComponent = (props) => {
   const {
@@ -14,6 +15,7 @@ const ButtonComponent = (props) => {
     className = '',
     disabled = false,
     tooltip = '',
+    spin = false,
   } = props;
   const { isMobile } = useContext(MobileContext);
   const [isHovered, setHoveredState] = useState(false);
@@ -44,6 +46,7 @@ const ButtonComponent = (props) => {
         }}
       >
         {children}
+        {spin ? <Spinner className={classes.spinner} type={type} size='sm'/> : null }
       </button>
     </>
   );
@@ -53,7 +56,6 @@ ButtonComponent.propTypes = {
   classes: PropTypes.object,
   type: PropTypes.oneOf([
     'primary',
-    'secondary',
     'secondary',
     'success',
     'info',
@@ -65,6 +67,7 @@ ButtonComponent.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   tooltip: PropTypes.string,
+  spin: PropTypes.bool,
 };
 
 export default withStyle(ButtonStyle)(ButtonComponent);

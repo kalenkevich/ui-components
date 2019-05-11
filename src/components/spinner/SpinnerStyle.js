@@ -11,27 +11,30 @@ export default theme => ({
       animation: 'lds-dual-ring 1.2s linear infinite',
     },
     '&.sm': {
-      width: '16px',
-      height: '16px',
+      width: '22px',
+      height: '22px',
       '&:after': {
         width: '16px',
         height: '16px',
+        borderWidth: '3px',
       },
     },
     '&.md': {
-      width: '64px',
-      height: '64px',
+      width: '75px',
+      height: '75px',
       '&:after': {
         width: '64px',
         height: '64px',
+        borderWidth: '5px',
       },
     },
     '&.lg': {
-      width: '128px',
-      height: '128px',
+      width: '150px',
+      height: '150px',
       '&:after': {
         width: '128px',
         height: '128px',
+        borderWidth: '10px',
       },
     },
     '&.primary': {
@@ -39,24 +42,29 @@ export default theme => ({
         borderColor: `${theme.brandPrimaryColor} transparent ${theme.brandPrimaryColor} transparent`,
       },
     },
+    '&.secondary': {
+      '&:after': {
+        borderColor: `${theme.brandDarkGrayColor} transparent ${theme.brandDarkGrayColor} transparent`,
+      },
+    },
     '&.success': {
       '&:after': {
-        borderColor: `${theme.brandSuccessLightColor} transparent ${theme.brandSuccessLightColor} transparent`,
+        borderColor: `${theme.brandSuccessDarkColor} transparent ${theme.brandSuccessDarkColor} transparent`,
       },
     },
     '&.info': {
       '&:after': {
-        borderColor: `${theme.brandInfoLightColor} transparent ${theme.brandInfoLightColor} transparent`,
+        borderColor: `${theme.brandInfoDarkColor} transparent ${theme.brandInfoDarkColor} transparent`,
       },
     },
     '&.warning': {
       '&:after': {
-        borderColor: `${theme.brandWarningLightColor} transparent ${theme.brandWarningLightColor} transparent`,
+        borderColor: `${theme.brandWarningDarkColor} transparent ${theme.brandWarningDarkColor} transparent`,
       },
     },
     '&.danger': {
       '&:after': {
-        borderColor: `${theme.brandErrorLightColor} transparent ${theme.brandErrorLightColor} transparent`,
+        borderColor: `${theme.brandErrorDarkColor} transparent ${theme.brandErrorDarkColor} transparent`,
       },
     },
   },

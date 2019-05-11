@@ -34,6 +34,12 @@ const ButtonSection = () => (
       <Button tooltip='Tooltip text here'>
         With tooltip
       </Button>
+      <Button spin>
+        Spin button
+      </Button>
+      <Button spin disabled>
+        Spin button
+      </Button>
     </SectionRow>
   </Section>
 );

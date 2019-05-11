@@ -40,6 +40,8 @@ const ButtonSection = () => {
         <Spinner size='lg'/>
       </SectionRow>
       <SectionRow title='Spinner '>
+        <Spinner size='md' type='primary'/>
+        <Spinner size='md' type='secondary'/>
         <Spinner size='md' type='success'/>
         <Spinner size='md' type='info'/>
         <Spinner size='md' type='warning'/>

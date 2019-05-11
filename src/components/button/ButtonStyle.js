@@ -68,11 +68,16 @@ export const getButtonStyles = theme => ({
   padding: '5px 7px',
   boxSizing: 'border-box',
   textAlign: 'center',
+  display: 'flex',
+  alignItems: 'center',
 });
 
 export default theme => ({
   root: {
     ...getButtonStyles(theme),
     ...getBehaviourClasses(theme),
+  },
+  spinner: {
+    marginLeft: '5px',
   },
 });
