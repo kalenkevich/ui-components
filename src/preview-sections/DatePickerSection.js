@@ -12,12 +12,6 @@ const DatePickerSection = () => {
       className: '',
       selected: true,
       disabled: true,
-      onClick: (day) => {
-
-      },
-      render: (day, classes) => {
-
-      },
     }],
   };
 
