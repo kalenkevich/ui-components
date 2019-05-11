@@ -13,6 +13,7 @@ import NotificationSection from '../preview-sections/NotificationSection';
 import DatePickerSection from '../preview-sections/DatePickerSection';
 import ThemeSection from '../preview-sections/ThemeSection';
 import DropdownSection from '../preview-sections/DropdownSection';
+import LoadingSection from '../preview-sections/LoadingSection';
 
 const BasicComponents = () => (
   <>
@@ -28,6 +29,12 @@ const BasicComponents = () => (
     <AvatarSection/>
     <TabsSection/>
     <NotificationSection/>
+    <LoadingSection/>
+  </>
+);
+
+const Widgets = () => (
+  <>
     <DatePickerSection/>
   </>
 );
@@ -41,6 +48,7 @@ export const Forms = () => (
 const Routes = () => (
   <Switch>
     <Route path='/basic' component={BasicComponents}/>
+    <Route path='/widgets' component={Widgets}/>
     <Route path='/forms' component={Forms}/>
     <Redirect from={''} to={'/basic'}/>
   </Switch>

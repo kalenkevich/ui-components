@@ -22,10 +22,12 @@ export default theme => ({
     },
   },
   brandTitle: {
+    padding: '10px',
     cursor: 'pointer',
     fontSize: '24px',
     textDecoration: 'none',
     color: theme.brandDarkGrayColor,
+    borderRadius: theme.borderRadius,
     outline: 'none',
     '&:focus': {
       boxShadow: theme.focusBoxShadow,
@@ -37,6 +39,8 @@ export default theme => ({
     top: '10px',
     cursor: 'pointer',
     outline: 'none',
+    padding: '5px',
+    borderRadius: theme.borderRadius,
     '&:focus': {
       boxShadow: theme.focusBoxShadow,
     },

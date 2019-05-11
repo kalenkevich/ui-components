@@ -1,8 +1,6 @@
 import AutocompleteComponent from './autocomplete';
 import Button from './button';
-import Header, {
-  HeaderWithAuthorization,
-} from './header';
+import Header, { HeaderWithAuthorization } from './header';
 import Icon from './icon';
 import Input from './input';
 import Label from './label';
@@ -25,9 +23,11 @@ import {
   NotificationBell,
 } from './notification';
 import Dropdown, { DropdownItem, DropdownItemSeparator } from './dropdown';
-import Menu, { MenuItem, MenuSeparator } from './menu';
+import Menu, { MenuItem } from './menu';
 import Backdrop from './Backdrop';
 import Tooltip from './tooltip';
+import ProgressBar from './progress-bar';
+import Spinner from './spinner';
 
 export {
   AutocompleteComponent,
@@ -56,7 +56,8 @@ export {
   DropdownItemSeparator,
   Menu,
   MenuItem,
-  MenuSeparator,
   Backdrop,
   Tooltip,
+  ProgressBar,
+  Spinner,
 };

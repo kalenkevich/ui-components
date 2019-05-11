@@ -11,7 +11,7 @@ export default theme => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: '10px',
+    paddingLeft: '20px',
     boxSizing: 'border-box',
     color: theme.fontColor,
     transition: theme.backgroundColorTransition,
