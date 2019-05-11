@@ -9,6 +9,7 @@ const InputSection = () => {
   const forInput4 = getForInput();
   const forInput5 = getForInput();
   const forInput6 = getForInput();
+  const forInput7 = getForInput();
 
   return (
     <Section title={'Text Areas'}>
@@ -19,6 +20,7 @@ const InputSection = () => {
         <TextArea label='Success' {...forInput4} success/>
         <TextArea label='Error' {...forInput5} error/>
         <TextArea label='Disabled' {...forInput6} placeholder='Disabled' disabled/>
+        <TextArea label='With tooltip' {...forInput7} placeholder='With tooltip' tooltip='Tooltip text here'/>
       </SectionRow>
     </Section>
   );

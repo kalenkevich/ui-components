@@ -20,6 +20,7 @@ const ButtonComponent = (props) => {
 
   return (
     <>
+      <Tooltip label={tooltip} show={isHovered}/>
       <button
         className={`${classes.root} ${className} ${type} ${isMobile ? 'mobile' : ''}`}
         disabled={disabled}
@@ -44,7 +45,6 @@ const ButtonComponent = (props) => {
       >
         {children}
       </button>
-      <Tooltip label={tooltip} show={isHovered}/>
     </>
   );
 };

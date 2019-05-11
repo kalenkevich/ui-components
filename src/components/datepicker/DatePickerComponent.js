@@ -20,6 +20,7 @@ const DatePicker = (props) => {
     disabled,
     placeholder,
     options,
+    tooltip,
   } = props;
   const rootClasses = getClassName([
     classes.root,
@@ -49,6 +50,7 @@ const DatePicker = (props) => {
         disabled={disabled}
         placeholder={placeholder}
         value={formattedDate}
+        tooltip={tooltip}
         onChange={() => {}}
       />
       {isOpened ? (
@@ -78,6 +80,7 @@ DatePicker.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   options: PropTypes.object,
+  tooltip: PropTypes.string,
 };
 
 export default withStyle(DatePickerStyles)(DatePicker);

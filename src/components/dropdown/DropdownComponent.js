@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tooltip from '../tooltip';
 import DropdownStyles from './DropdownComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backrdop from '../Backdrop';
@@ -18,10 +19,12 @@ const Dropdown = (props) => {
     label = '',
     separate = false,
     onClick = () => {},
+    tooltip = '',
   } = props;
 
   const [isOpen, setOpenState] = useState(false);
   const [isFocus, setFocusState] = useState(false);
+  const [isHovered, setHoveredState] = useState(false);
   const behaviourClasses = [
     error ? ' error' : '',
     success ? 'success' : '',
@@ -29,13 +32,32 @@ const Dropdown = (props) => {
     separate ? 'separate' : 'non-separate',
     isFocus ? 'focus' : '',
   ];
-  const rootClasses = getClassName([classes.root, className, type, ...behaviourClasses]);
-  const iconWrapperClasses = getClassName([classes.iconWrapper, separate ? 'separate' : 'non-separate']);
-  const iconClasses = getClassName([classes.icon, disabled ? 'disabled' : '', isOpen ? 'down' : 'up']);
+  const rootClasses = getClassName(
+    [classes.root, className, type, ...behaviourClasses],
+  );
+  const iconWrapperClasses = getClassName(
+    [classes.iconWrapper, separate ? 'separate' : 'non-separate'],
+  );
+  const iconClasses = getClassName(
+    [classes.icon, disabled ? 'disabled' : '', isOpen ? 'down' : 'up'],
+  );
+  const openOptions = () => {
+    if (!disabled) {
+      setOpenState(true);
+    }
+  };
+  const closeOptions = () => {
+    setOpenState(false);
+    setHoveredState(false);
+  };
 
   return (
     <div className={classes.rootWrapper}>
-      <div className={rootClasses}>
+      <Tooltip label={tooltip} show={isHovered}/>
+      <div className={rootClasses}
+        onMouseEnter={() => setHoveredState(true)}
+        onMouseLeave={() => setHoveredState(false)}
+      >
         <button
           type={type}
           disabled={disabled}
@@ -70,11 +92,7 @@ const Dropdown = (props) => {
         >
           {label}
         </button>
-        <div className={iconWrapperClasses} onClick={() => {
-          if (!disabled) {
-            setOpenState(true);
-          }
-        }}>
+        <div className={iconWrapperClasses} onClick={openOptions}>
           <FontAwesomeIcon
             className={iconClasses}
             icon={'chevron-up'}
@@ -82,14 +100,15 @@ const Dropdown = (props) => {
         </div>
       </div>
       <div className={classes.optionsWrapper}>
-        { !disabled && isOpen
+        {!disabled && isOpen
           ? <>
-            <Backrdop onClick={() => setOpenState(false)}/>
-            <ul className={classes.options} onClick={() => setOpenState(false)}>
+            <Backrdop onClick={closeOptions}/>
+            <ul className={classes.options}
+              onClick={closeOptions}>
               {children}
             </ul>
           </>
-          : null }
+          : null}
       </div>
     </div>
   );
@@ -106,6 +125,7 @@ Dropdown.propTypes = {
   error: PropTypes.bool,
   success: PropTypes.bool,
   separate: PropTypes.bool,
+  tooltip: PropTypes.string,
 };
 
 export default withStyles(DropdownStyles)(Dropdown);

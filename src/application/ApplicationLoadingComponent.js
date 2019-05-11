@@ -14,10 +14,8 @@ export const ApplicationLoadingStyles = (theme) => {
     header: {
       ...headerStyle.headerContainer,
       border: 'none',
-      ...theme.loading,
     },
     content: {
-      ...theme.loading,
       borderRadius: theme.borderRadius,
       width: '100%',
       height: '100%',

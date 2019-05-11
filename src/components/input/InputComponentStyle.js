@@ -25,7 +25,6 @@ export const getBehaviourClasses = theme => ({
     },
   },
   '&:focus, &.focus': {
-    border: theme.focusBorder,
     boxShadow: theme.focusBoxShadow,
   },
 });

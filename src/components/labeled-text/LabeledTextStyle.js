@@ -7,7 +7,6 @@ export default theme => ({
     boxSizing: 'border-box',
     border: '1px solid transparent',
     '&:focus': {
-      border: theme.focusBorder,
       boxShadow: theme.focusBoxShadow,
     },
   },

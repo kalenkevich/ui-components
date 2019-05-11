@@ -52,7 +52,6 @@ export const getBehaviourClasses = theme => ({
     backgroundColor: theme.brandLightGrayColor,
   },
   '&:focus, &.focus': {
-    border: theme.focusBorder,
     boxShadow: theme.focusBoxShadow,
   },
 });

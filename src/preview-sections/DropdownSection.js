@@ -61,6 +61,11 @@ const DropdownSection = () => (
         <DropdownItemSeparator/>
         <DropdownItem label='Third action' description='Third action description'/>
       </Dropdown>
+      <Dropdown type={'secondary'} label={'Dropdown with tooltip'} tooltip='Tooltip text here'>
+        <DropdownItem label='First action'/>
+        <DropdownItem label='Second action'/>
+        <DropdownItem label='Third action'/>
+      </Dropdown>
     </SectionRow>
   </Section>
 );

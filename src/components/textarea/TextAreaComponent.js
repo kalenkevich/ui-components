@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyle from 'react-jss';
 import Label from '../label';
+import Tooltip from '../tooltip';
 import InputComponentStyle from './TextAreaComponentStyle';
 import { getClassName } from '../../services/Utils';
 
@@ -19,8 +20,10 @@ const TextAreaComponent = (props) => {
     disabled = false,
     error = false,
     success = false,
+    tooltip = '',
   } = props;
 
+  const [isHovered, setHoveredState] = useState(false);
   const classNames = getClassName([
     classes.root,
     error ? 'error' : '',
@@ -30,6 +33,7 @@ const TextAreaComponent = (props) => {
 
   return (
     <div className={classes.rootWrapper}>
+      <Tooltip label={tooltip} show={isHovered}/>
       {label
         ? <Label
           className={classes.label}
@@ -46,6 +50,8 @@ const TextAreaComponent = (props) => {
         onChange={onChange}
         onBlur={onBlur}
         autoFocus={autoFocus}
+        onMouseEnter={() => setHoveredState(true)}
+        onMouseLeave={() => setHoveredState(false)}
         onKeyPress={e => e.key === 'Enter' && onEnter()}
       />
     </div>
@@ -66,6 +72,7 @@ TextAreaComponent.propTypes = {
   label: PropTypes.string,
   error: PropTypes.bool,
   success: PropTypes.bool,
+  tooltip: PropTypes.string,
 };
 
 export default withStyle(InputComponentStyle)(TextAreaComponent);

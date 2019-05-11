@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Label from '../label';
+import Tooltip from '../tooltip';
 import SelectStyles from './SelectComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backdrop from '../Backdrop';
@@ -19,10 +20,12 @@ const Select = (props) => {
     success = false,
     label = '',
     placeholder = '',
+    tooltip = '',
   } = props;
 
   const [isFocus, setFocusState] = useState(false);
   const [isOpen, setOpenState] = useState(false);
+  const [isHovered, setHoveredState] = useState(false);
   const valueOption = (options || []).find(option => option.value === value);
   const behaviourClasses = [
     error ? ' error' : '',
@@ -43,6 +46,7 @@ const Select = (props) => {
 
   return (
     <div className={classes.rootWrapper}>
+      <Tooltip label={tooltip} show={isHovered}/>
       {label
         ? <Label
           className={`${classes.label}${error ? ' error' : ''}${success ? ' success' : ''}`}
@@ -55,6 +59,7 @@ const Select = (props) => {
           onChange={() => {}}
           value={valueOption ? valueOption.label : ''}
           placeholder={placeholder}
+          disabled={disabled}
           onClick={() => {
             if (disabled) {
               return;
@@ -87,6 +92,8 @@ const Select = (props) => {
               setOpenState(!isOpen);
             }
           }}
+          onMouseEnter={() => setHoveredState(true)}
+          onMouseLeave={() => setHoveredState(false)}
         />
         <div className={classes.iconWrapper} onClick={() => {
           if (!disabled) {
@@ -142,6 +149,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   success: PropTypes.bool,
+  tooltip: PropTypes.string,
 };
 
 export default withStyles(SelectStyles)(Select);

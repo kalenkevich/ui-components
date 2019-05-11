@@ -51,6 +51,7 @@ const InputSection = () => {
   const forSelect4 = getForSelect(options1);
   const forSelect5 = getForSelect(options1);
   const forSelect6 = getForSelect(options1, null);
+  const forSelect7 = getForSelect(options1);
 
   return (
     <Section title={'Selects'}>
@@ -61,6 +62,7 @@ const InputSection = () => {
         <Select label='Success' {...forSelect4} success/>
         <Select label='Error' {...forSelect3} error/>
         <Select label='Disabled' {...forSelect5} disabled/>
+        <Select label='With tooltip' {...forSelect7} tooltip='Tooltip text here'/>
       </SectionRow>
     </Section>
   );

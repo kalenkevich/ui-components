@@ -20,7 +20,6 @@ export const getBehaviourClasses = theme => ({
     backgroundColor: theme.brandLightGrayColor,
   },
   '&.focus': {
-    border: theme.focusBorder,
     boxShadow: theme.focusBoxShadow,
   },
 });
@@ -39,6 +38,7 @@ export default theme => ({
     width: '20px',
     height: '20px',
     outline: 'none',
+    backgroundColor: 'transparent',
     '&:before': {
       content: '""',
       position: 'absolute',

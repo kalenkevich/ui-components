@@ -4,5 +4,9 @@ export const getClassName = classNames => (classNames || []).reduce((result, cla
     return result;
   }
 
+  if (result.length === 0) {
+    return className;
+  }
+
   return `${result} ${className}`;
 }, '');

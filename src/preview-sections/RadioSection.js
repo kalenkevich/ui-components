@@ -17,6 +17,10 @@ export const optionGroup1 = [{
 }, {
   label: 'Option 5',
   value: 'value5',
+}, {
+  label: 'Option 6 (with tooltip)',
+  value: 'value6',
+  tooltip: 'Tooltip text here',
 }];
 
 export const optionGroup2 = [{
@@ -51,6 +55,7 @@ const RadioSection = () => {
               key={option.value}
               label={option.label}
               value={option.value}
+              tooltip={option.tooltip}
               selectedValue={selectedValue1}
               group='group1'
               onChange={setValue1}
@@ -65,6 +70,7 @@ const RadioSection = () => {
               key={option.value}
               label={option.label}
               value={option.value}
+              tooltip={option.tooltip}
               disabled={option.disabled}
               selectedValue={selectedValue2}
               group='group2'

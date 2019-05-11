@@ -54,7 +54,13 @@ class MenuComponent extends Component {
     ]);
     const MenuButton = label ? (
       <div
+        tabIndex='0'
         className={classes.brandTitle}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            this.setOpenState(!isOpen);
+          }
+        }}
         onClick={() => this.setOpenState(true)}
       >
         {label}
@@ -79,9 +85,15 @@ class MenuComponent extends Component {
           this.setOpenState(false);
         }}>
           <FontAwesomeIcon
+            tabIndex='0'
             className={classes.closeIcon}
             icon={'times'}
             onClick={() => this.setOpenState(false)}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                this.setOpenState(false);
+              }
+            }}
           />
           {children}
         </ul>

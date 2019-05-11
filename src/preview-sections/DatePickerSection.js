@@ -30,6 +30,7 @@ const DatePickerSection = () => {
         <DatePicker label='Success' success date={date} onChange={setDate}/>
         <DatePicker label='Error' error date={date} onChange={setDate}/>
         <DatePicker label='Disabled' disabled date={date} onChange={setDate}/>
+        <DatePicker label='With tooltip' date={date} onChange={setDate} tooltip='Tooltip text here'/>
       </SectionRow>
     </Section>
   );

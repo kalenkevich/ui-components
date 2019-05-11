@@ -26,12 +26,20 @@ export default theme => ({
     fontSize: '24px',
     textDecoration: 'none',
     color: theme.brandDarkGrayColor,
+    outline: 'none',
+    '&:focus': {
+      boxShadow: theme.focusBoxShadow,
+    },
   },
   closeIcon: {
     position: 'absolute',
     right: '15px',
     top: '10px',
     cursor: 'pointer',
+    outline: 'none',
+    '&:focus': {
+      boxShadow: theme.focusBoxShadow,
+    },
   },
   backdrop: {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
