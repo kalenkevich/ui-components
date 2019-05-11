@@ -42,7 +42,12 @@ const DatePicker = (props) => {
   };
 
   return (
-    <div className={rootClasses} onClick={() => setOpenState(true)}>
+    <div className={rootClasses} onClick={() => {
+      if (disabled) {
+        return;
+      }
+      setOpenState(true);
+    }}>
       <Input
         label={label}
         success={success}

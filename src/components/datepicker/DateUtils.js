@@ -29,10 +29,7 @@ export const getFormattedDate = (date) => {
 export const getFormattedDay = (year, month, day) => {
   const date = new Date(year, month, day);
 
-  const formatter = new Intl.DateTimeFormat('en', {
-    month: 'short',
-    day: 'numeric',
-  });
+  const formatter = new Intl.DateTimeFormat('en', { day: 'numeric' });
 
   return formatter.format(date);
 };
@@ -46,7 +43,7 @@ export const getYears = (selectedYear, step) => {
     years.push({
       label: value,
       value,
-      date: new Date(selectedYear, 0, 0),
+      date: new Date(value + 1, 0, 0),
     });
   }
 
@@ -62,7 +59,7 @@ export const getYears = (selectedYear, step) => {
     years.push({
       label: value,
       value,
-      date: new Date(selectedYear, 0, 0),
+      date: new Date(value + 1, 0, 0),
     });
   }
 
@@ -70,8 +67,12 @@ export const getYears = (selectedYear, step) => {
 };
 
 export const getMonthIndex = (index) => {
-  if (index < 0 || index > 11) {
-    return 12 - Math.abs(Math.floor(index % 11));
+  if (index < 0) {
+    return 12 + index;
+  }
+
+  if (index > 11) {
+    return index - 12;
   }
 
   return index;
@@ -89,7 +90,7 @@ export const getMonths = (selectedYear, selectedMonth, step) => {
       value: safeMonthIndex,
       index: monthIndex,
       label,
-      date: new Date(selectedYear, monthIndex, 0),
+      date: new Date(selectedYear, monthIndex + 1, 0),
     });
   }
 
@@ -99,7 +100,7 @@ export const getMonths = (selectedYear, selectedMonth, step) => {
     value: safeMonthIndex,
     index: selectedMonth,
     label: YEARS_MONTH_MAP[safeMonthIndex],
-    date: new Date(selectedYear, selectedMonth, 0),
+    date: new Date(selectedYear, selectedMonth + 1, 0),
   });
 
   for (let i = 1; i <= step; i++) {
@@ -111,7 +112,7 @@ export const getMonths = (selectedYear, selectedMonth, step) => {
       value: safeMonthIndex,
       index: monthIndex,
       label,
-      date: new Date(selectedYear, monthIndex, 0),
+      date: new Date(selectedYear, monthIndex + 1, 0),
     });
   }
 
@@ -152,9 +153,20 @@ export const getWeeks = (selectedYear, selectedMonth) => {
 };
 
 export const getDays = (selectedYear, selectedMonth) => {
-  const days = [];
+  let days = [];
+  const sundayIndex = getFirstSunday(selectedYear, selectedMonth);
 
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0, currentIndex = sundayIndex; i < 7; i++, currentIndex--) {
+    const label = WEEK_DAY_MAP[currentIndex];
+
+    days = [{
+      value: currentIndex,
+      label,
+      date: new Date(selectedYear, selectedMonth, currentIndex),
+    }, ...days];
+  }
+
+  for (let i = sundayIndex + 1; i < 35 + sundayIndex + 1; i++) {
     const label = WEEK_DAY_MAP[i % 7];
 
     days.push({
@@ -165,4 +177,15 @@ export const getDays = (selectedYear, selectedMonth) => {
   }
 
   return days;
+};
+
+export const getFirstSunday = (selectedYear, selectedMonth) => {
+  let dayIndex = 0;
+  let day = new Date(selectedYear, selectedMonth, dayIndex);
+
+  while (day.getDay() !== 6) {
+    day = new Date(selectedYear, selectedMonth, ++dayIndex);
+  }
+
+  return dayIndex;
 };

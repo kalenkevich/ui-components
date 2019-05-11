@@ -7,17 +7,17 @@ export default theme => ({
     justifyContent: 'center',
   },
   item: {
-    width: '30px',
-    height: '7px',
+    width: '15px',
+    height: '15px',
     cursor: 'pointer',
     border: theme.border,
-    borderRadius: theme.borderRadius,
+    borderRadius: '50%',
     backgroundColor: theme.brandLightGrayColor,
     transition: theme.backgroundColorTransition,
     outline: 'none',
     '&.selected, &:hover, &:focus': {
-      borderColor: theme.brandDarkGrayColor,
-      backgroundColor: theme.brandDarkGrayColor,
+      borderColor: theme.brandPrimaryDarkColor,
+      backgroundColor: theme.brandPrimaryDarkColor,
     },
     marginLeft: '5px',
     '&:first-of-type': {

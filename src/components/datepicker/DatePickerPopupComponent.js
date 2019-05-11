@@ -22,18 +22,17 @@ const DateSelectPopup = (props) => {
     onClose,
     options,
   } = props;
-
   const safeDate = getSafeDate(date);
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth();
-  const currentDay = currentDate.getDate();
-  const currentWeekDay = currentDate.getDay();
   const [selectedYear, selectYear] = useState(safeDate.getFullYear());
   const [selectedMonth, selectMonth] = useState(safeDate.getMonth());
   const [selectedDay, selectDay] = useState(safeDate.getDate());
   const selectedDate = new Date(selectedYear, selectedMonth, selectedDay);
   const selectedWeekDay = selectedDate.getDay();
+  const currentDate = new Date(selectedYear, selectedMonth, selectedDate);
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const currentWeekDay = currentDate.getDay();
   const weekLegend = getWeekLegend();
   const years = getYears(selectedYear, YEAR_STEP);
   const months = getMonths(selectedYear, selectedMonth, MONTH_STEP);
@@ -127,7 +126,7 @@ const DateSelectPopup = (props) => {
           <FontAwesomeIcon icon='chevron-right'/>
         </div>
       </div>
-      <div className={classes.weeks}>
+      <div className={classes.weekLegend}>
         {(weekLegend || []).map((weekDay) => {
           const weekDayClass = getClassName([
             classes.weekDay,
@@ -145,53 +144,60 @@ const DateSelectPopup = (props) => {
           );
         })}
       </div>
-      {(weeks || []).map(week => (
-        <div
-          key={week.value}
-          className={classes.week}
-        >
-          {(week.days || []).map((day) => {
-            const dayClass = getClassName([
-              classes.day,
-              day.value === selectedDay ? 'selected' : '',
-              day.value === currentDay ? 'current' : '',
-            ]);
+      <div className={classes.weeks}>
+        {(weeks || []).map(week => (
+          <div
+            key={week.value}
+            className={classes.week}
+          >
+            {(week.days || []).map((day) => {
+              const dayClass = getClassName([
+                classes.day,
+                day.value === selectedDay ? 'selected' : '',
+                day.value === currentDay ? 'current' : '',
+                day.date.getMonth() !== selectedMonth ? 'another-month' : '',
+              ]);
 
-            return (
-              <div
-                key={day.label}
-                className={dayClass}
-                onClick={(e) => {
-                  e.stopPropagation();
+              if (day.date.getMonth() !== selectedMonth) {
+                return (
+                  <div
+                    key={day.value}
+                    className={dayClass}
+                  >
+                    {getFormattedDay(selectedYear, selectedMonth, day.value)}
+                  </div>
+                );
+              }
 
-                  onDayClick(day);
-                }}
-              >
-                {getFormattedDay(selectedYear, selectedMonth, day.value)}
-              </div>
-            );
-          })}
-        </div>
-      ))}
+              return (
+                <div
+                  key={day.value}
+                  className={dayClass}
+                  onClick={(e) => {
+                    e.stopPropagation();
+
+                    onDayClick(day);
+                  }}
+                >
+                  {getFormattedDay(selectedYear, selectedMonth, day.value)}
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
       <div className={classes.actionPanel}>
         <Button
           className={classes.actionPanelButton}
           type='secondary'
-          onClick={(e) => {
-            e.stopPropagation();
-
-            onClose();
-          }}
+          onClick={() => onClose()}
         >
           Cancel
         </Button>
         <Button
+          type={'primary'}
           className={classes.actionPanelButton}
-          onClick={(e) => {
-            e.stopPropagation();
-
-            onApply(selectedDate);
-          }}
+          onClick={() => onApply(selectedDate)}
         >
           Apply
         </Button>

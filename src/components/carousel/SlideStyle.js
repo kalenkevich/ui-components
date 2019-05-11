@@ -45,11 +45,11 @@ export default theme => ({
   },
   title: {
     fontSize: '28px',
-    color: '#FFFFFF',
+    color: theme.brandLightGrayColor,
   },
   description: {
     margin: '10px 0 20px 0',
     fontSize: '18px',
-    color: '#FFFFFF',
+    color: theme.brandLightGrayColor,
   },
 });

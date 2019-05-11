@@ -1,4 +1,4 @@
-export const cell = (theme, width = 55, height = 55) => ({
+export const cell = (theme, width = 37, height = 37) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -8,21 +8,25 @@ export const cell = (theme, width = 55, height = 55) => ({
   flexShrink: '0',
   borderRadius: theme.borderRadius,
   boxSizing: 'border-box',
-  border: `1px solid ${theme.brandLightGrayColor}`,
   margin: '3px',
   transition: theme.backgroundColorTransition,
   '&.current': {
     border: theme.border,
+    borderColor: theme.brandPrimaryDarkColor,
     borderStyle: 'dashed',
-    borderColor: theme.brandPrimaryColor,
   },
   '&.selected': {
     border: theme.border,
+    borderColor: theme.brandPrimaryDarkColor,
     backgroundColor: theme.brandPrimaryColor,
   },
   '&:hover': {
     border: theme.border,
+    borderColor: theme.brandPrimaryDarkColor,
     backgroundColor: theme.brandPrimaryColor,
+  },
+  '&.current.selected': {
+    border: 'none',
   },
 });
 
@@ -30,6 +34,7 @@ export const row = () => ({
   display: 'flex',
   width: '100%',
   flexShrink: '0',
+  cursor: 'default',
   '&:first-of-type': {
     borderTop: 'none',
   },
@@ -56,6 +61,7 @@ export default theme => ({
     zIndex: '1',
     marginBottom: '100px',
     boxShadow: theme.boxShadow,
+    minWidth: '300px',
   },
   years: {
     ...row(theme),
@@ -63,32 +69,57 @@ export default theme => ({
     alignItems: 'center',
     borderBottom: theme.border,
   },
-  year: cell(theme, 55, 35),
+  year: cell(theme),
   months: {
     ...row(theme),
     justifyContent: 'center',
     alignItems: 'center',
+    padding: '3px 0',
   },
-  month: cell(theme, 55, 35),
-  weeks: {
+  month: {
+    ...cell(theme),
+  },
+  weekLegend: {
     ...row(theme),
+    cursor: 'default',
+    justifyContent: 'center',
     borderTop: theme.border,
     borderBottom: theme.border,
     color: theme.brandDarkGrayColor,
   },
   weekDay: {
-    ...cell(theme, 55, 35),
+    ...cell(theme),
+    justifyContent: 'center',
     cursor: 'default',
     border: 'none',
     '&:hover': {
       backgroundColor: 'transparent',
     },
     '&.selected': {
+      '&:hover': {
+        backgroundColor: theme.brandPrimaryColor,
+      },
       backgroundColor: theme.brandPrimaryColor,
     },
   },
-  week: row(theme),
-  day: cell(theme),
+  weeks: {
+    padding: '3px 0',
+  },
+  week: {
+    ...row(theme),
+    justifyContent: 'center',
+  },
+  day: {
+    ...cell(theme),
+    '&.another-month': {
+      backgroundColor: theme.brandLightGrayColor,
+      cursor: 'default',
+      '&:hover': {
+        borderColor: theme.brandLightGrayColor,
+        backgroundColor: theme.brandLightGrayColor,
+      },
+    },
+  },
   actionPanel: {
     ...row(theme),
     borderTop: theme.border,
