@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '../button';
 import { getClassName } from '../../services/Utils';
 import { MONTH_STEP, YEAR_STEP } from './DateConstants';
 import {
@@ -18,9 +17,8 @@ const DateSelectPopup = (props) => {
   const {
     date,
     classes,
-    onApply,
-    onClose,
-    options,
+    className,
+    onChange,
   } = props;
   const safeDate = getSafeDate(date);
   const [selectedYear, selectYear] = useState(safeDate.getFullYear());
@@ -66,8 +64,12 @@ const DateSelectPopup = (props) => {
     selectYear(day.date.getFullYear());
   };
 
+  useEffect(() => {
+    onChange(selectedDate);
+  }, [selectedDate]);
+
   return (
-    <div className={classes.popup}>
+    <div className={className}>
       <div className={classes.years}>
         <div className={classes.year} onClick={onPrevYearsClick}>
           <FontAwesomeIcon icon='chevron-left'/>
@@ -186,22 +188,6 @@ const DateSelectPopup = (props) => {
           </div>
         ))}
       </div>
-      <div className={classes.actionPanel}>
-        <Button
-          className={classes.actionPanelButton}
-          type='secondary'
-          onClick={() => onClose()}
-        >
-          Cancel
-        </Button>
-        <Button
-          type={'primary'}
-          className={classes.actionPanelButton}
-          onClick={() => onApply(selectedDate)}
-        >
-          Apply
-        </Button>
-      </div>
     </div>
   );
 };
@@ -209,9 +195,8 @@ const DateSelectPopup = (props) => {
 DateSelectPopup.propTypes = {
   date: PropTypes.object,
   classes: PropTypes.object,
+  className: PropTypes.string,
   onChange: PropTypes.func,
-  onClose: PropTypes.func,
-  onApply: PropTypes.func,
   options: PropTypes.object,
 };
 

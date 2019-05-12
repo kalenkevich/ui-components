@@ -7,7 +7,7 @@ import Label from './label';
 import TextArea from './textarea';
 import FormStyles from './form/FormStyles';
 import Select from './select';
-import Datepicker from './datepicker';
+import Datepicker, { DateRangePicker } from './datepicker';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import Avatar from './avatar';
@@ -42,6 +42,7 @@ export {
   FormStyles,
   Select,
   Datepicker,
+  DateRangePicker,
   Checkbox,
   Radio,
   Avatar,

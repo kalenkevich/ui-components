@@ -12,8 +12,6 @@ import { getClassName } from '../../services/Utils';
 const DatePicker = (props) => {
   const {
     className,
-    date,
-    onChange,
     classes,
     error,
     success,
@@ -22,14 +20,28 @@ const DatePicker = (props) => {
     placeholder,
     options,
     tooltip,
+    onChange,
+    startDate,
+    endDate,
   } = props;
   const rootClasses = getClassName([
     classes.root,
     className,
   ]);
   const [isOpened, setOpenState] = useState(false);
-  const [internalDate, setDate] = useState(date);
-  const formattedDate = getFormattedDate(date);
+  const [internalDate, setDate] = useState({
+    startDate,
+    endDate,
+  });
+  const formattedStartDate = getFormattedDate(startDate);
+  const formattedEndDate = getFormattedDate(endDate);
+  const onDateChangeClick = (newDate, key) => {
+    setDate({
+      startDate,
+      endDate,
+      [key]: newDate,
+    });
+  };
   const onApplyClick = () => {
     onChange(internalDate);
     setOpenState(false);
@@ -56,7 +68,7 @@ const DatePicker = (props) => {
         error={error}
         disabled={disabled}
         placeholder={placeholder}
-        value={formattedDate}
+        value={`${formattedStartDate} - ${formattedEndDate}`}
         tooltip={tooltip}
         onChange={() => {}}
       />
@@ -64,12 +76,24 @@ const DatePicker = (props) => {
         <>
           <Backrdop onClick={onBackdropClick}/>
           <div className={classes.popup}>
-            <DatePickerPopup
-              date={internalDate}
-              classes={classes}
-              options={options}
-              onChange={newDate => setDate(newDate)}
-            />
+            <div className={classes.popupWrapper}>
+              <DatePickerPopup
+                className={classes.leftPopup}
+                date={internalDate.startDate}
+                classes={classes}
+                options={options}
+                onChange={newDate => onDateChangeClick(newDate, 'startDate')}
+                onClose={onCloseClick}
+              />
+              <DatePickerPopup
+                className={classes.rightPopup}
+                date={internalDate.endDate}
+                classes={classes}
+                options={options}
+                onChange={newDate => onDateChangeClick(newDate, 'endDate')}
+                onClose={onCloseClick}
+              />
+            </div>
             <div className={classes.actionPanel}>
               <Button
                 className={classes.actionPanelButton}
@@ -95,7 +119,6 @@ const DatePicker = (props) => {
 
 DatePicker.propTypes = {
   className: PropTypes.string,
-  date: PropTypes.object,
   classes: PropTypes.object,
   onChange: PropTypes.func,
   error: PropTypes.bool,
@@ -105,6 +128,8 @@ DatePicker.propTypes = {
   placeholder: PropTypes.string,
   options: PropTypes.object,
   tooltip: PropTypes.string,
+  startDate: PropTypes.object,
+  endDate: PropTypes.object,
 };
 
 export default withStyle(DatePickerStyles)(DatePicker);

@@ -94,12 +94,12 @@ export const getMonths = (selectedYear, selectedMonth, step) => {
     });
   }
 
-  const safeMonthIndex = getMonthIndex(selectedMonth);
+  const safeSelectedMonthIndex = getMonthIndex(selectedMonth);
 
   months.push({
-    value: safeMonthIndex,
+    value: safeSelectedMonthIndex,
     index: selectedMonth,
-    label: YEARS_MONTH_MAP[safeMonthIndex],
+    label: YEARS_MONTH_MAP[safeSelectedMonthIndex],
     date: new Date(selectedYear, selectedMonth + 1, 0),
   });
 

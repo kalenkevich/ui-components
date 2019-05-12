@@ -63,6 +63,16 @@ export default theme => ({
     boxShadow: theme.boxShadow,
     minWidth: '300px',
   },
+  popupWrapper: {
+    display: 'flex',
+  },
+  leftPopup: {
+    padding: '5px',
+  },
+  rightPopup: {
+    borderLeft: theme.border,
+    padding: '5px',
+  },
   years: {
     ...row(theme),
     justifyContent: 'center',
