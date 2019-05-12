@@ -132,9 +132,9 @@ export const getWeekLegend = () => {
   return weeks;
 };
 
-export const getWeeks = (selectedYear, selectedMonth) => {
+export const getWeeks = (selectedYear, selectedMonth, options = {}) => {
   const weeks = [];
-  let days = getDays(selectedYear, selectedMonth);
+  let days = getDays(selectedYear, selectedMonth, options);
   let currentWeek = 0;
 
   while (days.length > 0) {
@@ -152,14 +152,18 @@ export const getWeeks = (selectedYear, selectedMonth) => {
   return weeks;
 };
 
-export const getDays = (selectedYear, selectedMonth) => {
+export const getDays = (selectedYear, selectedMonth, options = {}) => {
   let days = [];
   const sundayIndex = getFirstSunday(selectedYear, selectedMonth);
+  const datesOptionsMap = getDatesOptionsMap(options.dates);
 
   for (let i = 0, currentIndex = sundayIndex; i < 7; i++, currentIndex--) {
     const label = WEEK_DAY_MAP[currentIndex];
+    const date = new Date(selectedYear, selectedMonth, currentIndex);
+    const dateOptions = datesOptionsMap[date.toISOString()];
 
     days = [{
+      ...dateOptions,
       value: currentIndex,
       label,
       date: new Date(selectedYear, selectedMonth, currentIndex),
@@ -188,4 +192,32 @@ export const getFirstSunday = (selectedYear, selectedMonth) => {
   }
 
   return dayIndex;
+};
+
+export const getDatesOptionsMap = datesOptions => (datesOptions || []).reduce((map, dateOption) => {
+  const date = new Date(dateOption.value.getFullYear(), dateOption.value.getMonth(), dateOption.value.getDate());
+
+  return {
+    ...map,
+    [date.toISOString()]: dateOption,
+  };
+}, {});
+
+export const getDaysRange = (startDate, endDate) => {
+  const range = [];
+  let dayIndex = 0;
+  let currentDate = startDate;
+
+  while (currentDate.toISOString() !== endDate.toISOString()) {
+    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + dayIndex);
+    dayIndex++;
+
+    range.push({
+      value: currentDate,
+      selected: true,
+      disabled: true,
+    });
+  }
+
+  return range;
 };

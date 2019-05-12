@@ -4,7 +4,7 @@ import withStyle from 'react-jss';
 import Input from '../input';
 import Button from '../button';
 import Backrdop from '../Backdrop';
-import { getFormattedDate } from './DateUtils';
+import { getFormattedDate, getDaysRange } from './DateUtils';
 import DatePickerPopup from './DatePickerPopupComponent';
 import DatePickerStyles from './DatePickerStyle';
 import { getClassName } from '../../services/Utils';
@@ -33,8 +33,8 @@ const DatePicker = (props) => {
     startDate,
     endDate,
   });
-  const formattedStartDate = getFormattedDate(startDate);
-  const formattedEndDate = getFormattedDate(endDate);
+  const formattedStartDate = getFormattedDate(internalDate.startDate);
+  const formattedEndDate = getFormattedDate(internalDate.endDate);
   const onDateChangeClick = (newDate, key) => {
     setDate({
       startDate,
@@ -53,6 +53,15 @@ const DatePicker = (props) => {
     e.stopPropagation();
 
     setOpenState(false);
+  };
+
+  const rangeDays = getDaysRange(internalDate.startDate, internalDate.endDate);
+  const resultOptions = {
+    ...options,
+    dates: [
+      ...(options || {}).dates || [],
+      ...rangeDays,
+    ],
   };
 
   return (
@@ -81,7 +90,7 @@ const DatePicker = (props) => {
                 className={classes.leftPopup}
                 date={internalDate.startDate}
                 classes={classes}
-                options={options}
+                options={resultOptions}
                 onChange={newDate => onDateChangeClick(newDate, 'startDate')}
                 onClose={onCloseClick}
               />
@@ -89,7 +98,7 @@ const DatePicker = (props) => {
                 className={classes.rightPopup}
                 date={internalDate.endDate}
                 classes={classes}
-                options={options}
+                options={resultOptions}
                 onChange={newDate => onDateChangeClick(newDate, 'endDate')}
                 onClose={onCloseClick}
               />

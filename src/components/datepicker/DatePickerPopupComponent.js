@@ -15,10 +15,11 @@ import {
 
 const DateSelectPopup = (props) => {
   const {
-    date,
-    classes,
-    className,
-    onChange,
+    date = null,
+    classes = {},
+    className = '',
+    onChange = () => {},
+    options = {},
   } = props;
   const safeDate = getSafeDate(date);
   const [selectedYear, selectYear] = useState(safeDate.getFullYear());
@@ -32,9 +33,9 @@ const DateSelectPopup = (props) => {
   const currentDay = currentDate.getDate();
   const currentWeekDay = currentDate.getDay();
   const weekLegend = getWeekLegend();
-  const years = getYears(selectedYear, YEAR_STEP);
-  const months = getMonths(selectedYear, selectedMonth, MONTH_STEP);
-  const weeks = getWeeks(selectedYear, selectedMonth);
+  const years = getYears(selectedYear, YEAR_STEP, options);
+  const months = getMonths(selectedYear, selectedMonth, MONTH_STEP, options);
+  const weeks = getWeeks(selectedYear, selectedMonth, options);
   const onPrevYearsClick = () => {
     selectYear(selectedYear - 1);
   };
@@ -66,7 +67,7 @@ const DateSelectPopup = (props) => {
 
   useEffect(() => {
     onChange(selectedDate);
-  }, [selectedDate]);
+  }, [selectedDate.toTimeString()]);
 
   return (
     <div className={className}>
@@ -155,9 +156,10 @@ const DateSelectPopup = (props) => {
             {(week.days || []).map((day) => {
               const dayClass = getClassName([
                 classes.day,
-                day.value === selectedDay ? 'selected' : '',
+                day.value === selectedDay || day.selected ? 'selected' : '',
                 day.value === currentDay ? 'current' : '',
                 day.date.getMonth() !== selectedMonth ? 'another-month' : '',
+                day.disabled ? 'disabled' : '',
               ]);
 
               if (day.date.getMonth() !== selectedMonth) {
