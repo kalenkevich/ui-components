@@ -14,6 +14,7 @@ import {
   faChevronRight,
   faBell,
   faBars,
+  faCrown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 
@@ -33,6 +34,7 @@ library.add(faChevronLeft);
 library.add(faChevronRight);
 library.add(faBell);
 library.add(faBars);
+library.add(faCrown);
 
 export default {
   applicationWrapper: {

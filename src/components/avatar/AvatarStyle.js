@@ -19,6 +19,10 @@ export default theme => ({
       width: '50px',
       height: '50px',
     },
+    '&.xs': {
+      width: '25px',
+      height: '25px',
+    },
   },
   rateBackground: {
     position: 'absolute',

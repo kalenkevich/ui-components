@@ -18,7 +18,7 @@ export const brandWarningDarkColor = '#F57C00';
 export const brandErrorLightColor = '#EF5350';
 export const brandErrorDarkColor = '#D32F2F';
 export const boxShadow = '1px 1px 10px 2px rgba(0, 0, 0, 0.4)';
-export const focusBoxShadow = '0px 0px 5px 0px rgba(0, 0, 0, 0.4)';
+export const focusBoxShadow = '1px 1px 5px 0px rgba(0, 0, 0, 0.4)';
 export const backgroundColorTransition = 'background-color linear 100ms';
 
 export default {

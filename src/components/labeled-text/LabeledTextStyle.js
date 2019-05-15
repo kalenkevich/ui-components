@@ -6,6 +6,7 @@ export default theme => ({
     padding: '5px',
     boxSizing: 'border-box',
     border: '1px solid transparent',
+    borderRadius: theme.borderRadius,
     '&:focus': {
       boxShadow: theme.focusBoxShadow,
     },
@@ -15,5 +16,8 @@ export default theme => ({
   },
   context: {
     paddingTop: '4px',
+    '&.reverse': {
+      color: theme.brandDarkGrayColor,
+    },
   },
 });

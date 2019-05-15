@@ -15,6 +15,7 @@ import ThemeSection from '../preview-sections/ThemeSection';
 import DropdownSection from '../preview-sections/DropdownSection';
 import LoadingSection from '../preview-sections/LoadingSection';
 import CarouselSection from '../preview-sections/CarouselSection';
+import OrderPage from '../pages/OrderPage';
 
 const BasicComponents = () => (
   <>
@@ -41,9 +42,9 @@ const Widgets = () => (
   </>
 );
 
-export const Forms = () => (
+export const Pages = () => (
   <>
-    Forms will be here!
+    <OrderPage/>
   </>
 );
 
@@ -51,7 +52,7 @@ const Routes = () => (
   <Switch>
     <Route path='/basic' component={BasicComponents}/>
     <Route path='/widgets' component={Widgets}/>
-    <Route path='/forms' component={Forms}/>
+    <Route path='/pages' component={Pages}/>
     <Redirect from={''} to={'/basic'}/>
   </Switch>
 );

@@ -49,7 +49,7 @@ Avatar.propTypes = {
   classes: PropTypes.object,
   url: PropTypes.string,
   rate: PropTypes.number,
-  size: PropTypes.oneOf(['lg', 'md', 'sm']),
+  size: PropTypes.oneOf(['lg', 'md', 'sm', 'xs']),
 };
 
 export default withStyles(AvatarStyles)(Avatar);

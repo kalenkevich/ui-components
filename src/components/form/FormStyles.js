@@ -1,6 +1,5 @@
 export default theme => ({
-  form: {
-    maxWidth: '600px',
+  root: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -9,21 +8,12 @@ export default theme => ({
     border: theme.border,
     borderRadius: theme.borderRadius,
   },
-  formLabel: {
-    width: '100%',
-    display: 'flex',
-    marginBottom: '10px',
-    'last-of-type': {
-      marginBottom: 'none',
-    },
+  title: {
+    marginTop: '10px',
+    fontSize: '24px',
   },
-  formField: {
-    width: '100%',
+  children: {
     display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '10px',
-    'last-of-type': {
-      marginBottom: 'none',
-    },
+    flexWrap: 'wrap',
   },
 });

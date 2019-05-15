@@ -29,6 +29,8 @@ import Tooltip from './tooltip';
 import ProgressBar from './progress-bar';
 import Spinner from './spinner';
 import Carousel, { Legend, Slide } from './carousel';
+import Chat from './chat';
+import Form, { FormSection, FormSectionAction } from './form';
 
 export {
   AutocompleteComponent,
@@ -65,4 +67,8 @@ export {
   Carousel,
   Legend,
   Slide,
+  Chat,
+  Form,
+  FormSection,
+  FormSectionAction,
 };

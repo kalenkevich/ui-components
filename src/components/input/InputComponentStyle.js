@@ -30,23 +30,24 @@ export const getBehaviourClasses = theme => ({
 });
 
 export default theme => ({
+  rootWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+  },
   root: {
     height: theme.controlHeight,
     border: theme.border,
     borderRadius: theme.borderRadius,
     backgroundColor: 'transparent',
     outline: 'none',
-    width: '300px',
+    width: '100%',
     padding: '6px 8px',
     paddingTop: '4px',
     fontSize: theme.controlFontSize,
     fontWeight: theme.controlFontWeight,
     boxSizing: 'border-box',
     ...getBehaviourClasses(theme),
-  },
-  rootWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
   },
   label: controlLabel(theme),
 });

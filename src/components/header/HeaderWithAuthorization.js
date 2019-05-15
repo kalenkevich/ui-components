@@ -99,7 +99,7 @@ const HeaderComponent = (props) => {
         <>
           <MenuItem label='Basic components' onClick={() => history.push('/basic')}/>
           <MenuItem label='Widgets' onClick={() => history.push('/widgets')}/>
-          <MenuItem label='Forms' onClick={() => history.push('/forms')}/>
+          <MenuItem label='Pages' onClick={() => history.push('/pages')}/>
         </>
       )}
     >
