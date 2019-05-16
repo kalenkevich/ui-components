@@ -99,7 +99,10 @@ const HeaderComponent = (props) => {
         <>
           <MenuItem label='Basic components' onClick={() => history.push('/basic')}/>
           <MenuItem label='Widgets' onClick={() => history.push('/widgets')}/>
-          <MenuItem label='Pages' onClick={() => history.push('/pages')}/>
+          <MenuItem label='Pages'>
+            <MenuItem label='MainPage' onClick={() => history.push('/pages/main')}/>
+            <MenuItem label='OrderPage' onClick={() => history.push('/pages/order')}/>
+          </MenuItem>
         </>
       )}
     >

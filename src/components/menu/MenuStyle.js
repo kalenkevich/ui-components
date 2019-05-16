@@ -20,6 +20,7 @@ export default theme => ({
       width: 0,
       opacity: '0',
     },
+    paddingRight: '20px',
   },
   brandTitle: {
     padding: '10px',

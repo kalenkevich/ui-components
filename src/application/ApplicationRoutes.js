@@ -16,6 +16,7 @@ import DropdownSection from '../preview-sections/DropdownSection';
 import LoadingSection from '../preview-sections/LoadingSection';
 import CarouselSection from '../preview-sections/CarouselSection';
 import OrderPage from '../pages/OrderPage';
+import MainPage from '../pages/MainPage';
 
 const BasicComponents = () => (
   <>
@@ -42,17 +43,12 @@ const Widgets = () => (
   </>
 );
 
-export const Pages = () => (
-  <>
-    <OrderPage/>
-  </>
-);
-
 const Routes = () => (
   <Switch>
     <Route path='/basic' component={BasicComponents}/>
     <Route path='/widgets' component={Widgets}/>
-    <Route path='/pages' component={Pages}/>
+    <Route path='/pages/main' component={MainPage}/>
+    <Route path='/pages/order' component={OrderPage}/>
     <Redirect from={''} to={'/basic'}/>
   </Switch>
 );
