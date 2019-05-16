@@ -7,9 +7,7 @@ export default theme => ({
     boxSizing: 'border-box',
     border: '1px solid transparent',
     borderRadius: theme.borderRadius,
-    '&:focus': {
-      boxShadow: theme.focusBoxShadow,
-    },
+    '&:focus': {},
   },
   label: {
     color: theme.brandDarkGrayColor,

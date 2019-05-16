@@ -11,7 +11,7 @@ export const SectionStyles = theme => ({
     margin: '10px',
   },
   title: {
-    margin: '10px 0',
+    marginTop: '10px',
     fontSize: '24px',
   },
   children: {
@@ -65,7 +65,7 @@ export const SectionItemStyle = theme => ({
 
 const SectionRowComponent = ({ classes, children, title }) => (
   <div className={classes.root}>
-    <div className={classes.title}>{title}</div>
+    { title ? <div className={classes.title}>{title}</div> : null }
     <div className={classes.children}>{children}</div>
   </div>
 );

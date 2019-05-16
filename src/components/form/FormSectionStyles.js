@@ -1,7 +1,8 @@
 export default theme => ({
   root: {
-    padding: '5px 0',
+    padding: '5px',
     backgroundColor: 'white',
+    boxSizing: 'border-box',
     position: 'relative',
     fontWeight: theme.controlFontWeight,
     '&:last-of-type': {

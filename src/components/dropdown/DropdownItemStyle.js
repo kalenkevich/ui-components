@@ -13,6 +13,7 @@ export default theme => ({
     outline: 'none',
     color: theme.fontColor,
     textDecoration: 'none',
+    fontWeight: theme.fontWeight,
     '&:focus': {
       border: `1px solid ${theme.brandPrimaryColor}`,
       borderRadius: theme.borderRadius,
@@ -31,5 +32,6 @@ export default theme => ({
   },
   description: {
     fontSize: '14px',
+    fontWeight: theme.fontWeight,
   },
 });

@@ -19,8 +19,8 @@ export const getBehaviourClasses = theme => ({
     cursor: 'default',
     backgroundColor: theme.brandLightGrayColor,
   },
-  '&.focus': {
-    boxShadow: theme.focusBoxShadow,
+  '&.focus:before': {
+    borderColor: theme.brandPrimaryDarkColor,
   },
 });
 

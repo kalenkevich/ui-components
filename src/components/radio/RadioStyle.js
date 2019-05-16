@@ -41,7 +41,6 @@ export default theme => ({
     ...getBehaviourClasses(theme),
     '&.focus': {
       ...getBehaviourClasses(theme)['&.focus'],
-      borderRadius: '50%',
     },
   },
 });

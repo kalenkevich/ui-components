@@ -11,16 +11,18 @@ const Form = (props) => {
     className,
     children,
     title,
+    transparent,
   } = props;
 
   const rootClasses = getClassName([
     classes.root,
     className,
+    transparent ? 'transparent' : '',
   ]);
 
   return (
     <Card className={rootClasses}>
-      <div className={classes.title}>{title}</div>
+      { title ? <div className={classes.title}>{title}</div> : null }
       <div className={classes.children}>{children}</div>
     </Card>
   );
@@ -31,6 +33,7 @@ Form.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
+  transparent: PropTypes.bool,
 };
 
 export default withStyles(FormStyles)(Form);

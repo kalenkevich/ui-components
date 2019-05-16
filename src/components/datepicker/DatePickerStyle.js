@@ -42,6 +42,7 @@ export const row = () => ({
 
 export default theme => ({
   root: {
+    width: '100%',
     position: 'relative',
     cursor: 'pointer',
     fontWeight: theme.controlFontWeight,

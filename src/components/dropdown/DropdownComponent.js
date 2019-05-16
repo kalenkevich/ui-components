@@ -33,7 +33,7 @@ const Dropdown = (props) => {
     isFocus ? 'focus' : '',
   ];
   const rootClasses = getClassName(
-    [classes.root, className, type, ...behaviourClasses],
+    [classes.root, type, ...behaviourClasses],
   );
   const iconWrapperClasses = getClassName(
     [classes.iconWrapper, separate ? 'separate' : 'non-separate'],
@@ -41,6 +41,10 @@ const Dropdown = (props) => {
   const iconClasses = getClassName(
     [classes.icon, disabled ? 'disabled' : '', isOpen ? 'down' : 'up'],
   );
+  const rootWrapperClasses = getClassName([
+    classes.rootWrapper,
+    className,
+  ]);
   const openOptions = () => {
     if (!disabled) {
       setOpenState(true);
@@ -52,7 +56,7 @@ const Dropdown = (props) => {
   };
 
   return (
-    <div className={classes.rootWrapper}>
+    <div className={rootWrapperClasses}>
       <Tooltip label={tooltip} show={isHovered}/>
       <div className={rootClasses}
         onMouseEnter={() => setHoveredState(true)}

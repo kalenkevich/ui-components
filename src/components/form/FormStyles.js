@@ -7,6 +7,11 @@ export default theme => ({
     boxSizing: 'border-box',
     border: theme.border,
     borderRadius: theme.borderRadius,
+    '&.transparent': {
+      border: 'none',
+      boxShadow: 'none',
+      padding: '0',
+    },
   },
   title: {
     marginTop: '10px',
