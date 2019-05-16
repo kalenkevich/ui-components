@@ -2,32 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { getClassName } from '../../services/Utils';
-import TabsBodyStyle from './TabsBodyStyle';
-import Card from '../card';
+import CardStyle from './CardStyle';
 
-const TabsBodyComponent = (props) => {
+const Card = (props) => {
   const {
     classes,
-    children,
     className,
+    children,
+    onKeyPress = () => {},
   } = props;
-
-  const classNames = getClassName([
+  const rootClasses = getClassName([
     classes.root,
     className,
   ]);
 
   return (
-    <ul className={classNames}>
+    <div className={rootClasses} onKeyPress={onKeyPress}>
       {children}
-    </ul>
+    </div>
   );
 };
 
-TabsBodyComponent.propTypes = {
+Card.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
+  onKeyPress: PropTypes.func,
 };
 
-export default withStyles(TabsBodyStyle)(TabsBodyComponent);
+export default withStyles(CardStyle)(Card);

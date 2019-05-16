@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
+import Card from '../card';
 import { getClassName } from '../../services/Utils';
 import FormStyles from './FormStyles';
 
@@ -18,10 +19,10 @@ const Form = (props) => {
   ]);
 
   return (
-    <div className={rootClasses}>
+    <Card className={rootClasses}>
       <div className={classes.title}>{title}</div>
       <div className={classes.children}>{children}</div>
-    </div>
+    </Card>
   );
 };
 

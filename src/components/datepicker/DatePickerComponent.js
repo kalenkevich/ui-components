@@ -4,6 +4,7 @@ import withStyle from 'react-jss';
 import Input from '../input';
 import Button from '../button';
 import Backrdop from '../Backdrop';
+import Card from '../card';
 import { getFormattedDate } from './DateUtils';
 import DatePickerPopup from './DatePickerPopupComponent';
 import DatePickerStyles from './DatePickerStyle';
@@ -63,7 +64,7 @@ const DatePicker = (props) => {
       {isOpened ? (
         <>
           <Backrdop onClick={onBackdropClick}/>
-          <div className={classes.popup}>
+          <Card className={classes.popup}>
             <DatePickerPopup
               date={internalDate}
               classes={classes}
@@ -86,7 +87,7 @@ const DatePicker = (props) => {
                 Apply
               </Button>
             </div>
-          </div>
+          </Card>
         </>
       ) : null}
     </div>

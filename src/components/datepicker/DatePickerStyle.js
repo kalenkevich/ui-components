@@ -55,12 +55,9 @@ export default theme => ({
     left: '0',
     display: 'flex',
     flexDirection: 'column',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
     backgroundColor: 'white',
     zIndex: '1',
     marginBottom: '100px',
-    boxShadow: theme.boxShadow,
     minWidth: '300px',
   },
   popupWrapper: {

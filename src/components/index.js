@@ -31,6 +31,7 @@ import Spinner from './spinner';
 import Carousel, { Legend, Slide } from './carousel';
 import Chat from './chat';
 import Form, { FormSection, FormSectionAction } from './form';
+import Card from './card';
 
 export {
   AutocompleteComponent,
@@ -71,4 +72,5 @@ export {
   Form,
   FormSection,
   FormSectionAction,
+  Card,
 };

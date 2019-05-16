@@ -6,8 +6,6 @@ export default theme => ({
     width: '350px',
     height: '650px',
     flexShrink: '0',
-    border: theme.border,
-    borderRadius: theme.borderRadius,
   },
   chat: {
     display: 'flex',
@@ -17,6 +15,7 @@ export default theme => ({
     width: '100%',
     height: '100%',
     padding: '10px 10px 50px 10px',
+    borderRadius: theme.borderRadius,
     boxSizing: 'border-box',
     '&::-webkit-scrollbar ': {
       width: '6px',

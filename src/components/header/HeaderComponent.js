@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { withRouter } from 'react-router-dom';
 import HeaderComponentStyle from './HeaderComponentStyle';
+import Card from '../card';
 import Menu from '../menu';
 import { getClassName } from '../../services/Utils';
 
@@ -20,10 +21,10 @@ const HeaderComponent = (props) => {
   ]);
 
   return (
-    <div className={rootClasses}>
+    <Card className={rootClasses}>
       <Menu label={appName}>{menu}</Menu>
       {children}
-    </div>
+    </Card>
   );
 };
 

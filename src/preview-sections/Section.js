@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
+import Card from '../components/card';
 
 export const SectionStyles = theme => ({
   root: {
-    border: theme.border,
-    borderRadius: theme.borderRadius,
     display: 'flex',
     flexDirection: 'column',
     padding: '10px',
@@ -21,10 +20,10 @@ export const SectionStyles = theme => ({
 });
 
 const SectionComponent = ({ classes, children, title }) => (
-  <div className={classes.root}>
+  <Card className={classes.root}>
     <div className={classes.title}>{title}</div>
     <div className={classes.children}>{children}</div>
-  </div>
+  </Card>
 );
 
 SectionComponent.propTypes = {

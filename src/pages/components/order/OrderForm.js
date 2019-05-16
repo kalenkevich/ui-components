@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getClassName } from '../../../services/Utils';
+import Card from '../../../components/card';
 import Avatar from '../../../components/avatar';
 import LabeledText from '../../../components/labeled-text';
 import Button from '../../../components/button';
@@ -101,7 +102,7 @@ const OrderPage = (props) => {
   return (
     <div className={rootClasses}>
       <div className={classes.orderForm}>
-        <div className={classes.usersContainer}>
+        <Card className={classes.usersContainer}>
           <div className={contractorClasses}>
             <Avatar
               url={order.contractor.avatarUrl}
@@ -119,7 +120,7 @@ const OrderPage = (props) => {
             statuses={orderStatuses}
             currentStatus={order.status}
           />
-        </div>
+        </Card>
         <Form className={classes.orderContainer} title={'Детали заказа'}>
           <FormSection size='6'>
             <FormSection>

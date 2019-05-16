@@ -4,6 +4,7 @@ import withStyles from 'react-jss';
 import { getClassName } from '../../services/Utils';
 import Avatar from '../avatar';
 import Input from '../input';
+import Card from '../card';
 import Button from '../button';
 import ChatStyles from './ChatStyles';
 
@@ -42,7 +43,7 @@ const Chat = (props) => {
   useEffect(() => scrollToBottom(), [messages]);
 
   return (
-    <div className={rootClasses}
+    <Card className={rootClasses}
       onKeyPress={(e) => {
         if (e.key === 'Enter') {
           onSend();
@@ -84,7 +85,7 @@ const Chat = (props) => {
           Отправить
         </Button>
       </div>
-    </div>
+    </Card>
   );
 };
 

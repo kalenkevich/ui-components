@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { getClassName } from '../../services/Utils';
 import TabsContainerStyle from './TabsContainerStyle';
+import Card from '../card';
 
 const TabsContainerComponent = (props) => {
   const {
@@ -17,9 +18,9 @@ const TabsContainerComponent = (props) => {
   ]);
 
   return (
-    <div className={classNames}>
+    <Card className={classNames}>
       {children}
-    </div>
+    </Card>
   );
 };
 
