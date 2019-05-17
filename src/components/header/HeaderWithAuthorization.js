@@ -97,7 +97,10 @@ const HeaderComponent = (props) => {
     <Header appName={settings.AppName}
       menu={(
         <>
-          <MenuItem label='Basic components' onClick={() => history.push('/basic')}/>
+          <MenuItem label='Components'>
+            <MenuItem label={'Basic'} onClick={() => history.push('/components/basic')}/>
+            <MenuItem label={'Custom'} onClick={() => history.push('/components/custom')}/>
+          </MenuItem>
           <MenuItem label='Widgets' onClick={() => history.push('/widgets')}/>
           <MenuItem label='Pages'>
             <MenuItem label='MainPage' onClick={() => history.push('/pages/main')}/>

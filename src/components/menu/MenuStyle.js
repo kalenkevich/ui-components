@@ -30,8 +30,8 @@ export default theme => ({
     color: theme.brandDarkGrayColor,
     borderRadius: theme.borderRadius,
     outline: 'none',
-    '&:focus': {
-      boxShadow: theme.focusBoxShadow,
+    '&:focus $barsIcon': {
+      color: theme.brandPrimaryColor,
     },
   },
   closeIcon: {
@@ -45,6 +45,9 @@ export default theme => ({
     '&:focus': {
       boxShadow: theme.focusBoxShadow,
     },
+  },
+  barsIcon: {
+    marginRight: '10px',
   },
   backdrop: {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',

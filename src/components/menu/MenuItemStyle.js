@@ -1,7 +1,7 @@
 export default theme => ({
   root: {
     listStyle: 'none',
-    height: '40px',
+    minHeight: '40px',
     boxSizing: 'border-box',
     borderTopRightRadius: theme.borderRadius,
     borderBottomRightRadius: theme.borderRadius,
@@ -18,6 +18,7 @@ export default theme => ({
     textDecoration: 'none',
     cursor: 'pointer',
     height: '100%',
+    minHeight: '40px',
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
@@ -39,6 +40,7 @@ export default theme => ({
     },
   },
   children: {
+    margin: '0',
     paddingLeft: '20px',
     borderRadius: theme.borderRadius,
     borderTopLeftRadius: '0',

@@ -7,7 +7,7 @@ import LabeledText from '../../../components/labeled-text';
 import Card from '../../../components/card';
 import Checkbox from '../../../components/checkbox';
 
-export const ContractorListItemStyle = {
+export const ContractorListItemStyle = () => ({
   root: {
     display: 'flex',
     padding: '10px',
@@ -28,8 +28,7 @@ export const ContractorListItemStyle = {
     justifyContent: 'flex-end',
     flexBasis: '30%',
   },
-
-};
+});
 
 const ContractorListItem = (props) => {
   const {

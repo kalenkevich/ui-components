@@ -63,11 +63,15 @@ class MenuComponent extends Component {
         }}
         onClick={() => this.setOpenState(true)}
       >
+        <FontAwesomeIcon
+          className={classes.barsIcon}
+          icon={'bars'}
+        />
         {label}
       </div>
     ) : (
       <Button onClick={() => this.setOpenState(true)}>
-        <FontAwesomeIcon icon={'bars'}/>
+        <FontAwesomeIcon className={classes.barsIcon} icon={'bars'}/>
       </Button>
     );
 
@@ -77,7 +81,9 @@ class MenuComponent extends Component {
 
     return (
       <>
-        {MenuButton}
+        <div>
+          {MenuButton}
+        </div>
         <Backdrop
           className={classes.backdrop}
           isOpening={isOpening}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Section, SectionRow } from './Section';
-import Input from '../components/input';
+import NumberInput from '../components/number-input';
 import Form, { FormSection } from '../components/form';
 
 const InputSection = () => {
@@ -13,29 +13,29 @@ const InputSection = () => {
   const forInput7 = getForInput();
 
   return (
-    <Section title={'Inputs'}>
+    <Section title={'Number Inputs'}>
       <SectionRow>
         <Form transparent>
           <FormSection size={'3'}>
-            <Input label='Simple input' {...forInput1}/>
+            <NumberInput label='Simple input' {...forInput1}/>
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='Password' {...forInput3} placeholder='Password' type='password' />
+            <NumberInput label='Password' {...forInput3} placeholder='Password' type='password' />
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='With placeholder' {...forInput2} placeholder={'With Placeholder'}/>
+            <NumberInput label='With placeholder' {...forInput2} placeholder={'With Placeholder'}/>
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='Success' {...forInput4} success/>
+            <NumberInput label='Success' {...forInput4} success/>
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='Error' {...forInput5} error/>
+            <NumberInput label='Error' {...forInput5} error/>
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='Disabled' {...forInput6} placeholder='Disabled' disabled/>
+            <NumberInput label='Disabled' {...forInput6} placeholder='Disabled' disabled/>
           </FormSection>
           <FormSection size={'3'}>
-            <Input label='With tooltip' {...forInput7} placeholder='With tooltip' tooltip='Tooltip text here'/>
+            <NumberInput label='With tooltip' {...forInput7} placeholder='With tooltip' tooltip='Tooltip text here'/>
           </FormSection>
         </Form>
       </SectionRow>
@@ -43,12 +43,12 @@ const InputSection = () => {
   );
 };
 
-export const getForInput = (initalValue = '') => {
-  const [value, setValue] = useState(initalValue);
+export const getForInput = (initialValue = 0) => {
+  const [value, onChange] = useState(initialValue);
 
   return {
     value,
-    onChange: e => setValue(e.target.value),
+    onChange,
   };
 };
 

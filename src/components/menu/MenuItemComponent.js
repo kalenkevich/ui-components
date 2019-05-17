@@ -59,7 +59,7 @@ const MenuItemComponent = (props) => {
             onClick={() => setExpandedState(!isExpanded)}
           />
         </a>
-        { isExpanded ? <div className={classes.children}>{children}</div> : null }
+        { isExpanded ? <ul className={classes.children}>{children}</ul> : null }
       </li>
     );
   }

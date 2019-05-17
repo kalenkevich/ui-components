@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Section, SectionRow } from './Section';
 import DatePicker, { DateRangePicker } from '../components/datepicker';
+import Form, { FormSection } from '../components/form';
 
 const DatePickerSection = () => {
   const options = {
@@ -26,13 +27,29 @@ const DatePickerSection = () => {
   return (
     <Section title={'Date pickers'}>
       <SectionRow title={'Date picker'}>
-        <DatePicker {...forDatePicker1}/>
-        <DatePicker {...forDatePicker2} options={options}/>
-        <DatePicker {...forDatePicker3} date={null} placeholder={'With placeholder'}/>
-        <DatePicker {...forDatePicker4} success/>
-        <DatePicker {...forDatePicker5} error/>
-        <DatePicker {...forDatePicker6} disabled/>
-        <DatePicker {...forDatePicker7} tooltip='Tooltip text here'/>
+        <Form transparent>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker1}/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker2} options={options}/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker3} date={null} placeholder={'With placeholder'}/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker4} success/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker5} error/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker6} disabled/>
+          </FormSection>
+          <FormSection size='3'>
+            <DatePicker {...forDatePicker7} tooltip='Tooltip text here'/>
+          </FormSection>
+        </Form>
       </SectionRow>
       <SectionRow title={'Date range picker'}>
         <DateRangePicker {...forDateRangePicker1}/>
