@@ -34,6 +34,7 @@ export default theme => ({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    justifyContent: 'center',
   },
   root: {
     height: theme.controlHeight,
@@ -42,8 +43,7 @@ export default theme => ({
     backgroundColor: 'transparent',
     outline: 'none',
     width: '100%',
-    padding: '6px 8px',
-    paddingTop: '4px',
+    padding: '4px 6px 6px 6px',
     fontSize: theme.controlFontSize,
     fontWeight: theme.controlFontWeight,
     boxSizing: 'border-box',

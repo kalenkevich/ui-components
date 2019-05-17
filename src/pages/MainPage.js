@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { getClassName } from '../services/Utils';
 import Input from '../components/input';
+import CurrencyInput from '../components/currency-input';
+import NumberInput from '../components/number-input';
 import Form, { FormSection } from '../components/form';
 import Card from '../components/card';
 import Select from '../components/select';
@@ -47,6 +49,7 @@ const contractor = {
     currency: 'USD',
   },
 };
+
 const contractors = [
   contractor,
   contractor,
@@ -64,55 +67,180 @@ const contractors = [
   contractor,
 ];
 
+export const currencies = [{
+  label: 'BYN',
+  value: 'BYN',
+}, {
+  label: 'USD',
+  value: 'USD',
+}, {
+  label: 'EUR',
+  value: 'EUR',
+}];
+
+export const industries = [{
+  label: 'Фото',
+  value: 'photo',
+}, {
+  label: 'Ведущий',
+  value: 'manager',
+}, {
+  label: 'Ресторан',
+  value: 'restaurant',
+}];
+
+export const sortOptions = [{
+  label: 'Возрастанию рейтинга',
+  value: 'rate_up',
+}, {
+  label: 'Убыванию рейтинга',
+  value: 'rate_down',
+}, {
+  label: 'Возрастанию цены в час',
+  value: 'price_up',
+}, {
+  label: 'Убыванию цены в час',
+  value: 'price_down',
+}];
+
+export const specializations = [{
+  label: 'Все',
+  value: 'all',
+}];
+
 const MainPage = (props) => {
   const {
     classes,
     className,
   } = props;
-
   const rootClasses = getClassName([
     classes.root,
     className,
   ]);
+  const [filter, updateFilter] = useState({
+    industry: 'photo',
+    specialization: 'all',
+    dateStart: new Date(),
+    dateEnd: new Date(),
+    location: 'Слоним',
+    rateFrom: 3,
+    pricePerHour: {
+      value: 50,
+      currency: 'BYN',
+    },
+    sortBy: 'rate_up',
+    searchValue: '',
+  });
+  const setFilter = (newFilterValue) => {
+    updateFilter(newFilterValue);
+  };
 
   return (
     <div className={rootClasses}>
       <Form className={classes.filterForm}>
         <FormSection>
           <Select
-            label={'Сортировка'}
-          />
-        </FormSection>
-        <FormSection>
-          <DateRangePicker
-            label={'Сроки'}
-            startDate={new Date()}
-            endDate={new Date()}
-          />
-        </FormSection>
-        <FormSection>
-          <Input label={'Место'}/>
-        </FormSection>
-        <FormSection size={'6'}>
-          <Input label={'Рейтинг от'}/>
-        </FormSection>
-        <FormSection size={'6'}>
-          <Input label={'Цена в час'}/>
-        </FormSection>
-        <FormSection>
-          <Select
             label={'Индустрия'}
+            options={industries}
+            value={filter.industry}
+            onSelect={(option) => {
+              setFilter({
+                ...filter,
+                industry: option.value,
+              });
+            }}
           />
         </FormSection>
         <FormSection>
           <Select
             label={'Специализация'}
+            value={filter.specialization}
+            options={specializations}
+            onSelect={(option) => {
+              setFilter({
+                ...filter,
+                specialization: option.value,
+              });
+            }}
+          />
+        </FormSection>
+        <FormSection>
+          <DateRangePicker
+            label={'Сроки'}
+            startDate={filter.dateStart}
+            endDate={filter.dateEnd}
+            onChange={({ startDate, endDate }) => {
+              setFilter({
+                ...filter,
+                dateStart: startDate,
+                dateEnd: endDate,
+              });
+            }}
+          />
+        </FormSection>
+        <FormSection>
+          <Input
+            label={'Место'}
+            value={filter.location}
+            onChange={(e) => {
+              setFilter({
+                ...filter,
+                location: e.target.value,
+              });
+            }}
+          />
+        </FormSection>
+        <FormSection size={'6'}>
+          <NumberInput
+            label={'Рейтинг от'}
+            value={filter.rateFrom}
+            onChange={(val) => {
+              setFilter({
+                ...filter,
+                rateFrom: val,
+              });
+            }}
+          />
+        </FormSection>
+        <FormSection size={'6'}>
+          <CurrencyInput
+            label={'Цена в час'}
+            price={filter.pricePerHour}
+            onChange={(val) => {
+              setFilter({
+                ...filter,
+                pricePerHour: val,
+              });
+            }}
+            currencies={currencies}
+          />
+        </FormSection>
+        <FormSection>
+          <Select
+            label={'Сортировка'}
+            value={filter.sortBy}
+            onSelect={(option) => {
+              setFilter({
+                ...filter,
+                sortBy: option.value,
+              });
+            }}
+            options={sortOptions}
           />
         </FormSection>
       </Form>
       <div className={classes.searchForm}>
         <Card className={classes.searchInputCard}>
-          <Input className={classes.searchInput}/>
+          <Input
+            className={classes.searchInput}
+            value={filter.searchValue}
+            onChange={(e) => {
+              setFilter({
+                ...filter,
+                searchValue: e.target.value,
+              });
+            }}
+          />
         </Card>
         <div className={classes.searchResult}>
           {(contractors || []).map((c, index) => (

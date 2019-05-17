@@ -22,7 +22,6 @@ const Select = (props) => {
     placeholder = '',
     tooltip = '',
   } = props;
-
   const [isFocus, setFocusState] = useState(false);
   const [isOpen, setOpenState] = useState(false);
   const [isHovered, setHoveredState] = useState(false);
@@ -36,6 +35,10 @@ const Select = (props) => {
   const rootClasses = getClassName([
     classes.root,
     className,
+    ...behaviourClasses,
+  ]);
+  const inputClasses = getClassName([
+    classes.input,
     ...behaviourClasses,
   ]);
   const iconClasses = getClassName([
@@ -55,7 +58,7 @@ const Select = (props) => {
         : null}
       <div className={rootClasses}>
         <input
-          className={classes.input}
+          className={inputClasses}
           onChange={() => {}}
           value={valueOption ? valueOption.label : ''}
           placeholder={placeholder}

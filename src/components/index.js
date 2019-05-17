@@ -32,6 +32,8 @@ import Carousel, { Legend, Slide } from './carousel';
 import Chat from './chat';
 import Form, { FormSection, FormSectionAction } from './form';
 import Card from './card';
+import CurrencyInput from './currency-input';
+import NumberInput from './number-input';
 
 export {
   AutocompleteComponent,
@@ -73,4 +75,6 @@ export {
   FormSection,
   FormSectionAction,
   Card,
+  NumberInput,
+  CurrencyInput,
 };

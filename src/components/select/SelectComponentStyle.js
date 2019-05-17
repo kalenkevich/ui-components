@@ -12,6 +12,8 @@ export default theme => ({
     display: 'flex',
     border: theme.border,
     borderRadius: theme.borderRadius,
+    height: theme.controlHeight,
+    boxSizing: 'border-box',
     ...getBehaviourClasses(theme),
   },
   input: {
@@ -22,13 +24,25 @@ export default theme => ({
     fontWeight: theme.controlFontWeight,
     height: theme.controlHeight,
     boxSizing: 'border-box',
-    paddingLeft: '8px',
+    padding: '4px 8px 6px 8px',
     width: '270px',
     cursor: 'pointer',
     outline: 'none',
     border: 'none',
     '&:placeholder': {
       color: theme.brandDarkGrayColor,
+    },
+    '&.success': {
+      color: theme.brandSuccessLightColor,
+      '&:placeholder': {
+        color: theme.brandSuccessLightColor,
+      },
+    },
+    '&.error': {
+      color: theme.brandErrorLightColor,
+      '&:placeholder': {
+        color: theme.brandErrorLightColor,
+      },
     },
   },
   optionsWrapper: {
@@ -39,7 +53,6 @@ export default theme => ({
     top: '3px',
     left: '0',
     width: 'calc(100% - 2px)',
-    minWidth: '90px',
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '240px',

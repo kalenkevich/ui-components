@@ -16,6 +16,7 @@ import DropdownSection from '../preview-sections/DropdownSection';
 import LoadingSection from '../preview-sections/LoadingSection';
 import CarouselSection from '../preview-sections/CarouselSection';
 import NumberInputSection from '../preview-sections/NumberInputSection';
+import CurrencyInputSection from '../preview-sections/CurrencyInputSection';
 import OrderPage from '../pages/OrderPage';
 import MainPage from '../pages/MainPage';
 
@@ -40,6 +41,7 @@ const BasicComponents = () => (
 const CustomComponents = () => (
   <>
     <NumberInputSection/>
+    <CurrencyInputSection/>
   </>
 );
 
