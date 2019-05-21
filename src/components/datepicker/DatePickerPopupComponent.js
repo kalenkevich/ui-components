@@ -13,6 +13,8 @@ import {
   getYears,
 } from './DateUtils';
 
+let lastSelectedDateValue = '';
+
 const DateSelectPopup = (props) => {
   const {
     date = null,
@@ -66,8 +68,14 @@ const DateSelectPopup = (props) => {
   };
 
   useEffect(() => {
-    onChange(selectedDate);
-  }, [selectedDate.toTimeString()]);
+    const newSelectedDateValue = selectedDate.toISOString();
+
+    if (lastSelectedDateValue !== newSelectedDateValue) {
+      lastSelectedDateValue = newSelectedDateValue;
+
+      onChange(selectedDate);
+    }
+  }, [selectedDate]);
 
   return (
     <div className={className}>

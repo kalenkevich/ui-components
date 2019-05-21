@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getClassName } from '../../services/Utils';
 import MenuItemStyle from './MenuItemStyle';
+import UpDownChevron from '../UpDownChevron';
 
 const MenuItemComponent = (props) => {
   const {
@@ -27,10 +27,6 @@ const MenuItemComponent = (props) => {
   const labelClasses = getClassName([
     classes.label,
   ]);
-  const iconClasses = getClassName([
-    classes.icon,
-    isExpanded ? 'down' : 'up',
-  ]);
 
   if (children) {
     return (
@@ -53,9 +49,8 @@ const MenuItemComponent = (props) => {
           onMouseLeave={() => setHoveredState(false)}
         >
           {label}
-          <FontAwesomeIcon
-            className={iconClasses}
-            icon={'chevron-up'}
+          <UpDownChevron
+            up={!isExpanded}
             onClick={() => setExpandedState(!isExpanded)}
           />
         </a>

@@ -28,17 +28,6 @@ export default theme => ({
     transition: theme.backgroundColorTransition,
     outline: 'none',
   },
-  icon: {
-    cursor: 'pointer',
-    transition: 'transform linear 100ms',
-    color: theme.brandDarkGrayColor,
-    '&.up': {
-      transform: 'rotateX(180deg)',
-    },
-    '&.disabled': {
-      cursor: 'default',
-    },
-  },
   children: {
     margin: '0',
     paddingLeft: '20px',

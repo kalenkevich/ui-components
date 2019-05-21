@@ -34,6 +34,8 @@ import Form, { FormSection, FormSectionAction } from './form';
 import Card from './card';
 import CurrencyInput from './currency-input';
 import NumberInput from './number-input';
+import ExpandableSection from './expandable-section';
+import UpDownChevron from './UpDownChevron';
 
 export {
   AutocompleteComponent,
@@ -77,4 +79,6 @@ export {
   Card,
   NumberInput,
   CurrencyInput,
+  ExpandableSection,
+  UpDownChevron,
 };

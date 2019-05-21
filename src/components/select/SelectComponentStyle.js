@@ -108,16 +108,5 @@ export default theme => ({
       backgroundColor: theme.brandLightGrayColor,
     },
   },
-  icon: {
-    cursor: 'pointer',
-    transition: 'transform linear 100ms',
-    color: theme.brandDarkGrayColor,
-    '&.up': {
-      transform: 'rotateX(180deg)',
-    },
-    '&.disabled': {
-      cursor: 'default',
-    },
-  },
   label: controlLabel(theme),
 });

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Label from '../label';
 import Tooltip from '../tooltip';
 import SelectStyles from './SelectComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backdrop from '../Backdrop';
+import UpDownChevron from '../UpDownChevron';
 
 const Select = (props) => {
   const {
@@ -40,11 +40,6 @@ const Select = (props) => {
   const inputClasses = getClassName([
     classes.input,
     ...behaviourClasses,
-  ]);
-  const iconClasses = getClassName([
-    classes.icon,
-    disabled ? 'disabled' : '',
-    isOpen ? 'down' : 'up',
   ]);
 
   return (
@@ -103,9 +98,9 @@ const Select = (props) => {
             setOpenState(true);
           }
         }}>
-          <FontAwesomeIcon
-            className={iconClasses}
-            icon={'chevron-up'}
+          <UpDownChevron
+            up={!isOpen}
+            disabled={disabled}
           />
         </div>
       </div>

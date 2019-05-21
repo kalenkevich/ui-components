@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tooltip from '../tooltip';
 import DropdownStyles from './DropdownComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backrdop from '../Backdrop';
+import UpDownChevron from '../UpDownChevron';
 
 const Dropdown = (props) => {
   const {
@@ -37,9 +37,6 @@ const Dropdown = (props) => {
   );
   const iconWrapperClasses = getClassName(
     [classes.iconWrapper, separate ? 'separate' : 'non-separate'],
-  );
-  const iconClasses = getClassName(
-    [classes.icon, disabled ? 'disabled' : '', isOpen ? 'down' : 'up'],
   );
   const rootWrapperClasses = getClassName([
     classes.rootWrapper,
@@ -97,10 +94,7 @@ const Dropdown = (props) => {
           {label}
         </button>
         <div className={iconWrapperClasses} onClick={openOptions}>
-          <FontAwesomeIcon
-            className={iconClasses}
-            icon={'chevron-up'}
-          />
+          <UpDownChevron up={!isOpen}/>
         </div>
       </div>
       <div className={classes.optionsWrapper}>

@@ -38,8 +38,7 @@ const DatePicker = (props) => {
   const formattedEndDate = getFormattedDate(internalDate.endDate);
   const onDateChangeClick = (newDate, key) => {
     setDate({
-      startDate,
-      endDate,
+      ...internalDate,
       [key]: newDate,
     });
   };
@@ -52,16 +51,13 @@ const DatePicker = (props) => {
   };
   const onBackdropClick = (e) => {
     e.stopPropagation();
-
     setOpenState(false);
   };
 
-  const rangeDays = getDaysRange(internalDate.startDate, internalDate.endDate);
   const resultOptions = {
     ...options,
     dates: [
       ...(options || {}).dates || [],
-      ...rangeDays,
     ],
   };
 
