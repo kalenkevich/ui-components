@@ -49,7 +49,14 @@ const ContractorListItem = (props) => {
 
   return (
     <Card className={rootClasses}>
-      <ExpandableSection childrenClassName={classes.root}>
+      <ExpandableSection childrenClassName={classes.root}
+        expandedContent={() => (
+          <LabeledText
+            label={'Описание'}
+            content={contractor.description}
+          />
+        )}
+      >
         <div className={classes.userInfo}>
           <Avatar url={contractor.avatarUrl} rate={contractor.rate}/>
           <LabeledText

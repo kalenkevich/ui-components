@@ -1,70 +1,71 @@
 import React from 'react';
 import { Section, SectionRow } from './Section';
-import Dropdown, { DropdownItem, DropdownItemSeparator } from '../components/dropdown';
+import Dropdown from '../components/dropdown';
+import { OptionItem, OptionItemSeparator } from '../components/options';
 
 const DropdownSection = () => (
   <Section title={'Dropdowns'}>
     <SectionRow>
       <Dropdown type={'primary'} label={'Primary Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Secondary Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'success'} label={'Success Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'info'} label={'Info Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'warning'} label={'Warning Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'danger'} label={'Danger Dropdown'}>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Disabled Dropdown'} disabled>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Dropdown With Disabled options'}>
-        <DropdownItem disabled label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem disabled label='Third action'/>
+        <OptionItem disabled label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem disabled label='Third action'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Separate Dropdown'} separate>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Dropdown with option description'} >
-        <DropdownItem label='First action' description='First action description'/>
-        <DropdownItem label='Second action' description='Second action description'/>
-        <DropdownItem label='Third action' description='Third action description'/>
+        <OptionItem label='First action' description='First action description'/>
+        <OptionItem label='Second action' description='Second action description'/>
+        <OptionItem label='Third action' description='Third action description'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Dropdown with separator'} >
-        <DropdownItem label='First action' description='First action description'/>
-        <DropdownItem label='Second action' description='Second action description'/>
-        <DropdownItemSeparator/>
-        <DropdownItem label='Third action' description='Third action description'/>
+        <OptionItem label='First action' description='First action description'/>
+        <OptionItem label='Second action' description='Second action description'/>
+        <OptionItemSeparator/>
+        <OptionItem label='Third action' description='Third action description'/>
       </Dropdown>
       <Dropdown type={'secondary'} label={'Dropdown with tooltip'} tooltip='Tooltip text here'>
-        <DropdownItem label='First action'/>
-        <DropdownItem label='Second action'/>
-        <DropdownItem label='Third action'/>
+        <OptionItem label='First action'/>
+        <OptionItem label='Second action'/>
+        <OptionItem label='Third action'/>
       </Dropdown>
     </SectionRow>
   </Section>

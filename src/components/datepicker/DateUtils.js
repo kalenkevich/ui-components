@@ -12,20 +12,6 @@ export const getSafeDate = (date) => {
   return new Date();
 };
 
-export const getFormattedDate = (date) => {
-  if (!date) {
-    return '';
-  }
-
-  const formatter = new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  });
-
-  return formatter.format(date);
-};
-
 export const getFormattedDay = (year, month, day) => {
   const date = new Date(year, month, day);
 

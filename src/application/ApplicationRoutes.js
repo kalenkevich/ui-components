@@ -19,6 +19,8 @@ import NumberInputSection from '../preview-sections/NumberInputSection';
 import CurrencyInputSection from '../preview-sections/CurrencyInputSection';
 import OrderPage from '../pages/OrderPage';
 import MainPage from '../pages/MainPage';
+import OrdersPage from '../pages/OrdersPage';
+import TendersPage from '../pages/TendersPage';
 
 const BasicComponents = () => (
   <>
@@ -59,6 +61,8 @@ const Routes = () => (
     <Route path='/widgets' component={Widgets}/>
     <Route path='/pages/main' component={MainPage}/>
     <Route path='/pages/order' component={OrderPage}/>
+    <Route path='/pages/orders' component={OrdersPage}/>
+    <Route path='/pages/tenders' component={TendersPage}/>
     <Redirect from={''} to={'/components/basic'}/>
   </Switch>
 );

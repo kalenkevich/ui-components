@@ -7,6 +7,7 @@ import SelectStyles from './SelectComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backdrop from '../Backdrop';
 import UpDownChevron from '../UpDownChevron';
+import Options, { OptionItem } from '../options';
 
 const Select = (props) => {
   const {
@@ -108,27 +109,18 @@ const Select = (props) => {
         { !disabled && isOpen && options.length
           ? <>
             <Backdrop onClick={() => setOpenState(false)}/>
-            <ul className={classes.options}>
+            <Options>
               {(options || []).map(option => (
-                <li key={option.value}>
-                  <a href='#' tabIndex={option.disabled ? '-1' : '0'}
-                    onClick={(e) => {
-                      e.preventDefault();
-
-                      if (option.disabled) {
-                        return;
-                      }
-
-                      onSelect(option);
-                      setOpenState(false);
-                    }}
-                    className={`${classes.option} ${option.disabled ? 'disabled' : ''}`}
-                  >
-                    {option.label}
-                  </a>
-                </li>
+                <OptionItem
+                  key={option.value}
+                  {...option}
+                  onClick={() => {
+                    onSelect(option);
+                    setOpenState(false);
+                  }}
+                />
               ))}
-            </ul>
+            </Options>
           </>
           : null }
       </div>

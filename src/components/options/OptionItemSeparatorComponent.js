@@ -9,10 +9,10 @@ export const DropdownItemSeparatorStyle = theme => ({
   },
 });
 
-const DropdownItemSeparator = ({ classes }) => <div className={classes.root}/>;
+const OptionItemSeparator = ({ classes }) => <div className={classes.root}/>;
 
-DropdownItemSeparator.propTypes = {
+OptionItemSeparator.propTypes = {
   classes: PropTypes.object,
 };
 
-export default withStyles(DropdownItemSeparatorStyle)(DropdownItemSeparator);
+export default withStyles(DropdownItemSeparatorStyle)(OptionItemSeparator);

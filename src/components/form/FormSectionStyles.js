@@ -58,7 +58,7 @@ export default theme => ({
     },
   },
   title: {
-    marginTop: '5px',
+    margin: '5px 0',
     fontSize: '18px',
   },
   children: {

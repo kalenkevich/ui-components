@@ -11,9 +11,10 @@ const ExpandableSection = (props) => {
     className,
     children,
     childrenClassName,
+    expandedContent,
   } = props;
-  const rootClasses = getClassName([
-    classes.root,
+  const rootWrapperClasses = getClassName([
+    classes.rootWrapper,
     className,
   ]);
   const childrenClasses = getClassName([
@@ -23,16 +24,23 @@ const ExpandableSection = (props) => {
   const [isOpen, setOpenState] = useState(false);
 
   return (
-    <div className={rootClasses}>
-      <div className={childrenClasses}>
-        {children}
+    <div className={rootWrapperClasses}>
+      <div className={classes.root}>
+        <div className={childrenClasses}>
+          {children}
+        </div>
+        <div className={classes.iconWrapper}>
+          <UpDownChevron
+            up={!isOpen}
+            onClick={() => setOpenState(!isOpen)}
+          />
+        </div>
       </div>
-      <div className={classes.iconWrapper}>
-        <UpDownChevron
-          up={!isOpen}
-          onClick={() => setOpenState(!isOpen)}
-        />
-      </div>
+      { isOpen ? (
+        <div className={classes.expandedContent}>
+          { typeof expandedContent === 'function' ? expandedContent() : expandedContent }
+        </div>
+      ) : null }
     </div>
   );
 };
@@ -42,6 +50,10 @@ ExpandableSection.propTypes = {
   className: PropTypes.string,
   childrenClassName: PropTypes.string,
   children: PropTypes.node,
+  expandedContent: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
 };
 
 export default withStyles(ExpandableSectionStyle)(ExpandableSection);

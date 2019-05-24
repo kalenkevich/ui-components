@@ -4,8 +4,8 @@ import withStyles from 'react-jss';
 import { getClassName } from '../services/Utils';
 import Input from '../components/input';
 import Card from '../components/card';
+import OrderListItem from './components/order/OrderListItem';
 import FilterForm from './components/FilterForm';
-import ContractorListItem from './components/contractor/ContractorListItem';
 
 export const MainPageStyle = () => ({
   root: {
@@ -23,44 +23,57 @@ export const MainPageStyle = () => ({
     marginTop: '10px',
     boxSizing: 'border-box',
   },
-  contractorListItem: {
+  orderListItem: {
     margin: '15px 0',
   },
 });
 
-const contractor = {
+const customer = {
   avatarUrl: 'https://avatar-cdn.atlassian.com/5ba3e03512b3ea2f78b71046?by=id&sg=iDdadg265ubxOx3V4Ljf5D2%2FTDg%3D&d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAK-5.svg&nocaching=0.6002600680772352',
   name: 'Alexey Kalenkevich',
   rate: 100,
-  industry: 'Software Developer Legend',
-  pricePerHour: {
-    value: 100000,
-    currency: 'USD',
-  },
+};
+
+const order = {
+  customer,
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor consectetur nibh quis feugiat. Sed malesuada suscipit lacus in condimentum. Phasellus a finibus nunc. Vivamus ut metus mi. Donec mattis volutpat facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas porttitor turpis ac velit fermentum, eget sollicitudin ex pretium. Ut pellentesque pharetra venenatis.\\n\' +\n' +
   '  \'\\n\' +\n' +
   '  \'Pellentesque ut odio eu lacus posuere luctus id nec dolor. Mauris lobortis interdum velit, in accumsan nibh scelerisque vel. Maecenas faucibus ornare mi, sit amet vestibulum metus posuere sed. Sed nulla arcu, rutrum vitae felis vel, pulvinar dictum risus. Donec lorem sem, mollis eu gravida vitae, suscipit id massa. Nullam imperdiet sem arcu. Nunc sit amet maximus elit.\' +\n' +
   '  \'Pellentesque ut odio eu lacus posuere luctus id nec dolor. Mauris lobortis interdum velit, in accumsan nibh scelerisque vel. Maecenas faucibus ornare mi, sit amet vestibulum metus posuere sed. Sed nulla arcu, rutrum vitae felis vel, pulvinar dictum risus. Donec lorem sem, mollis eu gravida vitae, suscipit id massa. Nullam imperdiet sem arcu. Nunc sit amet maximus elit.',
+  budget: {
+    value: 250,
+    currency: 'USD',
+  },
+  dateStart: new Date(),
+  dateEnd: new Date(),
+  location: 'Слоним',
 };
 
-const contractors = [
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
-  contractor,
+const orders = [
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
+  order,
 ];
 
-const MainPage = (props) => {
+const OrdersPage = (props) => {
   const {
     classes,
     className,
@@ -104,11 +117,11 @@ const MainPage = (props) => {
           />
         </Card>
         <div className={classes.searchResult}>
-          {(contractors || []).map((c, index) => (
-            <ContractorListItem
+          {(orders || []).map((or, index) => (
+            <OrderListItem
               key={index}
-              className={classes.contractorListItem}
-              contractor={c}
+              className={classes.orderListItem}
+              order={or}
             />
           ))}
         </div>
@@ -117,9 +130,9 @@ const MainPage = (props) => {
   );
 };
 
-MainPage.propTypes = {
+OrdersPage.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
 };
 
-export default withStyles(MainPageStyle)(MainPage);
+export default withStyles(MainPageStyle)(OrdersPage);

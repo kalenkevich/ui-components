@@ -1,6 +1,6 @@
 import AutocompleteComponent from './autocomplete';
 import Button from './button';
-import Header, { HeaderWithAuthorization } from './header';
+import Header from './header';
 import Icon from './icon';
 import Input from './input';
 import Label from './label';
@@ -22,7 +22,7 @@ import {
   Notification,
   NotificationBell,
 } from './notification';
-import Dropdown, { DropdownItem, DropdownItemSeparator } from './dropdown';
+import Dropdown from './dropdown';
 import Menu, { MenuItem } from './menu';
 import Backdrop from './Backdrop';
 import Tooltip from './tooltip';
@@ -36,12 +36,12 @@ import CurrencyInput from './currency-input';
 import NumberInput from './number-input';
 import ExpandableSection from './expandable-section';
 import UpDownChevron from './UpDownChevron';
+import Options, { OptionItem, OptionItemSeparator } from './options';
 
 export {
   AutocompleteComponent,
   Button,
   Header,
-  HeaderWithAuthorization,
   Icon,
   Input,
   Label,
@@ -61,8 +61,6 @@ export {
   Notification,
   NotificationBell,
   Dropdown,
-  DropdownItem,
-  DropdownItemSeparator,
   Menu,
   MenuItem,
   Backdrop,
@@ -81,4 +79,7 @@ export {
   CurrencyInput,
   ExpandableSection,
   UpDownChevron,
+  Options,
+  OptionItem,
+  OptionItemSeparator,
 };

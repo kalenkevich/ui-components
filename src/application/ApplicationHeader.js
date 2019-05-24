@@ -2,15 +2,15 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { withRouter } from 'react-router-dom';
-import Avatar from '../avatar';
-import Button from '../button';
-import Select from '../select';
-import Header from './HeaderComponent';
-import HeaderComponentStyle from './HeaderComponentStyle';
-import AuthorizationContext from '../../context/AuthorizationContext';
-import MobileContext from '../../context/MobileContext';
-import SettingsContext from '../../context/SettingsContext';
-import { MenuItem } from '../menu';
+import Avatar from '../components/avatar';
+import Button from '../components/button';
+import Select from '../components/select';
+import Header from '../components/header';
+import { MenuItem } from '../components/menu';
+import HeaderComponentStyle from '../components/header/HeaderComponentStyle';
+import AuthorizationContext from '../context/AuthorizationContext';
+import MobileContext from '../context/MobileContext';
+import SettingsContext from '../context/SettingsContext';
 
 const HeaderComponent = (props) => {
   const {
@@ -103,8 +103,10 @@ const HeaderComponent = (props) => {
           </MenuItem>
           <MenuItem label='Widgets' onClick={() => history.push('/widgets')}/>
           <MenuItem label='Pages'>
-            <MenuItem label='MainPage' onClick={() => history.push('/pages/main')}/>
-            <MenuItem label='OrderPage' onClick={() => history.push('/pages/order')}/>
+            <MenuItem label='Main Page' onClick={() => history.push('/pages/main')}/>
+            <MenuItem label='Order Page' onClick={() => history.push('/pages/order')}/>
+            <MenuItem label='Orders Page' onClick={() => history.push('/pages/orders')}/>
+            <MenuItem label='Tenders Page' onClick={() => history.push('/pages/tenders')}/>
           </MenuItem>
         </>
       )}

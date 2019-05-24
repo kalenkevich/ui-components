@@ -6,6 +6,7 @@ import DropdownStyles from './DropdownComponentStyle';
 import { getClassName } from '../../services/Utils';
 import Backrdop from '../Backdrop';
 import UpDownChevron from '../UpDownChevron';
+import Options from '../options';
 
 const Dropdown = (props) => {
   const {
@@ -101,10 +102,9 @@ const Dropdown = (props) => {
         {!disabled && isOpen
           ? <>
             <Backrdop onClick={closeOptions}/>
-            <ul className={classes.options}
-              onClick={closeOptions}>
+            <Options onClick={closeOptions}>
               {children}
-            </ul>
+            </Options>
           </>
           : null}
       </div>

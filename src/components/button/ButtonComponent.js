@@ -61,6 +61,8 @@ ButtonComponent.propTypes = {
     'info',
     'warning',
     'danger',
+    'link',
+    'transparent',
   ]),
   className: PropTypes.string,
   onClick: PropTypes.func,

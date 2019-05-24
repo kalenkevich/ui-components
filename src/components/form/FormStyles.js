@@ -14,7 +14,7 @@ export default theme => ({
     },
   },
   title: {
-    marginTop: '10px',
+    margin: '10px 0',
     fontSize: '24px',
   },
   children: {

@@ -45,6 +45,25 @@ export const getBehaviourClasses = theme => ({
   '&.danger:hover': {
     backgroundColor: theme.brandErrorDarkColor,
   },
+  '&.link': {
+    border: 'none',
+    backgroundColor: 'none',
+    color: theme.brandLinkLightColor,
+  },
+  '&.link:hover': {
+    border: 'none',
+    backgroundColor: 'none',
+    color: theme.brandLinkDarkColor,
+  },
+  '&.transparent': {
+    border: 'none',
+    backgroundColor: 'none',
+  },
+  '&.transparent:hover': {
+    border: 'none',
+    backgroundColor: 'none',
+    color: theme.brandPrimaryColor,
+  },
   '&:disabled, &:disabled:hover, &.disabled, &.disabled:hover': {
     cursor: 'default',
     color: 'initial',

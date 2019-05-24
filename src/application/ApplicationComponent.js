@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
-import { HeaderWithAuthorization } from '../components/header';
+import ApplicationHeader from './ApplicationHeader';
 import { SettingsProvider } from '../context/SettingsContext';
 import { Authorization } from '../context/AuthorizationContext';
 import { MobileApp } from '../context/MobileContext';
@@ -17,7 +17,7 @@ const ApplicationComponent = ({ classes }) => (
       <Authorization>
         <MobileApp>
           <NotificationApp>
-            <HeaderWithAuthorization/>
+            <ApplicationHeader/>
             <div className={classes.applicationWrapper}>
               <div className={classes.application}>
                 <ApplicationRoutes/>

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { getClassName } from '../../../services/Utils';
 import Card from '../../../components/card';
 import Avatar from '../../../components/avatar';
 import LabeledText from '../../../components/labeled-text';
 import Button from '../../../components/button';
 import Form, { FormSection, FormSectionAction } from '../../../components/form';
 import OrderStatusQueue from '../status-queue/StatusQueue';
+import { getClassName, getFormattedDateRange } from '../../../services/Utils';
 
 export const OrderPageStyle = theme => ({
   root: {
@@ -46,14 +46,6 @@ export const OrderPageStyle = theme => ({
   },
 });
 
-const formatter = new Intl.DateTimeFormat('en', {
-  month: 'numeric',
-  year: 'numeric',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-});
-
 const orderStatuses = [{
   value: 'orderStatusValue1',
   label: 'Предложение сделки',
@@ -79,9 +71,6 @@ const orderStatuses = [{
   label: 'Сделка завершена',
   type: 'success',
 }];
-
-export const getFormattedDateRange = (dateStart, dateEnd) =>
-  `${formatter.format(new Date(dateStart))} - ${formatter.format(new Date(dateEnd))}`;
 
 const OrderPage = (props) => {
   const {

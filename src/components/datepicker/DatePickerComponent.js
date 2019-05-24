@@ -5,10 +5,9 @@ import Input from '../input';
 import Button from '../button';
 import Backrdop from '../Backdrop';
 import Card from '../card';
-import { getFormattedDate } from './DateUtils';
 import DatePickerPopup from './DatePickerPopupComponent';
 import DatePickerStyles from './DatePickerStyle';
-import { getClassName } from '../../services/Utils';
+import { getClassName, getFormattedDate } from '../../services/Utils';
 
 const DatePicker = (props) => {
   const {

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { getClassName } from '../../services/Utils';
-import DropdownItemStyles from './DropdownItemStyle';
+import DropdownItemStyles from './OptionItemStyle';
 
-const DropdownItem = (props) => {
+const OptionItem = (props) => {
   const {
     classes,
     className,
@@ -40,7 +40,7 @@ const DropdownItem = (props) => {
   );
 };
 
-DropdownItem.propTypes = {
+OptionItem.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   label: PropTypes.string,
@@ -49,4 +49,4 @@ DropdownItem.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default withStyles(DropdownItemStyles)(DropdownItem);
+export default withStyles(DropdownItemStyles)(OptionItem);

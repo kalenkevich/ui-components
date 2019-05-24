@@ -12,10 +12,8 @@ export default theme => ({
   label: {
     color: theme.brandDarkGrayColor,
   },
-  context: {
+  content: {
     paddingTop: '4px',
-    '&.reverse': {
-      color: theme.brandDarkGrayColor,
-    },
+    fontWeight: theme.controlFontWeight,
   },
 });

@@ -28,6 +28,12 @@ const ButtonSection = () => (
       <Button type={'danger'}>
         Danger button
       </Button>
+      <Button type={'link'}>
+        Link button
+      </Button>
+      <Button type={'transparent'}>
+        Transparent button
+      </Button>
       <Button disabled>
         Disabled button
       </Button>
@@ -35,9 +41,6 @@ const ButtonSection = () => (
         With tooltip
       </Button>
       <Button spin>
-        Spin button
-      </Button>
-      <Button spin disabled>
         Spin button
       </Button>
     </SectionRow>
