@@ -1,7 +1,6 @@
 export default theme => ({
   root: {
-    display: 'flex',
-    alignItems: 'flex-end',
+    display: 'inline-box',
     position: 'relative',
   },
   image: {

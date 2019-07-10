@@ -24,5 +24,5 @@ export default theme => ({
       backgroundColor: theme.brandPrimaryColor,
     },
     margin: '0',
-  }
+  },
 });

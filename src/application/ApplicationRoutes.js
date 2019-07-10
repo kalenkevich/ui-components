@@ -21,6 +21,7 @@ import OrderPage from '../pages/OrderPage';
 import MainPage from '../pages/MainPage';
 import OrdersPage from '../pages/OrdersPage';
 import TendersPage from '../pages/TendersPage';
+import ContractorPortfolioPage from '../pages/ContractorPortfolioPage';
 
 const BasicComponents = () => (
   <>
@@ -63,6 +64,7 @@ const Routes = () => (
     <Route path='/pages/order' component={OrderPage}/>
     <Route path='/pages/orders' component={OrdersPage}/>
     <Route path='/pages/tenders' component={TendersPage}/>
+    <Route path='/pages/contractor-portfolio' component={ContractorPortfolioPage}/>
     <Redirect from={''} to={'/components/basic'}/>
   </Switch>
 );

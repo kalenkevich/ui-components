@@ -107,6 +107,7 @@ const HeaderComponent = (props) => {
             <MenuItem label='Order Page' onClick={() => history.push('/pages/order')}/>
             <MenuItem label='Orders Page' onClick={() => history.push('/pages/orders')}/>
             <MenuItem label='Tenders Page' onClick={() => history.push('/pages/tenders')}/>
+            <MenuItem label='Contractor Portfolio Page' onClick={() => history.push('/pages/contractor-portfolio')}/>
           </MenuItem>
         </>
       )}
