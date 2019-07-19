@@ -20,8 +20,17 @@ export default theme => ({
     '&::-webkit-scrollbar ': {
       width: '6px',
     },
+    '&::-webkit-scrollbar-thumb ': {
+      borderRadius: theme.borderRadius,
+    },
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: theme.brandPrimaryColor,
+    },
+    '&.success::-webkit-scrollbar-thumb': {
+      backgroundColor: theme.brandSuccessLightColor,
+    },
+    '&.danger::-webkit-scrollbar-thumb': {
+      backgroundColor: theme.brandErrorLightColor,
     },
     margin: '0',
   },

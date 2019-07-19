@@ -8,6 +8,8 @@ export default (theme) => {
     root: {
       ...inputStyles.root,
       minHeight: '100px',
+      borderBottomRightRadius: '0',
+      padding: '10px',
     },
   });
 };

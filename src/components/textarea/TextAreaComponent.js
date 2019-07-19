@@ -11,6 +11,7 @@ const TextAreaComponent = (props) => {
     classes,
     value,
     onChange,
+    type = 'text',
     className = '',
     placeholder = '',
     onBlur = () => {},
@@ -43,6 +44,7 @@ const TextAreaComponent = (props) => {
         />
         : null}
       <textarea
+        type={type}
         disabled={disabled}
         placeholder={placeholder}
         className={classNames}

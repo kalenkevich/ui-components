@@ -12,6 +12,7 @@ const OptionItem = (props) => {
     onClick = () => {},
     label,
     description,
+    type = 'secondary',
   } = props;
 
   const rootClasses = getClassName([
@@ -21,6 +22,7 @@ const OptionItem = (props) => {
   const labelClasses = getClassName([
     classes.label,
     disabled ? 'disabled' : '',
+    type,
   ]);
 
   return (
@@ -47,6 +49,7 @@ OptionItem.propTypes = {
   description: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default withStyles(DropdownItemStyles)(OptionItem);

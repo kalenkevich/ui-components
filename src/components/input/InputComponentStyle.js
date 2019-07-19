@@ -43,7 +43,7 @@ export default theme => ({
     backgroundColor: 'transparent',
     outline: 'none',
     width: '100%',
-    padding: '4px 6px 6px 6px',
+    padding: '6px 10px',
     fontSize: theme.controlFontSize,
     fontWeight: theme.controlFontWeight,
     boxSizing: 'border-box',

@@ -46,7 +46,11 @@ const ButtonComponent = (props) => {
         }}
       >
         {children}
-        {spin ? <Spinner className={classes.spinner} type={type} size='sm'/> : null }
+        {spin && <Spinner
+          className={classes.spinner}
+          type={type}
+          size='sm'/>
+        }
       </button>
     </>
   );

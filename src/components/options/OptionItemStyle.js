@@ -1,3 +1,5 @@
+import { getBehaviourClasses } from '../button/ButtonStyle';
+
 export default theme => ({
   root: {
     listStyle: 'none',
@@ -14,6 +16,7 @@ export default theme => ({
     color: theme.fontColor,
     textDecoration: 'none',
     fontWeight: theme.fontWeight,
+    ...getBehaviourClasses(theme),
     '&:focus': {
       border: `1px solid ${theme.brandPrimaryColor}`,
       borderRadius: theme.borderRadius,
@@ -28,6 +31,47 @@ export default theme => ({
       '&:hover': {
         backgroundColor: theme.brandLightGrayColor,
       },
+    },
+    '&.primary': {
+      backgroundColor: 'transparent',
+    },
+    '&.primary:hover': {
+      color: theme.buttonTextColor,
+      backgroundColor: theme.brandPrimaryColor,
+    },
+    '&.secondary': {
+      backgroundColor: 'transparent',
+    },
+    '&.secondary:hover': {
+      color: theme.buttonTextColor,
+    },
+    '&.success': {
+      backgroundColor: '#FFFFFF',
+    },
+    '&.success:hover': {
+      color: theme.buttonTextColor,
+      backgroundColor: theme.brandSuccessLightColor,
+    },
+    '&.warning': {
+      backgroundColor: '#FFFFFF',
+    },
+    '&.warning:hover': {
+      color: theme.buttonTextColor,
+      backgroundColor: theme.brandWarningLightColor,
+    },
+    '&.info': {
+      backgroundColor: '#FFFFFF',
+    },
+    '&.info:hover': {
+      color: theme.buttonTextColor,
+      backgroundColor: theme.brandInfoLightColor,
+    },
+    '&.danger': {
+      backgroundColor: '#FFFFFF',
+    },
+    '&.danger:hover': {
+      color: theme.buttonTextColor,
+      backgroundColor: theme.brandErrorLightColor,
     },
   },
   description: {

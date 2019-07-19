@@ -47,7 +47,7 @@ export default theme => ({
       height: '20px',
       backgroundColor: 'white',
       border: theme.border,
-      borderRadius: theme.borderRadius,
+      borderRadius: theme.checkboxBorderRadius,
     },
     '&:after': {
       content: '""',
@@ -59,6 +59,7 @@ export default theme => ({
       height: '16px',
       transition: theme.backgroundColorTransition,
       backgroundColor: 'white',
+      borderRadius: theme.checkboxBorderInnerRadius,
     },
     ...getBehaviourClasses(theme),
   },

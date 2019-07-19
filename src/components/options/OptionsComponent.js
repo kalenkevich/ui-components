@@ -10,16 +10,21 @@ const Options = (props) => {
     classes,
     children,
     onClick = () => {},
+    type = '',
   } = props;
 
   const rootClasses = getClassName([
     classes.optionsWrapper,
     className,
   ]);
+  const optionsClasses = getClassName([
+    classes.options,
+    type,
+  ]);
 
   return (
     <div className={rootClasses}>
-      <ul className={classes.options} onClick={onClick}>
+      <ul className={optionsClasses} onClick={onClick}>
         {children}
       </ul>
     </div>
@@ -32,6 +37,7 @@ Options.propTypes = {
   options: PropTypes.array,
   children: PropTypes.node,
   onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default withStyles(OptionsStyle)(Options);

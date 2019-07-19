@@ -29,6 +29,7 @@ export default theme => ({
     '&.danger': {
       backgroundColor: theme.brandErrorDarkColor,
     },
+    borderRadius: theme.borderRadius,
   },
   '@global': {
     '@keyframes progress-bar-stripes': {

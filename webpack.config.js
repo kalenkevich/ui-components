@@ -48,6 +48,12 @@ module.exports = {
           limit: 100000,
         },
       }],
+    }, {
+      test: /\.css$/i,
+      use: ['style-loader', 'css-loader'],
+    }, {
+      test: /\.(woff|woff2|eot|ttf)$/,
+      loader: 'file-loader',
     }],
   },
   plugins: [

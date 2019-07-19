@@ -8,7 +8,7 @@ export const UpDownChevronStyle = theme => ({
   root: {
     cursor: 'pointer',
     transition: 'transform linear 100ms',
-    color: theme.brandDarkGrayColor,
+    color: theme.defaultIconColor,
     '&.up': {
       transform: 'rotateX(180deg)',
     },

@@ -42,6 +42,7 @@ const Select = (props) => {
     classes.input,
     ...behaviourClasses,
   ]);
+  const optionType = error ? 'danger' : (success ? 'success' : 'secondary');
 
   return (
     <div className={classes.rootWrapper}>
@@ -109,9 +110,10 @@ const Select = (props) => {
         { !disabled && isOpen && options.length
           ? <>
             <Backdrop onClick={() => setOpenState(false)}/>
-            <Options>
+            <Options type={optionType}>
               {(options || []).map(option => (
                 <OptionItem
+                  type={optionType}
                   key={option.value}
                   {...option}
                   onClick={() => {

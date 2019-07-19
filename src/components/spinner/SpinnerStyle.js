@@ -7,7 +7,7 @@ export default theme => ({
       margin: '1px',
       borderRadius: '50%',
       border: `5px solid ${theme.brandPrimaryColor}`,
-      borderColor: `${theme.brandPrimaryColor} transparent ${theme.brandPrimaryColor} transparent`,
+      borderColor: `${theme.brandPrimaryColor} transparent`,
       animation: 'lds-dual-ring 1.2s linear infinite',
     },
     '&.sm': {
@@ -39,32 +39,32 @@ export default theme => ({
     },
     '&.primary': {
       '&:after': {
-        borderColor: `${theme.brandPrimaryColor} transparent ${theme.brandPrimaryColor} transparent`,
+        borderColor: `${theme.brandPrimaryColor} transparent`,
       },
     },
     '&.secondary': {
       '&:after': {
-        borderColor: `${theme.brandDarkGrayColor} transparent ${theme.brandDarkGrayColor} transparent`,
+        borderColor: `${theme.brandDarkGrayColor} transparent`,
       },
     },
     '&.success': {
       '&:after': {
-        borderColor: `${theme.brandSuccessDarkColor} transparent ${theme.brandSuccessDarkColor} transparent`,
+        borderColor: `${theme.brandSuccessDarkColor} transparent`,
       },
     },
     '&.info': {
       '&:after': {
-        borderColor: `${theme.brandInfoDarkColor} transparent ${theme.brandInfoDarkColor} transparent`,
+        borderColor: `${theme.brandInfoDarkColor} transparent`,
       },
     },
     '&.warning': {
       '&:after': {
-        borderColor: `${theme.brandWarningDarkColor} transparent ${theme.brandWarningDarkColor} transparent`,
+        borderColor: `${theme.brandWarningDarkColor} transparent`,
       },
     },
     '&.danger': {
       '&:after': {
-        borderColor: `${theme.brandErrorDarkColor} transparent ${theme.brandErrorDarkColor} transparent`,
+        borderColor: `${theme.brandErrorDarkColor} transparent`,
       },
     },
   },
