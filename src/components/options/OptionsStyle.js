@@ -20,10 +20,12 @@ export default theme => ({
     '&::-webkit-scrollbar ': {
       width: '6px',
     },
-    '&::-webkit-scrollbar-thumb ': {
+    '&::-webkit-scrollbar-track': {
       borderRadius: theme.borderRadius,
     },
     '&::-webkit-scrollbar-thumb': {
+      background: '#ddd',
+      borderRadius: theme.borderRadius,
       backgroundColor: theme.brandPrimaryColor,
     },
     '&.success::-webkit-scrollbar-thumb': {
