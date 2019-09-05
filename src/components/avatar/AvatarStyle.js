@@ -2,6 +2,7 @@ export default theme => ({
   root: {
     display: 'inline-box',
     position: 'relative',
+    zIndex: '-1',
   },
   image: {
     borderRadius: '50%',

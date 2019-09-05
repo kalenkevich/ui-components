@@ -2,15 +2,13 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { withRouter } from 'react-router-dom';
-import Avatar from '../components/avatar';
 import Button from '../components/button';
-import Select from '../components/select';
 import Header from '../components/header';
 import { MenuItem } from '../components/menu';
 import HeaderComponentStyle from '../components/header/HeaderComponentStyle';
 import AuthorizationContext from '../context/AuthorizationContext';
-import MobileContext from '../context/MobileContext';
 import SettingsContext from '../context/SettingsContext';
+import ProfileMenu from '../components/profile-menu';
 
 const HeaderComponent = (props) => {
   const {
@@ -18,7 +16,6 @@ const HeaderComponent = (props) => {
     history,
   } = props;
   const settings = useContext(SettingsContext);
-  const { isMobile } = useContext(MobileContext);
   const { user: authorizedUser } = useContext(AuthorizationContext);
   const goToSignUp = () => {
     const safeUrl = encodeURIComponent(window.location.href);
@@ -41,41 +38,17 @@ const HeaderComponent = (props) => {
 
   let ResultPanel = null;
   if (authorizedUser) {
-    ResultPanel = (
-      <div className={classes.actionPanel}>
-        <Select
-          value={''}
-          onSelect={({ value }) => {
-            if (value === 'signOut') {
-              return goToSignOut();
-            }
+    const actions = [{
+      label: 'My Profile',
+      value: 'profile',
+      onClick: goToProfilePage,
+    }, {
+      label: 'Sign Out',
+      value: 'signOut',
+      onClick: goToSignOut,
+    }];
 
-            if (value === 'profile') {
-              return goToProfilePage();
-            }
-
-            return null;
-          }}
-          options={[{
-            label: 'My Profile',
-            value: 'profile',
-          }, {
-            label: 'Sign Out',
-            value: 'signOut',
-          }]}
-          preview={() => (
-            <div className={classes.userPanel}>
-              <Avatar
-                className={classes.userAvatar}
-                url={authorizedUser.avatarUrl}
-                size='sm'
-              />
-              { !isMobile ? <div className={classes.userName}>{authorizedUser.name}</div> : null }
-            </div>
-          )}
-        />
-      </div>
-    );
+    ResultPanel = <ProfileMenu user={authorizedUser} actions={actions}/>;
   } else {
     ResultPanel = (
       <div className={classes.actionPanel}>

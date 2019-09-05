@@ -1,4 +1,4 @@
 export default {
-  AuthBackendUrl: 'http://localhost:9002',
+  AuthBackendUrl: 'https://auth-backend-development.herokuapp.com',
   AuthFrontendUrl: 'http://localhost:8082',
 };

@@ -11,7 +11,12 @@ import Datepicker, { DateRangePicker } from './datepicker';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import Avatar from './avatar';
-import { Tab, TabsBody, TabsContainer, TabsHeader } from './tabs';
+import {
+  Tab,
+  TabsBody,
+  TabsContainer,
+  TabsHeader,
+} from './tabs';
 import LabeledText from './labeled-text';
 import { Notification, NotificationBell } from './notification';
 import Dropdown from './dropdown';
@@ -30,6 +35,7 @@ import ExpandableSection from './expandable-section';
 import UpDownChevron from './UpDownChevron';
 import Options, { OptionItem, OptionItemSeparator } from './options';
 import Album, { ImageCard } from './album';
+import ProfileMenu from './profile-menu';
 
 export {
   AutocompleteComponent,
@@ -77,4 +83,5 @@ export {
   OptionItemSeparator,
   Album,
   ImageCard,
+  ProfileMenu,
 };
