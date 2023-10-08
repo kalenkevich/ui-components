@@ -12,7 +12,7 @@
     "build:lib": "babel src -d lib",
     "start": "node server.js",
     "heroku-postbuild": "npm install && npm run build",
-    "start:dev": "webpack-dev-server --open --config webpack.config.js",
+    "start:dev": "export NODE_OPTIONS=--openssl-legacy-provider && webpack-dev-server --open --config webpack.config.js",
     "lint": "eslint --config .eslintrc.js src",
     "test": "jest"
   },
